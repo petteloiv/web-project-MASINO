@@ -1,11 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import account from './modules/account'
-import casino from './modules/casino'
-import community from './modules/community'
-import movie from './modules/movie'
-
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -16,11 +11,5 @@ export default new Vuex.Store({
   mutations: { // state 변경
   },
   actions: { // mutations 소환
-  },
-  modules: {
-    account,
-    casino,
-    community,
-    movie,
   }
 })
