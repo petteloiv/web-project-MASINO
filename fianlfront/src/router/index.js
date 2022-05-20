@@ -15,6 +15,8 @@ import MainView from '@/views/MainView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
 import SignupView from '@/views/SignupView.vue'
 
+import NotFound404 from '@/views/NotFound404.vue'
+
 
 
 Vue.use(VueRouter)
@@ -69,7 +71,7 @@ const routes = [
     component: MainView 
   },
   {
-    path: '/:moviePk',
+    path: '/movie/:moviePk',
     name: 'moviedetail',
     component: MovieDetailView 
   },
@@ -112,6 +114,15 @@ const routes = [
     path: '/casino/backgacha',
     name: 'backGacha',
     component: CasinoBackGachaView
+  },
+  {
+    path: '/404',
+    name: 'NotFound404',
+    component: NotFound404
+  },
+  {
+    path: '*',
+    redirect: '/404'
   },
 
 ]
