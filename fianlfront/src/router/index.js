@@ -133,4 +133,20 @@ const router = new VueRouter({
   routes
 })
 
+/*
+router.beforeEach((to, from, next) => {
+  나중에 작성할 부분 
+
+  Navigation Guard 설정 
+
+  - 로그인이 필요한 페이지인데 로그인이 되어있지않다면 
+    로그인 페이지로 이동 
+  - 우리 사이트는 모든 기능이 로그인이 필요해서
+    이 기능을 쓸 지는 잘 모르겠다 ...
+  - 로그인이 되어있는데 /login, /signup 페이지로 
+    이동한다면 메인페이지로 이동 
+})
+*/
+
+
 export default router
