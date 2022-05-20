@@ -1,5 +1,7 @@
 # 2022 Movie Website Project
 
+SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 웹 서비스를 구현하며 작성하였습니다. 
+
 
 
 ### 1. 프로젝트 기간 및 목표
@@ -40,12 +42,17 @@
 
 
 
-### 4.  개발 환경
+### 4.  개발 툴
 
 ---
 
 - Git을 통한 소스코드 버전 관리 및 협업 
 - Jira를 통한 프로젝트 일정 및 자료 관리
+  - ![image-20220520095952368](ReadMe.assets/image-20220520095952368.png)
+
+- Figma를 통한 목업 작성
+  - ![image-20220520104813792](ReadMe.assets/image-20220520104813792.png)
+
 - Python Web Framework
   - Django 2.1.x
   - Python 3.6.x
@@ -73,19 +80,17 @@
 
 ---
 
-![컴포넌트 구조 작성 (2)](ReadMe.assets/컴포넌트 구조 작성 (2).jpg)
+![VK4-18 컴포넌트 구조 v.2](ReadMe.assets/VK4-18 컴포넌트 구조 v.2.jpg)
 
-### 7. 데이터베이스 모델링 (ERD) 
+### 7. 데이터베이스 모델링
 
 ---
 
-
-
-erd 그림 들어갈 부분 
+![VK4-33 ERD](ReadMe.assets/VK4-33 ERD.png)
 
 
 
-#### 1. Movies app의 Models.py
+#### 7-1. Accounts 모델 클래스 user
 
 - (1:N)
 - (M:M)
