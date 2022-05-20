@@ -1,14 +1,118 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import StartView from '@/views/StartView.vue'
+import AccountView from '@/views/AccountView.vue'
+import ArticleCreateView from '@/views/ArticleCreateView.vue'
+import ArticleDetailView from '@/views/ArticleDetailView.vue'
+import ArticleUpdateView from '@/views/ArticleUpdateView.vue'
+import CasinoBackGachaView from '@/views/CasinoBackGachaView.vue'
+import CasinoCardGachaView from '@/views/CasinoCardGachaView.vue'
+import CasinoQuizView from '@/views/CasinoQuizView.vue'
+import CasinoView from '@/views/CasinoView.vue'
+import CommunityView from '@/views/CommunityView.vue'
+import MainView from '@/views/MainView.vue'
+import MovieDetailView from '@/views/MovieDetailView.vue'
+import SignupView from '@/views/SignupView.vue'
+
+
+
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
+ 
+  /*
+  routes 정리
+  
+  accounts
+  - signup : SignupView / 회원가입 나오는 화면 
+  - login : StartView / 첫 화면 ,, 로그인 or 회원가입 나오는 걔
+  - logout
+  - profile : AccountView / 
+
+  movies
+  - movie : MainView
+  - movieDetail : MovieDetailView
+
+  community
+  - community : CommunityView
+  - articleDetail : ArticleDetailView
+  *- articleCreate : ArticleCreateView
+  *- articleUpdate : ArticleUpdateView
+  
+  casino
+  - casino : CasinoView
+  - quiz : CasinoQuizView
+  - CardGacha : CasinoCardGachaView
+  - BackGacha : CasinoBackGachaView
+   
+  */
+
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
+  },
+  {
+    path: '/start',
+    name: 'start',
+    component: StartView
+  },
+  {
+    path: '/profile/:userPk',
+    name: 'profile',
+    component: AccountView
+  },
+  {
+    path: '/',
+    name: 'main',
+    component: MainView 
+  },
+  {
+    path: '/:moviePk',
+    name: 'moviedetail',
+    component: MovieDetailView 
+  },
+  {
+    path: '/community',
+    name: 'community',
+    component: CommunityView
+  },
+  {
+    path: '/article/:articlePk',
+    name: 'articleDetail',
+    component: ArticleDetailView
+  },
+  {
+    path: '/article/create',
+    name: 'articleCreate',
+    component: ArticleCreateView
+  },
+  {
+    path: '/article/:articlePk/update',
+    name: 'articleUpdate',
+    component: ArticleUpdateView
+  },
+  {
+    path: '/casino',
+    name: 'casino',
+    component: CasinoView
+  },
+  {
+    path: '/casino/quiz',
+    name: 'quiz',
+    component: CasinoQuizView
+  },
+  {
+    path: '/casino/cardgacha',
+    name: 'cardGacha',
+    component: CasinoCardGachaView
+  },
+  {
+    path: '/casino/backgacha',
+    name: 'backGacha',
+    component: CasinoBackGachaView
+  },
 
 ]
 
