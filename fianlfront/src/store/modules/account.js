@@ -144,9 +144,9 @@ export default ({
     },
 
     // 프로필 정보 받아오기 어쩌구 저쩌구 
-    fetchProfile({ commit, getters }, { username }) {
+    fetchProfile({ commit, getters }, { userPk }) {
       axios({
-        url: drf.accounts.profile(username),
+        url: drf.accounts.profile(userPk),
         method: 'get',
         headers: getters.authHeader,
       })

@@ -104,3 +104,15 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 ---
 
+
+
+### 개발 중 알게 된 ... 이것저것 정보
+
+---
+
+#### Front
+
+- module을 나눠서 사용하면 다른 파일들은 `new Vuex.Store` 붙일 필요 없이 그냥 `export default ({})` 로 작성하면 된다! 이미 index가 생성해뒀기 때문! 
+  - <img src="ReadMe.assets/unknown.png" alt="img" style="zoom:80%;" />
+  - Uncaught Error가 뜬다!
+

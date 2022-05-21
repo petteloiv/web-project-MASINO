@@ -8,7 +8,7 @@
     <form @submit.prevent="signup(credentials)" class="mx-1 mx-md-4">
 
       <div class="form-outline flex-fill mb-0">
-        <label class="form-label" for="username">이름</label>
+        <label class="form-label" for="username">아이디</label>
         <input v-model="credentials.username" type="text" id="username" class="form-control" required />  
       </div>
 <!-- 
