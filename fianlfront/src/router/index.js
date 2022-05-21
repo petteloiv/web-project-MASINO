@@ -14,6 +14,8 @@ import CommunityView from '@/views/CommunityView.vue'
 import MainView from '@/views/MainView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
 import SignupView from '@/views/SignupView.vue'
+import UserUpdateView from '@/views/UserUpdateView'
+import UserLogoutView from '@/views/UserLogoutView'
 
 import NotFound404 from '@/views/NotFound404.vue'
 
@@ -114,6 +116,21 @@ const routes = [
     path: '/casino/backgacha',
     name: 'backGacha',
     component: CasinoBackGachaView
+  },
+  {
+    path: '/:userPk/update',
+    name: 'UserUpdateView',
+    component: UserUpdateView
+  },
+  {
+    path: '/:userPk/update',
+    name: 'UserUpdateView',
+    component: UserUpdateView
+  },
+  {
+    path: '/logout',
+    name: 'UserLogoutView',
+    component: UserLogoutView
   },
   {
     path: '/404',

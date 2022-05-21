@@ -4,7 +4,6 @@
     <br>
     <h1>MASINO에 입장하시려면 로그인이 필요합니다.</h1>
     <br>
-    
     <form @submit.prevent="login(credentials)">
       <div>
         <label for="username">아이디</label>
