@@ -10,20 +10,21 @@ export default {
     signup: () => HOST + ACCOUNTS + 'signup/',
     login: () => HOST + ACCOUNTS + 'login/',
     logout: () => HOST + ACCOUNTS + 'logout/',
-    profile: () => HOST + ACCOUNTS + 'profile/' + `${userPk}`,
+    currentUserInfo: () => HOST + ACCOUNTS + 'user/',
+    // profile: () => HOST + ACCOUNTS + 'profile/' + `${userPk}`,
 
   },
   movies: {
     movie: () => HOST + MOVIES,
-    movieDetail: () => HOST + MOVIES + `${moviePk}`,
+    // movieDetail: () => HOST + MOVIES + `${moviePk}`,
   },
   community: {
     community: () => HOST + COMMUNITY,
-    articleDetail: () => HOST + COMMUNITY + `${articlePk}`,
-    articleLike: () => HOST + COMMUNITY + `${articlePk}` + 'like/',
-    commentCreate: () => HOST + COMMUNITY + `${articlePk}` + 'comment/',
-    commentLike: () => HOST + COMMUNITY + `${articlePk}` + 'comment/like/',
-    comment: () => HOST + COMMUNITY + `${articlePk}` + 'comment/' + `${commentPk}`,
+    // articleDetail: () => HOST + COMMUNITY + `${articlePk}`,
+    // articleLike: () => HOST + COMMUNITY + `${articlePk}` + 'like/',
+    // commentCreate: () => HOST + COMMUNITY + `${articlePk}` + 'comment/',
+    // commentLike: () => HOST + COMMUNITY + `${articlePk}` + 'comment/like/',
+    // comment: () => HOST + COMMUNITY + `${articlePk}` + 'comment/' + `${commentPk}`,
   },
   casino: {
     quiz: () => HOST + CASINO + 'quiz/',

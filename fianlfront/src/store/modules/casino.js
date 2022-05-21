@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default ({
   state: { //data
   },
   getters: { // state 여기서 불러다가 사용

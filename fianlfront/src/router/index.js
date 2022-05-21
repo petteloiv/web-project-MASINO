@@ -56,7 +56,7 @@ const routes = [
     component: SignupView
   },
   {
-    path: '/start',
+    path: '',
     name: 'start',
     component: StartView
   },
@@ -66,7 +66,7 @@ const routes = [
     component: AccountView
   },
   {
-    path: '/',
+    path: '/main',
     name: 'main',
     component: MainView 
   },
