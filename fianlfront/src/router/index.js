@@ -123,11 +123,6 @@ const routes = [
     component: UserUpdateView
   },
   {
-    path: '/:userPk/update',
-    name: 'UserUpdateView',
-    component: UserUpdateView
-  },
-  {
     path: '/logout',
     name: 'UserLogoutView',
     component: UserLogoutView

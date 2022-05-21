@@ -84,6 +84,24 @@ export default ({
         })
     },
 
+    update({ commit, dispatch }, updateProfile) {
+      axios({
+        url: drf.accounts.profile(),
+        method: 'post',
+        data: updateProfile
+      })
+        .then(()=> {
+          // 얘는 그냥 수정이니까 ... 토큰 수정 XX 
+          // 성공하면! 사용자 정보 넣기, 프로필로 이동
+          dispatch('fetchCurrentUser')
+          router.push({ name: 'profile' })
+        })
+        .catch(err => {
+          console.error(err.response.data)
+          commit('SET_AUTH_ERROR', err.response.data)
+        })
+    },
+
     logout({ getters, dispatch }) {
       axios({
         url: drf.accounts.logout(),
@@ -97,7 +115,7 @@ export default ({
           alert('다시 방문하시기를 기다리겠습니다 -MASINO-')
           router.push({ name: 'start' })
         })
-        .error(err => {
+        .catch (err => {
           console.error(err.response)
         })
     },

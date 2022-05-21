@@ -11,6 +11,11 @@
         <label class="form-label" for="username">이름</label>
         <input v-model="credentials.username" type="text" id="username" class="form-control" required />  
       </div>
+<!-- 
+      <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="casino_points">좋아하는 숫자를 입력하세요.</label>
+        <input v-model="credentials.casino_points" type="number" id="casino_points" class="form-control" required />  
+      </div> -->
 
 
       <div class="form-outline flex-fill mb-0">
@@ -51,6 +56,7 @@ export default {
         username: '',
         password1: '',
         password2: '',
+        // casino_points: '',
       }
     }
   },
