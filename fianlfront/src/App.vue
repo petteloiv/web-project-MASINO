@@ -6,10 +6,19 @@
 
 <script>
 
+import { mapActions } from 'vuex'
+
 export default {
-  name : 'App',
-  
+  name: 'App',
+  // components: { NavBar },
+  methods: {
+    ...mapActions(['fetchCurrentUser'])
+  },
+  created() {
+    this.fetchCurrentUser()
+  },
 }
+
 </script>
 
 <style>

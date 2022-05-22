@@ -65,7 +65,8 @@ const routes = [
   {
     path: '/profile/:userPk',
     name: 'profile',
-    component: AccountView
+    component: AccountView,
+    // props : true
   },
   {
     path: '/main',

@@ -2,10 +2,11 @@
   <div>
 
     <h1>프로필페이지</h1>
+    <!-- <p>{{ profile.username }}</p> -->
         <!-- <h1>{{ profile.username }}</h1> -->
     <!-- <p>email : {{ profile.email }}</p>
     <p>{{ profile.casino_points }}를 가지고 계십니다.</p> -->
-    
+    <p>{{ userPk }}</p>
   </div>
 </template>
 
@@ -16,16 +17,23 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'AccountView',
-  data(){
-    return {
-      userPk: this.$route.params.userPk,
+  // props: {
+  //   userPk : Number,
+  // },
+  // data(){
+  //   return {
+  //     userPk: this.userPk(),
+  //   }
+  // },
+  computed:{
+    ...mapGetters(['profile','currentUser']),
+    userPk(){
+      // const pk = parseInt(this.currentUser.pk)
+      return this.currentUser.pk
     }
   },
-  computed:{
-    ...mapGetters['profile','currentUser']
-  },
   methods: {
-    ...mapActions['fetchProfile']
+    ...mapActions(['fetchProfile'])
   },
   created() {
     this.fetchProfile(this.userPk)

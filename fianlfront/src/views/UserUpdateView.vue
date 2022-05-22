@@ -29,6 +29,9 @@ export default {
       }
     }
   },
+  props: {
+    userPk : Number,
+  },
   computed: {
     ...mapGetters(['authError'])
   },
@@ -36,7 +39,7 @@ export default {
     ...mapActions(['fetchProfile'])
   },
   created(){
-    this.fetchProfile(this.$)
+    this.fetchProfile(this.userPk)
   }
 
 }

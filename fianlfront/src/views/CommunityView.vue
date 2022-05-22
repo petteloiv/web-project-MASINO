@@ -3,14 +3,44 @@
     <h1>게시판입니당</h1>
     <br>
     <!-- 여기에 article list 들어갑니다. -->
-    <!-- 새 글 쓰기 눌러서 => ArticleCreateView로 넘길 것 -->
+    <ul>
+      <li v-for="article in articles" :key="article.pk">
+        <!-- 작성자 -->
+        {{ article.user.username }} : 
+
+        <!-- 글 이동 링크 (제목) -->
+        <router-link 
+          :to="{ name: 'articleDetail', params: {articlePk: article.pk} }">
+          {{ article.title }}
+        </router-link>
+
+        좋아요 : {{ article.like_count }}
+
+      </li>
+    </ul>
+
+    <!-- 새 글 쓰기 눌러서 => ArticleCreateView로 넘길 것 --> 
+    <router-link 
+      :to="{ name: 'articleCreate' }">글 작성하기</router-link>
   </div>
   
 </template>
 
 <script>
+
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'CommunityView',
+  computed: {
+      ...mapGetters(['articles'])
+    },
+  methods: {
+    ...mapActions(['fetchArticles'])
+  },
+  created() {
+    this.fetchArticles()
+  },
 }
 </script>
 
