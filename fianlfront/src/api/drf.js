@@ -11,7 +11,8 @@ export default {
     login: () => HOST + ACCOUNTS + 'login/',
     logout: () => HOST + ACCOUNTS + 'logout/',
     currentUserInfo: () => HOST + ACCOUNTS + 'user/',
-    profile: (userPk) => HOST + ACCOUNTS + 'profile/' + `${userPk}`,
+    // profile: (userPk) => HOST + ACCOUNTS + 'profile/' + `${userPk}`,
+    profile: () => HOST + ACCOUNTS + 'profile/',
 
   },
   movies: {

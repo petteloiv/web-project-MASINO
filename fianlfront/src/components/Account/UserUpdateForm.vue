@@ -1,5 +1,5 @@
 <template>
-  <div>
+
     <form @submit.prevent="update(updateProfile)" class="mx-1 mx-md-4">
 
       <div class="form-outline flex-fill mb-0">
@@ -19,7 +19,7 @@
 
 
     </form>
-  </div>
+
 </template>
 
 <script>
@@ -27,10 +27,10 @@ import { mapActions } from 'vuex'
 
 export default {
   name: "UserUpdateForm",
-  props: {
-    credentials: Object,
-    action: String,
-  },
+  // props: {
+  //   credentials: Object,
+  //   action: String,
+  // },
   data(){
     return {
       updateProfile: {

@@ -2,44 +2,49 @@
   <div>
     <account-error-list></account-error-list>
     <h1>회원정보수정</h1>
-    <user-update-form></user-update-form>
+
+    <form @submit.prevent="update(credentials)" class="mx-1 mx-md-4">
+
+      <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="email">이메일</label>
+        <input v-model="credentials.email" type="text" id="email" class="form-control" required />  
+      </div>
+
+      <br>
+
+      <div>
+        <button>수정 완료</button>
+      </div>
+
+
+    </form>
     
+
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import AccountErrorList from '@/components/Account/AccountErrorList.vue'
-import UserUpdateForm from '@/components/Account/UserUpdateForm.vue'
+
 
 export default {
   name: "UserUpdateView",
   components:{
     AccountErrorList, 
-    UserUpdateForm,
   },
   data() {
     return {
       credentials: {
         email: '',
-        // serializer 보면 username, email 리턴 하길래 
-        // 이메일만 수정 가능하게 했습니다.
-        // password: '',
-        // password2: '',
       }
     }
   },
-  props: {
-    userPk : Number,
-  },
   computed: {
-    ...mapGetters(['authError'])
+    ...mapGetters(['authError','currentUser'])
   },
   methods: {
-    ...mapActions(['fetchProfile'])
-  },
-  created(){
-    this.fetchProfile(this.userPk)
+    ...mapActions(['update'])
   }
 
 }

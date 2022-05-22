@@ -2,11 +2,25 @@
   <div>
 
     <h1>프로필페이지</h1>
-    <!-- <p>{{ profile.username }}</p> -->
-        <!-- <h1>{{ profile.username }}</h1> -->
-    <!-- <p>email : {{ profile.email }}</p>
-    <p>{{ profile.casino_points }}를 가지고 계십니다.</p> -->
-    <p>{{ userPk }}</p>
+    <p> username : {{profile.username}}</p>
+    <p> point : {{ profile.casino_points }} </p> 
+
+    <h2>작성한 글</h2>
+    <ul>
+      <li v-for="article in profile.articles" :key="article.pk">
+        <router-link :to="{ name: 'articleDetail', params: { articlePk: article.pk } }">
+          {{ article.title }}
+        </router-link>
+      </li>
+    </ul>
+
+    <router-link :to="{ name: 'UserUpdateView' }">
+      개인정보수정
+    </router-link>
+
+
+
+
   </div>
 </template>
 
@@ -26,17 +40,17 @@ export default {
   //   }
   // },
   computed:{
-    ...mapGetters(['profile','currentUser']),
-    userPk(){
-      // const pk = parseInt(this.currentUser.pk)
-      return this.currentUser.pk
-    }
+    ...mapGetters(['profile']),
+    // userPk(){
+    //   // const pk = parseInt(this.currentUser.pk)
+    //   return this.currentUser.pk
+    // }
   },
   methods: {
     ...mapActions(['fetchProfile'])
   },
   created() {
-    this.fetchProfile(this.userPk)
+    this.fetchProfile()
   }
 
 }

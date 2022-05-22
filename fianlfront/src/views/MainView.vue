@@ -1,9 +1,10 @@
 <template>
   <div>
+    
     <h1>main</h1>
     <a href="/logout">logout</a>
     <br>
-    <router-link :to="{path: `/profile/${userPk}`}">
+    <router-link :to="{path: `/profile`}">
       <button>Profile</button>
     </router-link> | 
     <router-link :to="{ name: 'community' }">
@@ -15,10 +16,14 @@
 </template>
 
 <script>
+import Navbar from '@/components/Common/Navbar.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'MainView',
+  components: {
+    Navbar
+  },
   // data(){
   //   return {
   //     userPk()

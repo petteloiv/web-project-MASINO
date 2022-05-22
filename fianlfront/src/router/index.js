@@ -63,7 +63,7 @@ const routes = [
     component: StartView
   },
   {
-    path: '/profile/:userPk',
+    path: '/profile',
     name: 'profile',
     component: AccountView,
     // props : true
@@ -119,7 +119,7 @@ const routes = [
     component: CasinoBackGachaView
   },
   {
-    path: '/:userPk/update',
+    path: '/update',
     name: 'UserUpdateView',
     component: UserUpdateView
   },

@@ -84,11 +84,12 @@ export default ({
         })
     },
 
-    update({ commit, dispatch }, updateProfile) {
+    update({ commit, getters, dispatch }, credentials) {
       axios({
         url: drf.accounts.profile(),
-        method: 'post',
-        data: updateProfile
+        method: 'put',
+        data: credentials,
+        headers: getters.authHeader,
       })
         .then(()=> {
           // 얘는 그냥 수정이니까 ... 토큰 수정 XX 
@@ -144,9 +145,9 @@ export default ({
     },
 
     // 프로필 정보 받아오기 어쩌구 저쩌구 
-    fetchProfile({ commit, getters }, { userPk }) {
+    fetchProfile({ commit, getters }) {
       axios({
-        url: drf.accounts.profile(userPk),
+        url: drf.accounts.profile(),
         method: 'get',
         headers: getters.authHeader,
       })
