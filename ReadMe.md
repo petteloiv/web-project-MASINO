@@ -116,3 +116,19 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
   - <img src="ReadMe.assets/unknown.png" alt="img" style="zoom:80%;" />
   - Uncaught Error가 뜬다!
 
+- template 부터 위에서 아래로 렌더링 된다 .. props 데이터를 템플릿에서 쓰려고해서 문제가 생겼다 .... 큰 문제가 .. 
+  - 이전 코드 : getters를 써서 state에 있는 pk 값을 data에 집어넣어서 사용하려고 함. 
+    - undefined 오류가 뜸
+    -  ![뷰에 선언되지 않은 데이터를 화면에 표시하려고 했을 때의 오류](ReadMe.assets/error1.png)
+    - 이름만 다르고 같은 오류가 뜸
+    - **속성이 선언되지 않았는데 화면에 렌더링 되려고 했습니다**
+  - 해결 방법 
+    - 1. props에 userPk 값을 넣어서 받아올 수 있나 확인
+      2. main view 에서 router-link params를 1번에서 성공한 값으로 넣어서 path가 문제인지 데이터 값이 문제인지 체크
+      3. 데이터가 문제였다 ... 
+      4. data에 담아서 넘기던 코드를 computed를 사용해 넘겨줌! 
+      5. params값이 string으로 들어가는 문제 발생 ...
+- Pk 값에 대체 무슨 문제가 있던 걸까요 
+  - ![image-20220523001458779](ReadMe.assets/image-20220523001458779.png)
+  - article 작성 됨 => article Detail로 이동해야하는데 articlePk값이 없다고 한다 ,,, 하지만 getters.article.id 에 분명 값이 잘 들어있고요? 
+  - 모든 코드에서 pk값이 말썽을 부리는 문제가 발생합니다 ......
