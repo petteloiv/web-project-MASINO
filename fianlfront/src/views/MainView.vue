@@ -1,6 +1,7 @@
 <template>
   <div>
-    
+    <navbar-item></navbar-item>
+
     <h1>main</h1>
     <a href="/logout">logout</a>
     <br>
@@ -16,13 +17,14 @@
 </template>
 
 <script>
-import Navbar from '@/components/Common/Navbar.vue'
+import NavbarItem from '@/components/Common/NavbarItem.vue'
+
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'MainView',
   components: {
-    Navbar
+    NavbarItem
   },
   // data(){
   //   return {
