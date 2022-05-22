@@ -7,7 +7,7 @@
 
       <div class="form-outline flex-fill mb-0">
         <label class="form-label" for="email">이메일</label>
-        <input v-model="credentials.email" type="text" id="email" class="form-control" required />  
+        <input v-model="credentials.email" type="text" id="email" class="form-control" :placeholder="this.currentUser.email" required />  
       </div>
 
       <br>
