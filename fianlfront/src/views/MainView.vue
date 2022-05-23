@@ -11,6 +11,8 @@
     <router-link :to="{ name: 'community' }">
       <button>Community</button>
     </router-link>
+    <br>
+    <movie-search-form></movie-search-form>
 
     
   </div>
@@ -18,13 +20,15 @@
 
 <script>
 import NavbarItem from '@/components/Common/NavbarItem.vue'
+import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'MainView',
   components: {
-    NavbarItem
+    NavbarItem,
+    MovieSearchForm
   },
   // data(){
   //   return {
@@ -39,10 +43,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchCurrentUser','fetchProfile'])
+    ...mapActions(['fetchCurrentUser','fetchProfile','fetchMovies'])
   },
   created() {
     this.fetchCurrentUser()
+    this.fetchMovies()
   }
 } 
 </script>

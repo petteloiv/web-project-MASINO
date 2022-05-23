@@ -14,8 +14,9 @@ import CommunityView from '@/views/CommunityView.vue'
 import MainView from '@/views/MainView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
 import SignupView from '@/views/SignupView.vue'
-import UserUpdateView from '@/views/UserUpdateView'
-import UserLogoutView from '@/views/UserLogoutView'
+import UserUpdateView from '@/views/UserUpdateView.vue'
+import UserLogoutView from '@/views/UserLogoutView.vue'
+import MovieSearchView from '@/views/MovieSearchView.vue'
 
 import NotFound404 from '@/views/NotFound404.vue'
 
@@ -77,6 +78,11 @@ const routes = [
     path: '/movie/:moviePk',
     name: 'moviedetail',
     component: MovieDetailView 
+  },
+  {
+    path: '/search/:keyword',
+    name: 'moviesearchview',
+    component: MovieSearchView 
   },
   {
     path: '/community',
