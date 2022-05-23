@@ -33,8 +33,8 @@
   
       <div class="col">
         <a href="#">
-              <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" alt="">
-            </a>
+          <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" alt="">
+        </a>
       </div>
   
     </div>
