@@ -2,16 +2,17 @@
   <form @submit.prevent="onSubmit">
     <div>
       <label for="title">제목: </label>
-      <input v-model="newArticle.title" type="text" id="title" />
+      <input v-model="newArticle.title" type="text" id="title" required/>
     </div>
     <div>
       <label for="content">내용: </label>
-      <textarea v-model="newArticle.content" type="text" id="content"></textarea>
+      <textarea v-model="newArticle.content" type="text" id="content" required></textarea>
     </div>
     <div>
       <button>{{ action }}</button>
     </div>
-  </form>  
+  </form> 
+  
 </template>
 
 <script>
@@ -32,6 +33,9 @@ export default {
       }
     }
   },
+  // computed: {
+  //   ...mapGetters(['article']),
+  // },
   methods: {
     ...mapActions(['createArticle', 'updateArticle']),
     onSubmit() {
@@ -39,10 +43,11 @@ export default {
         this.createArticle(this.newArticle)
       } else if (this.action === 'update') {
         const payload = {
-          pk: this.article.pk,
-          ...this.newArticle,
-        }
+            articlePk : this.article.id,
+            ...this.newArticle,
+          }
         this.updateArticle(payload)
+
       }
     },
   },

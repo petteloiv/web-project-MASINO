@@ -89,7 +89,7 @@ export default ({
     },
 
     // article update
-    updateArticle({ commit, getters }, { pk, title, content}) {
+    updateArticle({ commit, getters }, { articlePk, title, content}) {
       /* 게시글 수정
       PUT: article URL (게시글 입력정보, token)
         성공하면
@@ -99,7 +99,7 @@ export default ({
           에러 메시지 표시
       */
       axios({
-        url: drf.community.articleDetail(pk),
+        url: drf.community.articleDetail(articlePk),
         method: 'put',
         data: { title, content },
         headers: getters.authHeader,
@@ -108,9 +108,10 @@ export default ({
           commit('SET_ARTICLE', res.data)
           router.push({
             name: 'articleDetail',
-            params: { articlePk: getters.article.pk }
+            params: { articlePk: getters.article.id }
           })
         })
+        
     },
 
     deleteArticle({ commit, getters }, articlePk) {

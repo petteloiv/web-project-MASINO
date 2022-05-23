@@ -10,12 +10,23 @@
 
 <script>
 import ArticleForm from '@/components/Community/ArticleForm.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'ArticleUpdateView',
   components: {
     ArticleForm
-  }
+  },
+  computed: {
+      ...mapGetters(['article', 'isArticle',])
+    },
+  methods: {
+    ...mapActions(['fetchArticle'])
+  },
+  created() {
+    this.fetchArticle(this.$route.params.articlePk)
+  },
+
 }
 </script>
 
