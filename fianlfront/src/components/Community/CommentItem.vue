@@ -15,7 +15,7 @@
     <span v-if="currentUser.username === comment.user.username && !isEditing">
       <button @click="switchIsEditing">Edit</button> |
       <button @click="deleteComment(payload)">Delete</button> |
-      <button @click="likeComment(payload)">{{ comment.like_users }}</button> 
+      <button @click="likeComment(payload)">{{ comment.like_count }}</button> 
 
     </span>
   </li>

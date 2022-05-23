@@ -211,20 +211,17 @@ export default ({
             .catch(err => console.error(err.response))
         }
       },
+
     likeComment({ commit, getters }, { articlePk, commentPk }) {
-      /* 좋아요
-      POST: likeArticle URL(token)
-        성공하면
-          state.article 갱신
-        실패하면
-          에러 메시지 표시
-      */
       axios({
         url: drf.community.commentLike(articlePk, commentPk),
         method: 'post',
+        data: {},
         headers: getters.authHeader,
       })
-        .then(res => commit('SET_ARTICLE_COMMENTS', res.data))
+        .then(res => {
+          commit('SET_ARTICLE_COMMENTS', res.data)
+        })
         .catch(err => console.error(err.response))
     },
   },
