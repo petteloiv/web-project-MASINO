@@ -106,15 +106,17 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-### 개발 중 알게 된 ... 이것저것 정보
+### 오류가 키워 준 지식
 
 ---
 
-#### Front
+#### 
 
 - module을 나눠서 사용하면 다른 파일들은 `new Vuex.Store` 붙일 필요 없이 그냥 `export default ({})` 로 작성하면 된다! 이미 index가 생성해뒀기 때문! 
   - <img src="ReadMe.assets/unknown.png" alt="img" style="zoom:80%;" />
   - Uncaught Error가 뜬다!
+
+---
 
 - template 부터 위에서 아래로 렌더링 된다 .. props 데이터를 템플릿에서 쓰려고해서 문제가 생겼다 .... 큰 문제가 .. 
   - 이전 코드 : getters를 써서 state에 있는 pk 값을 data에 집어넣어서 사용하려고 함. 
@@ -128,7 +130,46 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
       3. 데이터가 문제였다 ... 
       4. data에 담아서 넘기던 코드를 computed를 사용해 넘겨줌! 
       5. params값이 string으로 들어가는 문제 발생 ...
+    - 코드 싹 지우고 .... profile 페이지에서 userPk 싹 빼서 처리
+      - dj-rest-auth  사용해서 request에 이미 정보가 담겨있었다. 
+
+---
+
 - Pk 값에 대체 무슨 문제가 있던 걸까요 
   - ![image-20220523001458779](ReadMe.assets/image-20220523001458779.png)
   - article 작성 됨 => article Detail로 이동해야하는데 articlePk값이 없다고 한다 ,,, 하지만 getters.article.id 에 분명 값이 잘 들어있고요? 
   - 모든 코드에서 pk값이 말썽을 부리는 문제가 발생합니다 ......
+
+---
+
+- 댓글이 생성은 되는데요? 이게 좀 이상합니다
+  - ![image-20220523125351623](ReadMe.assets/image-20220523125351623.png)
+  - 1. 댓글을 새로 작성하면 위처럼 댓글들이 다 뜬다 (방금 새로 작성한 댓글은 제외....)
+    2. 새고하면 다른 댓글들은 다 지워지고 => 해당 article에 속한 댓글만 잘 뜬다... 
+    3. 생성 / 수정 / 좋아요에서 같은 문제 발생
+  - 수정이 진행되면 수정된 정보를 보내줘야하는데 시리얼라이저 맨 앞에서 받아온 애들을 넘겨주면 수정이 반영이 안된다... 그래서 return 해주기 전에 수정된 정보들을 다시 받아서 serialize 시킨 후 반환!
+  - ![image-20220523133913996](ReadMe.assets/image-20220523133913996.png)
+
+---
+
+- Pk값을 찾지 못할 때는 내가 값을 제대로 찾아서 넣어줬는지 확인하자... 
+
+---
+
+- 새로고침 할 때 NavigationDuplicated 오류가 뜬다.. 
+
+  - 기능은 작동하지만 자꾸 오류가 나서 ..... 이런식으로 catch err => err 해줬다... (aka 비둘기코드)
+  - Error Handling
+    - 에러 핸들링 미들웨어라고한다 .. 
+
+  ```js
+          router.push({
+            name: "moviesearchview",
+            params: {
+              keyword: getters.keyword,
+            },
+          }).catch(err => err)
+  ```
+
+  
+
