@@ -63,6 +63,7 @@
       </li>
       <br>
     </ul>
+    <movie-search-form></movie-search-form>
 
     
   </div>
@@ -70,6 +71,7 @@
 
 <script>
 import NavbarItem from '@/components/Common/NavbarItem.vue'
+import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
@@ -79,6 +81,7 @@ export default {
   name: 'MainView',
   components: {
     NavbarItem,
+    MovieSearchForm
   },
   computed:{
     ...mapGetters(['currentUser', 'movies']),
