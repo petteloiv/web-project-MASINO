@@ -15,7 +15,7 @@ import _ from 'lodash'
 3. 게시글 삭제
 2. 게시글 전체 목록 불러오기 
 3. 게시글 좋아요
-4. 댓글 달기
+4. 댓글 달기 => 이거 안됨 
 5. 댓글 전체 목록 불러오기
 6. 댓글 좋아요
 
@@ -40,7 +40,7 @@ export default ({
   mutations: { // state 변경
     SET_ARTICLES: (state, articles) => state.articles = articles,
     SET_ARTICLE: (state, article) => state.article = article,
-    SET_ARTICLE_COMMENTS: (state, comments) => (state.article.comments = comments),
+    SET_ARTICLE_COMMENTS: (state, comments) => state.article.comments = comments,
 
   },
   actions: { 
@@ -175,12 +175,12 @@ export default ({
         실패하면
           에러 메시지 표시
       */
-      const comment = { content }
+      // const comment = { content }
 
       axios({
         url: drf.community.comment(articlePk, commentPk),
         method: 'put',
-        data: comment,
+        data: { content },
         headers: getters.authHeader,
       })
         .then(res => {

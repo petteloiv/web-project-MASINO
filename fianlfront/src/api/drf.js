@@ -22,10 +22,10 @@ export default {
   community: {
     community: () => HOST + COMMUNITY,
     articleDetail: (articlePk) => HOST + COMMUNITY + `${articlePk}`,
-    articleLike: (articlePk) => HOST + COMMUNITY + `${articlePk}` + 'like/',
-    commentCreate: (articlePk) => HOST + COMMUNITY + `${articlePk}` + 'comment/',
-    commentLike: (articlePk, commentPk) => HOST + COMMUNITY + `${articlePk}` + 'comment/' + `${commentPk}` +'like/',
-    comment: (articlePk, commentPk) => HOST + COMMUNITY + `${articlePk}` + 'comment/' + `${commentPk}`,
+    articleLike: (articlePk) => HOST + COMMUNITY + `${articlePk}/` + 'like/',
+    commentCreate: (articlePk) => HOST + COMMUNITY + `${articlePk}/` + 'comment/',
+    commentLike: (articlePk, commentPk) => HOST + COMMUNITY + `${articlePk}/` + 'comment/' + `${commentPk}` +'like/',
+    comment: (articlePk, commentPk) => HOST + COMMUNITY + `${articlePk}/` + 'comment/' + `${commentPk}`,
   },
   casino: {
     quiz: () => HOST + CASINO + 'quiz/',

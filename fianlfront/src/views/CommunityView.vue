@@ -9,10 +9,12 @@
         {{ article.user.username }} : 
 
         <!-- 글 이동 링크 (제목) -->
-        <router-link 
-          :to="{ name: 'articleDetail', params: {articlePk: article.pk} }">
-          {{ article.title }}
-        </router-link>
+        <span v-if="article.id">
+          <router-link 
+            :to="{ name: 'articleDetail', params: {articlePk: article.id} }">
+            {{ article.title }}
+          </router-link>
+        </span>
 
         좋아요 : {{ article.like_count }}
 

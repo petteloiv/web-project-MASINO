@@ -14,7 +14,15 @@
 
     <span v-if="currentUser.username === comment.user.username && !isEditing">
       <button @click="switchIsEditing">Edit</button> |
-      <button @click="deleteComment(payload)">Delete</button>
+      <button @click="deleteComment(payload)">Delete</button> |
+      <button @click="likeComment(payload)">Like</button> |
+      <!-- <div>
+        좋아요:
+        <button
+          @click="likeArticle(articlePk)"
+        >{{ likeCount }}</button>
+      </div> -->
+
     </span>
   </li>
 
@@ -30,6 +38,7 @@ export default {
     return {
       isEditing: false,
       payload: {
+        // articlePk가 comment 안에 없어서 여기서 못뽑음 .. 
         articlePk: this.comment.article,
         commentPk: this.comment.pk,
         content: this.comment.content
@@ -37,10 +46,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['currentUser']),
+    ...mapGetters(['currentUser','article']),
   },
   methods: {
-    ...mapActions(['updateComment', 'deleteComment']),
+    ...mapActions(['updateComment', 'deleteComment','likeComment']),
     switchIsEditing() {
       this.isEditing = !this.isEditing
     },
