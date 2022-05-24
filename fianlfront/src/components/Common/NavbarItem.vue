@@ -3,7 +3,7 @@
     <b-navbar toggleable="lg" type="dark" variant="dark">
      
       <b-navbar-brand href="/main">
-        <img src="#" alt="Masino">
+        <img src="@/images/logo.png" alt="Masino">
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
