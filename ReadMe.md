@@ -42,7 +42,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 | 2022-05-21 | 개발 | **Front**<br />- Account login, logout, signup<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 데이터 가공 및 전송 로직 작성 |
 | 2022-05-22 | 개발 | **Front**<br />- Account profile, user update<br />- Community  create<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 영화 추천 알고리즘 작성 |
 | 2022-05-23 | 개발 | **Front**<br />- Community comment, article 전체 완성<br />- Movie search, detail (박지현)<br />- Movie recommend (서상균)<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정 |
-| 2022-05-24 | 개발 |                                                              |
+| 2022-05-24 | 개발 | **Front**<br />- Casino quiz, back gacha, card gacha (서상균)<br />-  개발 완료된 기능 스타일링 |
 |            |      |                                                              |
 
 
