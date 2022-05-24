@@ -19,7 +19,7 @@
                             <span>현재 보유한 </span> 
                             <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
                             <span>이 없습니다.</span>
-                            <p>카지노 입장 시 입장 포인트가 1,000 포인트 차감됩니다.</p>                        
+                            <p>카지노 입장 시 입장료 13,000 포인트가 차감됩니다.</p>                        
                           </div>   
                           
                         </div>
@@ -84,14 +84,19 @@
                               <b-card-text>
                                 <h4>나의 배우 카드</h4>
                                 <br>
-                                <div class="card-deck container">
+                                <div v-if="profile.casino_points < 0">
+                                  <h1 style="color:red;">압 류</h1>
+                                  <h2>포인트를 상환하시어 압류를 해제하세요.</h2>
+                                </div>
+                                <div v-else class="card-deck container">
                                   <div class="row">
-                                    <div class="casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
-                                      <div class="card-header">
-                                      </div>
-                                      <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-                                      <div class="casino-card-body">
-                                        <h5 class="card-title">{{ card.name }}</h5>
+                                    <div class="card casino-card col-2" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
+                                    
+                                      <img class="casino-card-img" style="height: 250px;" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+                                      <div class="casino-card-body" style="width:150px; height: 90px;">
+                                        <h5 class="card-title">
+                                          {{ card.name }}
+                                        </h5>
                                       </div>
                                   </div>
                                   </div>
@@ -206,9 +211,7 @@ export default {
 
 /* 카드 css 이게 지금 픽셀처리가 돼서 이상해보임.. */
 .casino-card-body {
-    width: 10rem;
-    height: 20rem;
-    padding: 1px;
+    text-align: center;
   }
 
   .casino-card {
@@ -217,9 +220,10 @@ export default {
   }
 
   .casino-card-img{
-    height: 100%;
+    height: 250px;
     width: 100%;
   }
+
 
   .platinum {
     background: rgb(248,255,160);
