@@ -23,4 +23,19 @@ export default {
 
 <style>
 
+@font-face {
+    font-family: 'Eulyoo1945-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'Eulyoo1945-SemiBold';
+}
+
+/* #app {
+  background: #26382B
+} */
+
 </style>

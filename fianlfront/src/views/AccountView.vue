@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <navbar-item></navbar-item>
     <h1>프로필페이지</h1>
     <p> username : {{profile.username}}</p>
     <p> point : {{ profile.casino_points }} </p> 
@@ -25,12 +25,15 @@
 </template>
 
 <script>
-
+import NavbarItem from '@/components/Common/NavbarItem.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
   name: 'AccountView',
+  components:{
+    NavbarItem
+  },
   // props: {
   //   userPk : Number,
   // },

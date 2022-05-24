@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar-item></navbar-item>
     <h1>게시판입니당</h1>
     <br>
     <!-- 여기에 article list 들어갑니다. -->
@@ -31,9 +32,13 @@
 <script>
 
 import { mapActions, mapGetters } from 'vuex'
+import NavbarItem from '@/components/Common/NavbarItem.vue'
 
 export default {
   name: 'CommunityView',
+  components:{
+    NavbarItem
+  },
   computed: {
       ...mapGetters(['articles'])
     },

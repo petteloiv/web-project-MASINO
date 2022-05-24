@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar-item></navbar-item>
     <h1>"{{this.keyword}}"검색 결과입니다.</h1>
     <!-- <movie-result-list :movieList="movieList"></movie-result-list> -->
     <movie-item v-for="movie in searchedmovies" :movie="movie" :key="movie.pk"></movie-item>
@@ -9,6 +10,7 @@
 
 <script>
 import MovieItem from '@/components/Common/MovieItem.vue'
+import NavbarItem from '@/components/Common/NavbarItem.vue'
 
 import { mapActions, mapGetters } from 'vuex'
 
@@ -16,6 +18,7 @@ export default {
   name: 'MovieSearchView',
   components:{
     MovieItem,
+    NavbarItem
   },
   // data(){
   //   return {

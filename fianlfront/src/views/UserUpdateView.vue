@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navbar-item></navbar-item>
     <account-error-list></account-error-list>
     <h1>회원정보수정</h1>
 
@@ -26,12 +27,14 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import AccountErrorList from '@/components/Account/AccountErrorList.vue'
+import NavbarItem from '@/components/Common/NavbarItem.vue'
 
 
 export default {
   name: "UserUpdateView",
   components:{
-    AccountErrorList, 
+    AccountErrorList,
+    NavbarItem 
   },
   data() {
     return {

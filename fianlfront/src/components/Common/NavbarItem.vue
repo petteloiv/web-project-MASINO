@@ -1,36 +1,33 @@
 <template>
-<!-- 
-  <div class="container-fluid">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li><a id="len1" class="hoverable" :href="/main/">Home</a></li>
-          <li><a id="len2" class="hoverable" href="/community/">About</a></li>
-          <li><a id="len3" class="hoverable" href="/casino/">Portfolio</a></li>
-          <li><a id="len4" class="hoverable" href="#">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div id="what-the-hell-is-this">
-      <div class="page-title">
-        <h2>Simple Navigation</h2>
-        <p class="lead">
-          Based on Hover.css, the goal of this pen
-          is to create a simple navigation bar <br />
-          that can be easily reused in both mobile and native displays. Mouse over the nav text for animation!
-        </p>
-      </div>
-    </div>
-  </div> -->
-
   <div>
-    <nav class="navbar navbar-light bg-light">
-      <!-- <img src="" alt=""> -->
-      <a class="navbar-brand" href="#"><router-link :to="{ name: 'main' }" class="text-white"><button>Main</button></router-link></a>
-      <a class="navbar-brand" href="#"><router-link :to="{ name: 'community' }" class="text-white"><button>Community</button></router-link></a>
-      <a class="navbar-brand" href="#"><router-link :to="{ name: 'casino' }" class="text-white"><button>Casino</button></router-link></a>
-      <a class="navbar-brand" href="#"><router-link :to="{ name: 'profile' }" class="text-white"><button>Profile</button></router-link></a>
-    </nav>
+    <b-navbar toggleable="lg" type="dark" variant="dark">
+     
+      <b-navbar-brand href="/main">
+        <img src="#" alt="Masino">
+      </b-navbar-brand>
+
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item :to="{ path: '/main' }">HOME</b-nav-item>
+          <b-nav-item :to="{ path: '/community' }">Community</b-nav-item>
+          <b-nav-item :to="{ path: '/casino' }">Casino</b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto">
+
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content>
+              <em>User</em>
+            </template>
+            <b-dropdown-item :to="{ path: '/profile' }">Profile</b-dropdown-item>
+            <b-dropdown-item :to="{ path: '/logout' }">Logout</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>
 
@@ -43,4 +40,7 @@ export default {
 
 <style>
 
+ .navbar.navbar-dark.bg-dark{
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%)!important;
+ }
 </style>
