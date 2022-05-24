@@ -16,6 +16,7 @@
                               <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner">
                             </a>
                         </div>
+                        <br>
                         <!-- 프로필 헤더 정보 : 이름, 개인정보 수정, 포인트 -->
                         <div class="profile-header-info">
                             <h2 class="m-t-10 m-b-5">{{ profile.username }}</h2>
@@ -28,188 +29,90 @@
                       </div>
                       <br>
                     
-                      <!-- 프로필 헤더 탭! 누르면 각 ... item 들로 이동인데 ,, 그럼 새로 만들어줘야하나 view를  -->
-                      <ul class="profile-header-tab nav nav-tabs">
-                        <li class="nav-item"><a href="#profile-post" class="nav-link" data-toggle="tab">POSTS</a></li>
-                        <li class="nav-item"><a href="#profile-about" class="nav-link active show" data-toggle="tab">ABOUT</a></li>
-                        <li class="nav-item"><a href="#profile-photos" class="nav-link" data-toggle="tab">PHOTOS</a></li>
-                        <li class="nav-item"><a href="#profile-videos" class="nav-link" data-toggle="tab">VIDEOS</a></li>
-                        <li class="nav-item"><a href="#profile-friends" class="nav-link" data-toggle="tab">FRIENDS</a></li>
-                      </ul>
-                      <!-- END profile-header-tab -->
-                  </div>
-                </div>
-                <!-- end profile -->
-                <!-- begin profile-content -->
-                <div class="profile-content">
-                  <!-- begin tab-content -->
-                  <div class="tab-content p-0">
+                      <div>
+                        <b-card no-body>
+                          <b-tabs card>
+                            <b-tab title="MY ARTICLES" active>
+                              <b-card-text>
+                                <div class="tab-pane fade in active show" id="profile-article">
+                                  <!-- begin table -->
+                                  <div class="table-responsive">
+                                      <table class="table table-profile">
+                                        <thead>
+                                            <tr>
+                                              <th></th>
+                                              <!-- <th>
+                                                <h4>나의 게시글</h4>
+                                              </th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="highlight" v-for="(article, index) in profile.articles" :key="article.pk">
+                                              <td class="field" >{{ index + 1}}</td>
+                                              <td >
+                                                <router-link :to="{ name: 'articleDetail', params: { articlePk: article.pk } }">
+                                                  {{ article.title }}
+                                                </router-link>
+                                              </td>
+                                            </tr>                                  
+                                        </tbody>
+                                      </table>
+                                  </div>
+                                  <!-- end table -->
+                                </div>                                
+                              </b-card-text>
+                            </b-tab>
+                            <b-tab title="MY CARDS">
+                              <b-card-text>
+                                <h4>나의 배우 카드</h4>
+                                <br>
+                                <div class="card-deck container">
+                                  <div class="row">
+                                    <div class="casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
+                                      <div class="card-header">
+                                      </div>
+                                      <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+                                      <div class="casino-card-body">
+                                        <h5 class="card-title">{{ card.name }}</h5>
+                                      </div>
+                                  </div>
+                                  </div>
 
-                      <!-- begin #profile-about tab -->
-                      <div class="tab-pane fade in active show" id="profile-about">
-                        <!-- begin table -->
-                        <div class="table-responsive">
-                            <table class="table table-profile">
-                              <thead>
-                                  <tr>
-                                    <th></th>
-                                    <th>
-                                        <h4>Micheal    Meyer <small>Lorraine Stokes</small></h4>
-                                    </th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr class="highlight">
-                                    <td class="field">Mood</td>
-                                    <td><a href="javascript:;">Add Mood Message</a></td>
-                                  </tr>
-                                  <tr class="divider">
-                                    <td colspan="2"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Mobile</td>
-                                    <td><i class="fa fa-mobile fa-lg m-r-5"></i> +1-(847)- 367-8924 <a href="javascript:;" class="m-l-5">Edit</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Home</td>
-                                    <td><a href="javascript:;">Add Number</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Office</td>
-                                    <td><a href="javascript:;">Add Number</a></td>
-                                  </tr>
-                                  <tr class="divider">
-                                    <td colspan="2"></td>
-                                  </tr>
-                                  <tr class="highlight">
-                                    <td class="field">About Me</td>
-                                    <td><a href="javascript:;">Add Description</a></td>
-                                  </tr>
-                                  <tr class="divider">
-                                    <td colspan="2"></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Country/Region</td>
-                                    <td>
-                                        <select class="form-control input-inline input-xs" name="region">
-                                          <option value="US" selected="">United State</option>
-                                          <option value="AF">Afghanistan</option>
-                                          <option value="AL">Albania</option>
-                                          <option value="DZ">Algeria</option>
-                                          <option value="AS">American Samoa</option>
-                                          <option value="AD">Andorra</option>
-                                          <option value="AO">Angola</option>
-                                          <option value="AI">Anguilla</option>
-                                          <option value="AQ">Antarctica</option>
-                                          <option value="AG">Antigua and Barbuda</option>
-                                        </select>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">City</td>
-                                    <td>Los Angeles</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">State</td>
-                                    <td><a href="javascript:;">Add State</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Website</td>
-                                    <td><a href="javascript:;">Add Webpage</a></td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Gender</td>
-                                    <td>
-                                        <select class="form-control input-inline input-xs" name="gender">
-                                          <option value="male">Male</option>
-                                          <option value="female">Female</option>
-                                        </select>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Birthdate</td>
-                                    <td>
-                                        <select class="form-control input-inline input-xs" name="day">
-                                          <option value="04" selected="">04</option>
-                                        </select>
-                                        -
-                                        <select class="form-control input-inline input-xs" name="month">
-                                          <option value="11" selected="">11</option>
-                                        </select>
-                                        -
-                                        <select class="form-control input-inline input-xs" name="year">
-                                          <option value="1989" selected="">1989</option>
-                                        </select>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="field">Language</td>
-                                    <td>
-                                        <select class="form-control input-inline input-xs" name="language">
-                                          <option value="" selected="">English</option>
-                                        </select>
-                                    </td>
-                                  </tr>
-                                  <tr class="divider">
-                                    <td colspan="2"></td>
-                                  </tr>
-                                  <tr class="highlight">
-                                    <td class="field">&nbsp;</td>
-                                    <td class="p-t-10 p-b-10">
-                                        <button type="submit" class="btn btn-primary width-150">Update</button>
-                                        <button type="submit" class="btn btn-white btn-white-without-border width-150 m-l-5">Cancel</button>
-                                    </td>
-                                  </tr>
-                              </tbody>
-                            </table>
-                        </div>
-                        <!-- end table -->
+                                </div>     
+                              </b-card-text>
+                            </b-tab>
+                          </b-tabs>
+                        </b-card>
                       </div>
-                      <!-- end #profile-about tab -->
-                  </div>
-                  <!-- end tab-content -->
+                  </div>                        
                 </div>
                 <!-- end profile-content -->
             </div>
           </div>
       </div>
-    <!-- </div>
-          </div>
-      </div> -->
-</div>
 
-<!-- 쓸 애들  -->
-            <router-link :to="{ name: 'UserUpdateView' }">
-              개인정보수정
-            </router-link>
-            
-      <h2>작성한 글</h2>
-            <ul>
-              <li v-for="article in profile.articles" :key="article.pk">
-                <router-link :to="{ name: 'articleDetail', params: { articlePk: article.pk } }">
-                  {{ article.title }}
-                </router-link>
-              </li></ul>
-
-           <a :href="`/movie/${profile.movie.pk}`" >
-              <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner">
-            </a>
-
-
-
+    </div>
   </div>
 </template>
 
 <script>
 import NavbarItem from '@/components/Common/NavbarItem.vue'
+// import CardItem from '@/components/Common/CardItem.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 
 export default {
   name: 'AccountView',
   components:{
-    NavbarItem
+    NavbarItem,
+    // CardItem
   },
+  // data(){
+  //   return {
+  //     url : '/movie/' + this.profile.movie.pk
+  //   }
+    
+  // },
   // data(){
   //   return {
   //     image : `https://image.tmdb.org/t/p/original/' + ${this.profile.movie.backdrop_path}`
@@ -246,12 +149,61 @@ export default {
   background-color: #fff!important;
 }
 
-.profile-header-img{
-  height: 10%;
+.profile-header-content {
+  margin: 5% auto;
+}
+
+/* .profile-header-img{
   width: 100%;
+  height: auto;
+  max-width: 50vw;
+} */
+
+.profile-header-img > img {
+  width: 100%;
+  height: auto;
+  max-width: 10vw;
+
 }
 
 .link-update {
-  color : whitesmoke
+  color : whitesmoke;
 }
+
+/* 카드 css 이게 지금 픽셀처리가 돼서 이상해보임.. */
+.casino-card-body {
+    width: 10rem;
+    height: 20rem;
+    padding: 1px;
+  }
+
+  .casino-card {
+    height: 8rem;
+    width: 18rem;
+  }
+
+  .casino-card-img{
+    height: 100%;
+    width: 100%;
+  }
+
+  .platinum {
+    background: rgb(248,255,160);
+    background: linear-gradient(0deg, rgba(248,255,160,1) 0%, rgba(181,251,255,1) 19%, rgba(255,158,253,1) 80%, rgba(253,255,199,1) 100%);
+  }
+  .gold {
+    background: rgb(249,242,149);
+    background: linear-gradient(0deg, rgba(249,242,149,1) 0%, rgba(224,170,62,1) 23%, rgba(249,242,149,1) 79%, rgba(184,138,68,1) 100%);
+  }
+  .silver {
+    background: rgb(232,232,232);
+    background: linear-gradient(0deg, rgba(232,232,232,1) 0%, rgba(175,175,175,1) 23%, rgba(236,236,236,1) 79%, rgba(159,159,159,1) 100%);
+  }
+  .bronze {
+    background: rgb(255,220,180);
+    background: linear-gradient(0deg, rgba(255,220,180,1) 0%, rgba(120,61,12,1) 23%, rgba(255,222,161,1) 79%, rgba(120,61,12,1) 100%);
+  }
+  .modal-backdrop {
+   background-color: darkolivegreen;
+  }
 </style>
