@@ -18,7 +18,8 @@
                           <div class="profile-header-no-image" >
                             <span>현재 보유한 </span> 
                             <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
-                            <span>이 없습니다.</span>                        
+                            <span>이 없습니다.</span>
+                            <p>카지노 입장 시 입장 포인트가 1,000 포인트 차감됩니다.</p>                        
                           </div>   
                           
                         </div>
@@ -166,25 +167,31 @@ export default {
   background-color: #fff!important;
 }
 
+.profile-header{
+
+}
+
 .profile-header-content {
   margin: 2% auto;
 }
 
-/* .profile-header-img{
+.profile-header-img{
   width: 100%;
   height: auto;
   max-width: 50vw;
-} */
+}
 
 .nopoint{
   background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
   text-align: center;
   color: white;
 }
+
 .profile-header-no-image {
-  background: goldenrod;
+  background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
   text-align: center;
 }
+
 .profile-header-img > img {
   width: 100%;
   height: auto;
