@@ -15,64 +15,43 @@
     
     <h1>추천영화</h1>
     <br>
-
     <h3>판타지</h3>
-    <div class="container">
-      <div class="row">
-        <div class="col-2 p-12" display: inline-block v-for="movie in filteredFantasyMovies" :key="movie.pk">
-          <a :href="`/movie/${movie.pk}`">
-            <img class="pt-12 movie-img" :src="`http://image.tmdb.org/t/p/original${movie.poster_path}`" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- <h3>판타지</h3>
-    <div v-show="filteredSFMovies" key="new_a">
+    <!-- <div class="movieitem" v-if="filteredFantasyMovies" key="new_a">
       <carousel :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
         <div v-for="movie in filteredFantasyMovies" :key="movie.pk" >
           <a :href="`/movie/${movie.pk}`">
             <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
           </a>
         </div>
-      </carousel>
-    </div>
-
+      </carousel> -->
+    <!-- </div> -->
     <br>
     <h3>범죄</h3>
-    <div v-show="filteredSFMovies" key="new_b">
-      <carousel :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
-        <div v-for="movie in filteredCrimeMovies" :key="movie.pk" >
-          <a :href="`/movie/${movie.pk}`">
-            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
-          </a>
-        </div>
-      </carousel>
-    </div>
-
+    <!-- <carousel v-if="filteredCrimeMovies" key="new_b" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
+      <div v-for="movie in filteredCrimeMovies" :key="movie.pk" >
+        <a :href="`/movie/${movie.pk}`">
+          <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+        </a>
+      </div>
+    </carousel> -->
     <br>
     <h3>코미디</h3>
-    <div v-show="filteredSFMovies" key="new_c">
-      <carousel :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
+    <carousel v-if="filteredComedeyMovies" key="new_c" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
       <div v-for="movie in filteredComedyMovies" :key="movie.pk" >
         <a :href="`/movie/${movie.pk}`">
           <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
         </a>
       </div>
     </carousel>
-    </div>
-    
     <br>
     <h3>SF</h3>
-    <div v-show="filteredSFMovies" key="new_d">
-      <carousel :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
+    <!-- <carousel v-if="filteredSFMovies" key="new_d" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
       <div v-for="movie in filteredSFMovies" :key="movie.pk" >
         <a :href="`/movie/${movie.pk}`">
           <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
         </a>
       </div>
-    </carousel>
-    </div>
-     -->
+    </carousel> -->
     
   </div>
 </template>
@@ -83,9 +62,10 @@ import NavbarItem from '@/components/Common/NavbarItem.vue'
 import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import _ from 'lodash'
-// import carousel from 'vue-owl-carousel'
+import carousel from 'vue-owl-carousel'
 
 import { mapActions, mapGetters } from 'vuex'
+
 
 
 export default {
@@ -93,7 +73,12 @@ export default {
   components: {
     NavbarItem,
     MovieSearchForm,
-    // carousel,
+    carousel,
+  },
+  data(){
+    return {
+      comedyMovies: [],
+    }
   },
   computed:{
     ...mapGetters(['currentUser', 'movies']),
@@ -128,31 +113,19 @@ export default {
   },
   methods: {
     ...mapActions(['fetchCurrentUser','fetchProfile','fetchMovies']),
+    putComedyMovies() {
+        this.comedyMovies = this.filteredComedyMovies
+    },
   },
   created() {
     this.fetchCurrentUser()
     this.fetchMovies()
+    // this.putComedyMovies()
   },
 }
 </script>
 
 <style>
-
-.card-body {
-    width: 165.5px;
-    height: 100px;
-    padding: 1px;
-  }
-
-.card {
-    height: 400px;
-    width: 250px;
-  }
-
-.movie-img{
-  height: 100%;
-  width: 100%;
-}
 
 .movieitem{
   height: 10%;
