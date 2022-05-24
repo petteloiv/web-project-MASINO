@@ -79,11 +79,11 @@
     <b-modal id="modal-card-ten" hide-footer hide-header size="lg" title="CARDGACHATEN">
       <div class="card-deck container">
         <div class="row">
-          <div class="card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
+          <div class="casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
             <div class="card-header">
             </div>
-            <img class="card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-            <div class="card-body">
+            <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+            <div class="casino-card-body">
               <h5 class="card-title">{{ card.name }}</h5>
             </div>
         </div>
@@ -158,18 +158,18 @@ export default {
 
 <style>
 
-  .card-body {
+  .casino-card-body {
     width: 165.5px;
     height: 100px;
     padding: 1px;
   }
 
-  .card {
+  .casino-card {
     height: 350px;
     width: 150px;
   }
 
-  img{
+  .casino-card-img{
     height: 100%;
     width: 100%;
   }

@@ -36,7 +36,7 @@
     </carousel>
     <br>
     <h3>코미디</h3>
-    <carousel v-if="filteredComdeyMovies" key="new_c" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
+    <carousel v-if="filteredComedeyMovies" key="new_c" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
       <div v-for="movie in filteredComedyMovies" :key="movie.pk" >
         <a :href="`/movie/${movie.pk}`">
           <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
