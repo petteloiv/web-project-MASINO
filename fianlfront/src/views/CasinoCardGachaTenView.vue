@@ -1,12 +1,13 @@
 <template>
   <div>
 
-    <h1>CASINO BACK GACHA</h1>
+    <h1>CASINO CARD GACHA TEN</h1>
+    
     <br>
     <p>
-      {{ back }}
+      {{ cards }}
     </p>
-
+  
 
 
   </div>
@@ -15,23 +16,22 @@
 
 <script>
 
-
 // import _ from 'lodash'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'CasinoBackGachaView',
+  name: 'CasinoCardGachaTenView',
   components: {
   },
   computed: {
-    ...mapGetters(['back'])
+    ...mapGetters(['cards'])
   },
   methods: {
-    ...mapActions(['fetchBack'])
+    ...mapActions(['fetchCards'])
   },
   created() {
-    this.fetchBack()
-    // this.fetchStoreBack()
+    this.fetchCards()
+    // this.fetchStoreCard()
   }
 }
 </script>

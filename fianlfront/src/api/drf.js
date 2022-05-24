@@ -29,7 +29,11 @@ export default {
   },
   casino: {
     quiz: () => HOST + CASINO + 'quiz/',
-    backGacha: () => HOST + CASINO + 'backGacha/',
-    cardGacha: () => HOST + CASINO + 'cardGacha/',
+    raisePoint: () => HOST + CASINO + 'raise_point/',
+    backGacha: () => HOST + CASINO + 'back_gacha/',
+    storeBack: (moviePk) => HOST + CASINO + 'store_back/' + `${moviePk}/`,
+    cardGacha: () => HOST + CASINO + 'card_gacha/',
+    cardGachaTen: () => HOST + CASINO + 'card_gacha_ten/',
+    storeCard: (personPk) => HOST + CASINO + 'store_card/' + `${personPk}/`,
   },
 }

@@ -8,6 +8,7 @@ import ArticleDetailView from '@/views/ArticleDetailView.vue'
 import ArticleUpdateView from '@/views/ArticleUpdateView.vue'
 import CasinoBackGachaView from '@/views/CasinoBackGachaView.vue'
 import CasinoCardGachaView from '@/views/CasinoCardGachaView.vue'
+import CasinoCardGachaTenView from '@/views/CasinoCardGachaTenView.vue'
 import CasinoQuizView from '@/views/CasinoQuizView.vue'
 import CasinoView from '@/views/CasinoView.vue'
 import CommunityView from '@/views/CommunityView.vue'
@@ -115,12 +116,17 @@ const routes = [
     component: CasinoQuizView
   },
   {
-    path: '/casino/cardgacha',
+    path: '/casino/card_gacha',
     name: 'cardGacha',
     component: CasinoCardGachaView
   },
   {
-    path: '/casino/backgacha',
+    path: '/casino/card_gacha_ten',
+    name: 'cardGachaTen',
+    component: CasinoCardGachaTenView
+  },
+  {
+    path: '/casino/back_gacha',
     name: 'backGacha',
     component: CasinoBackGachaView
   },
