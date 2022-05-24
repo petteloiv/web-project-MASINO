@@ -16,10 +16,10 @@
     <h1>추천영화</h1>
 
     <br>
-    <h3>판타지</h3>
+    <h3>SF</h3>
     <div class="container">
       <div class="row">
-        <div class="col-2 movie-img" v-for="movie in filteredFantasyMovies" :key="movie.pk">
+        <div class="col-2 movie-img" v-for="movie in filteredSFMovies" :key="movie.pk">
           <a :href="`/movie/${movie.pk}`">
             <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
           </a>
@@ -117,13 +117,11 @@ export default {
   },
   methods: {
     ...mapActions(['fetchCurrentUser','fetchProfile','fetchMovies']),
-    putComedyMovies() {
-        this.comedyMovies = this.filteredComedyMovies
-    },
   },
+
   created() {
-    this.fetchCurrentUser()
-    this.fetchMovies()
+    // this.fetchCurrentUser()
+    // this.fetchMovies() 
   },
 }
 </script>

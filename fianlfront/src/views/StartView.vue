@@ -115,9 +115,13 @@ export default {
   computed: {
       ...mapGetters(['authError'])
     },
-    methods: {
-      ...mapActions(['login'])
-    },
+  methods: {
+    ...mapActions(['login', 'fetchMovies'])
+  },
+  unmounted() {
+    this.fetchMovies()
+    this.fetchCurrentUser()
+  }
 }
 </script>
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import createPersistedState from 'vuex-persistedstate'
 import account from './modules/account'
 import casino from './modules/casino'
 import community from './modules/community'
@@ -22,5 +23,6 @@ export default new Vuex.Store({
     casino,
     community,
     movie,
-  }
+  },
+  plugins: [createPersistedState()],
 })
