@@ -11,17 +11,34 @@
 
                       <div class="profile-header-content">
                         <!--프로필 헤더 이미지 (background) -->
-                        <div class="profile-header-img">
-                            <a :href="`/movie/${profile.movie.pk}`" >
-                              <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner">
-                            </a>
+                        <div class="nopoint" v-show="profile.casino_points < 0">
+                          <h2>신❈용ங불량</h2>  
+                        </div>
+                        <div v-if="!profile.movie">
+                          <div class="profile-header-no-image" >
+                            <span>현재 보유한 </span> 
+                            <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
+                            <span>이 없습니다.</span>                        
+                          </div>   
+                          
+                        </div>
+                        <div v-else>
+                          <div class="profile-header-img">
+                              <a :href="`/movie/${profile.movie.pk}`" >
+                                <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner">
+                              </a>
+                          </div>
                         </div>
                         <br>
                         <!-- 프로필 헤더 정보 : 이름, 개인정보 수정, 포인트 -->
                         <div class="profile-header-info">
-                            <h2 class="m-t-10 m-b-5">{{ profile.username }}</h2>
+                            <h2 class="m-t-10 m-b-5">🙋‍♂️ {{ profile.username }}님 안녕하세요!</h2>
                             <!-- 앞에 포인트 이모지 넣을 예정 -->
-                            <p> {{profile.casino_points}} 포인트</p> 
+                            <h3> 내 지갑 💰 {{profile.casino_points}} 포인트</h3>
+                            <p style="color:red;" v-show="profile.casino_points < 0">
+                              상환 독촉장이 발송되오니 조속한 처리 바랍니다.
+                            </p>
+
                             <a href="#" class="btn btn-xs btn-success">
                               <router-link style=text-decoration:none; class="link-update" :to="{ name: 'UserUpdateView' }">개인정보수정 </router-link>
                             </a>
@@ -150,7 +167,7 @@ export default {
 }
 
 .profile-header-content {
-  margin: 5% auto;
+  margin: 2% auto;
 }
 
 /* .profile-header-img{
@@ -159,12 +176,22 @@ export default {
   max-width: 50vw;
 } */
 
+.nopoint{
+  background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
+  text-align: center;
+  color: white;
+}
+.profile-header-no-image {
+  background: goldenrod;
+  text-align: center;
+}
 .profile-header-img > img {
   width: 100%;
   height: auto;
   max-width: 10vw;
 
 }
+
 
 .link-update {
   color : whitesmoke;

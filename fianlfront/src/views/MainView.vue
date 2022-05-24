@@ -16,15 +16,15 @@
     <h1>추천영화</h1>
     <br>
     <h3>판타지</h3>
-    <!-- <div class="movieitem" v-if="filteredFantasyMovies" key="new_a">
+    <div class="movieitem" v-if="filteredFantasyMovies" key="new_a">
       <carousel :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
         <div v-for="movie in filteredFantasyMovies" :key="movie.pk" >
           <a :href="`/movie/${movie.pk}`">
             <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
           </a>
         </div>
-      </carousel> -->
-    <!-- </div> -->
+      </carousel> 
+    </div>
     <br>
     <h3>범죄</h3>
     <!-- <carousel v-if="filteredCrimeMovies" key="new_b" :autoplay="true" :nav="false" :dots="true" class="marginTop50 movieitem" :number="4" >
