@@ -79,7 +79,7 @@
     <b-modal id="modal-card-ten" hide-footer hide-header size="lg" title="CARDGACHATEN">
       <div class="card-deck container">
         <div class="row">
-          <div class="card col-3" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
+          <div class="card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
             <div class="card-header">
             </div>
             <img class="card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
@@ -157,6 +157,23 @@ export default {
 </script>
 
 <style>
+
+  .card-body {
+    width: 165.5px;
+    height: 100px;
+    padding: 1px;
+  }
+
+  .card {
+    height: 350px;
+    width: 150px;
+  }
+
+  img{
+    height: 100%;
+    width: 100%;
+  }
+
   .platinum {
     background: rgb(248,255,160);
     background: linear-gradient(0deg, rgba(248,255,160,1) 0%, rgba(181,251,255,1) 19%, rgba(255,158,253,1) 80%, rgba(253,255,199,1) 100%);
