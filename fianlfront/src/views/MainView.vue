@@ -12,70 +12,88 @@
       <button>Community</button>
     </router-link>
     <br>
-    <h1>movies</h1>
-    <br>
-    <ul>
-      <h3>코미디</h3>
-      <b-carousel
-        fade
-        indicators
-        img-width="300"
-        img-height="500"
-        :interval="200000">
-      <b-carousel-slide 
-      v-for="movie in filteredComedyMovies" 
-      :key="movie.title"
-      :img-src='`http://image.tmdb.org/t/p/original${movie.poster_path}`'>
-      <!-- {{ movie.title }} -->
-      </b-carousel-slide>
-      </b-carousel>
-      <br>
-      <h3>범죄</h3>
-      <li 
-      v-for="movie in filteredCrimeMovies" 
-      :key="movie.pk">
-        {{ movie.title }}
-        {{ movie.genre_ids }}
-      </li>
-      <br>
-      <h3>SF</h3>
-      <li 
-      v-for="movie in filteredSFMovies" 
-      :key="movie.pk">
-        {{ movie.title }}
-        {{ movie.genre_ids }}
-      </li>
-      <br>
-      <h3>공포</h3>
-      <li 
-      v-for="movie in filteredHorrorMovies" 
-      :key="movie.pk">
-        {{ movie.title }}
-        {{ movie.genre_ids }}
-      </li>
-      <br>
-      <h3>판타지</h3>
-      <li 
-      v-for="movie in filteredFantasyMovies" 
-      :key="movie.pk">
-        {{ movie.title }}
-        {{ movie.genre_ids }}
-      </li>
-      <br>
-    </ul>
     <movie-search-form></movie-search-form>
-
     
+    <h1>추천영화</h1>
+    <br>
+    <h3>범죄</h3>
+    <slider animation="fade" class="recommend">
+      <slider-item
+        v-for="movie in filteredCrimeMovies" 
+        :key="movie.pk"
+      >
+        <p>
+          <a :href="`/movie/${movie.pk}`">
+            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+          </a>
+        </p>
+      </slider-item>
+    </slider>      
+    <h3>코미디</h3>
+    <slider animation="fade" class="recommend">
+      <slider-item
+        v-for="movie in filteredComedyMovies" 
+        :key="movie.pk"
+      >
+        <p>
+          <a :href="`/movie/${movie.pk}`">
+            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+          </a>
+        </p>
+      </slider-item>
+    </slider>
+    <h3>SF</h3>
+    <slider animation="fade" class="recommend">
+      <slider-item
+        v-for="movie in filteredSFMovies" 
+        :key="movie.pk"
+      >
+        <p>
+          <a :href="`/movie/${movie.pk}`">
+            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+          </a>
+        </p>
+      </slider-item>
+    </slider>
+    <h3>판타지</h3>
+    <slider animation="fade" class="recommend">
+      <slider-item
+        v-for="movie in filteredFantasyMovies" 
+        :key="movie.pk"
+      >
+        <p>
+          <a :href="`/movie/${movie.pk}`">
+            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+          </a>
+        </p>
+      </slider-item>
+    </slider>
+    <slider animation="fade" class="recommend">
+      <h3>공포</h3>
+      <slider-item
+        v-for="movie in filteredHorrorMovies" 
+        :key="movie.pk"
+      >
+        <p>
+          <a :href="`/movie/${movie.pk}`">
+            <img :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+          </a>
+        </p>
+      </slider-item>
+    </slider>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import NavbarItem from '@/components/Common/NavbarItem.vue'
 import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import _ from 'lodash'
+import EasySlider from 'vue-easy-slider'
 import { mapActions, mapGetters } from 'vuex'
 
+Vue.use(EasySlider)
 
 export default {
   name: 'MainView',
@@ -125,5 +143,16 @@ export default {
 </script>
 
 <style>
+
+.recommend{
+    padding-top: 160%;
+}
+
+
+img {
+ height: 100%;
+ width: 100%;
+ object-fit: contain;
+}
 
 </style>
