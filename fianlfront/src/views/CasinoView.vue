@@ -509,8 +509,8 @@ export default {
   .quiz-choice {
     text-align: center;
     vertical-align: middle;
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 300;
     border-radius: 10px;
   }
 
@@ -537,7 +537,7 @@ export default {
     text-align: center;
     color:goldenrod;
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 200;
     border-radius: 10px;
   }
 
@@ -551,7 +551,7 @@ export default {
     background-color: #26382B;
     border-color: goldenrod;
     color: goldenrod;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .back-gacha-stash-button{
@@ -559,7 +559,7 @@ export default {
     background-color: #601d1d;
     border-color: goldenrod;
     color: goldenrod;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .card-gacha-button{
@@ -567,7 +567,7 @@ export default {
     background-color: #26382B;
     border-color: goldenrod;
     color: goldenrod;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .card-gacha-button-box{
