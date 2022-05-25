@@ -21,12 +21,15 @@
     <h2 class="h2">흥미진진한 범죄영화</h2>
     <br>
     <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-2 movie-img" v-for="movie in filteredCrimeMovies" :key="movie.pk">
-            <div class="img">
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredCrimeMovies" :key="movie.pk">
+            <div class="card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
-                <img style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
               </a>
             </div>
           </div>
@@ -43,12 +46,15 @@
     <h2 class="h2">가벼운 기분전환 코미디영화</h2>
     <br>
     <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-2 movie-img" v-for="movie in filteredComedyMovies" :key="movie.pk">
-            <div class="img">
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredComedyMovies" :key="movie.pk">
+            <div class="card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
-                <img style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
               </a>
             </div>
           </div>
@@ -62,15 +68,18 @@
     <div class="container movie-border">
     <br>
     <br>
-    <h2 class="h2">상상속 나만의 세상 판타지영화</h2>
+    <h2 class="h2">상상 속 나만의 세상 판타지영화</h2>
     <br>
     <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-2 movie-img" v-for="movie in filteredFantasyMovies" :key="movie.pk">
-            <div class="img">
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredFantasyMovies" :key="movie.pk">
+            <div class="card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
-                <img style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
               </a>
             </div>
           </div>
@@ -84,15 +93,18 @@
     <div class="container movie-border">
     <br>
     <br>
-    <h2 class="h2">나 이런거 잘 못봐 공포영화</h2>
+    <h2 class="h2">나 너무 무서워 공포영화</h2>
     <br>
     <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-2 movie-img" v-for="movie in filteredHorrorMovies" :key="movie.pk">
-            <div class="img">
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredHorrorMovies" :key="movie.pk">
+            <div class="card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
-                <img style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
               </a>
             </div>
           </div>
@@ -109,12 +121,15 @@
     <h2 class="h2">늘 그랬듯 답을 찾을 SF영화</h2>
     <br>
     <br>
-      <div class="container">
-        <div class="row">
-          <div class="col-2 movie-img" v-for="movie in filteredSFMovies" :key="movie.pk">
-            <div class="img">
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredSFMovies" :key="movie.pk">
+            <div class="card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
-                <img style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
               </a>
             </div>
           </div>
@@ -216,25 +231,68 @@ export default {
   justify-content: center;
 }
 
-.movie-img{
-  width: auto;
-  height: 350px;
-  border-radius: 30%;
-}
-
-.movieitem{
-  height: 10%;
-  width: 100;
-}
 
 .recommend{
-    padding-top: 160%;
+  padding-top: 160%;
 }
 
-img {
- height: 100%;
- width: 100%;
- object-fit: cover;
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.25s linear;
 }
+
+.movie-item{
+  /* width: 250px; */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, goldenrod 0%, goldenrod 100%);
+  width: 13rem;
+  overflow: cover;
+  box-shadow: 15px 15px 25px black;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.1);
+  transition: all 0.25s linear;
+}
+.card:hover img {
+  opacity: 0.2;
+  /* transform: scale(1.25); */
+}
+.card .inner-content {
+  width: 80%;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transition: all 600ms ease;
+  color: white;
+  font-size: 150%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.card:hover .inner-content {
+  opacity: 1;
+  top: 50%;
+  text-align: center;
+}
+.card .inner-content .title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+
 
 </style>
