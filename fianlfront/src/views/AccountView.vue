@@ -8,7 +8,7 @@
                 <!-- begin profile -->
                 <div class="profile">
                   <div class="profile-header">
-
+                    <!-- containoer profile-body -->
                       <div class="profile-header-content">
                         <!--프로필 헤더 이미지 (background) -->
                         <div class="nopoint" v-show="profile.casino_points < 0">
@@ -172,9 +172,9 @@ export default {
   background-color: #fff!important;
 }
 
-.profile-header{
-
-}
+/* .profile-header{
+  width: 100%;
+} */
 
 .profile-header-content {
   margin: 2% auto;
