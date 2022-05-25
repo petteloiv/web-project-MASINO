@@ -1,30 +1,70 @@
 <template>
   <div>
     <navbar-item></navbar-item>
-    <h1>게시판입니당</h1>
-    <br>
-    <!-- 여기에 article list 들어갑니다. -->
-    <ul>
-      <li v-for="article in articles" :key="article.pk">
-        <!-- 작성자 -->
-        {{ article.user.username }} : 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-header">
+            <h1>
+              MASINO 게시판
+            </h1>
+            <p>
+              영화와 가챠를 좋아하는 사람들이 모인 MASINO에서 이야기를 나눠보세요!
+            </p>
+            <p>
+              <router-link 
+                style="text-decoration:none; color:blanchedalmond;"
+              :to="{ name: 'articleCreate' }">글 작성하기 »</router-link>
+            </p>
+          </div>
 
-        <!-- 글 이동 링크 (제목) -->
-        <span v-if="article.id">
-          <router-link 
-            :to="{ name: 'articleDetail', params: {articlePk: article.id} }">
-            {{ article.title }}
-          </router-link>
-        </span>
+          <div class="community">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr style="color:whitesmoke">
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    제목
+                  </th>
+                  <th>
+                    작성자
+                  </th>
+                  <th>
+                    공감
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr class="highlight" v-for="(article, index) in articles" :key="article.pk">
+                  <!-- 글 pk -->
+                  <td style="color:whitesmoke" >{{ index + 1}}</td>
 
-        좋아요 : {{ article.like_count }}
+                  <!-- 글 제목 -->
+                  <td >
+                    <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'articleDetail', params: { articlePk: article.id } }">
+                      {{ article.title }}
+                    </router-link>
+                  </td>
 
-      </li>
-    </ul>
+                  <!-- 작성자 -->
+                  <td style="color:whitesmoke">
+                    {{article.user.username}}
+                  </td>
 
-    <!-- 새 글 쓰기 눌러서 => ArticleCreateView로 넘길 것 --> 
-    <router-link 
-      :to="{ name: 'articleCreate' }">글 작성하기</router-link>
+                  <!-- 좋아요 개수 -->
+                  <td style="color:whitesmoke">
+                    ❤ {{ article.like_count }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
 </template>
@@ -53,4 +93,14 @@ export default {
 
 <style>
 
+.page-header{
+  color: white;
+}
+
+.community {
+  border-style: solid;
+  /* border-color: goldenrod; */
+  border-radius: 20px;
+  background-color: #4c5f51; 
+}
 </style>
