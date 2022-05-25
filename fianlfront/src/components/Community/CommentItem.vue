@@ -1,24 +1,32 @@
 <template>
+
+
+
+<div class="container m-2">
+
   <li class="comment-list-item">
-    <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
-      {{ comment.user.username }}
-    </router-link>: 
+    <span class="comment"> {{ comment.user.username }} :</span>
     
-    <span v-if="!isEditing">{{ payload.content }}</span>
+    <span v-if="!isEditing" class="comment">{{ payload.content }}</span>
 
     <span v-if="isEditing">
       <input type="text" v-model="payload.content">
-      <button @click="onUpdate">Update</button> |
-      <button @click="switchIsEditing">Cancel</button>
+      <button class="comment-edit" @click="onUpdate">완료</button> |
+      <button class="comment-del" @click="switchIsEditing">취소</button>
     </span>
 
     <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button @click="switchIsEditing">Edit</button> |
-      <button @click="deleteComment(payload)">Delete</button> |
-      <button @click="likeComment(payload)">{{ comment.like_count }}</button> 
+      <button class="comment-edit" @click="switchIsEditing">수정</button> |
+      <button class="comment-del" @click="deleteComment(payload)">삭제</button> |
+      <!-- <button class="heart-btn" @click="likeComment(payload)">👍{{ comment.like_count }}</button>  -->
+    </span>
 
+    <span>
+      <button class="heart-btn" @click="likeComment(payload)">👍{{ comment.like_count }}</button> 
     </span>
   </li>
+
+</div>
 
 </template>
 
@@ -59,5 +67,51 @@ export default {
 </script>
 
 <style>
+
+.comment{
+  font-size:16px;
+}
+
+.comment-list-item{
+  list-style-type: decimal;
+  color: whitesmoke
+}
+.heart-btn{
+	background-color:#26382b;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:20px;
+	padding:0px 0px;
+	text-decoration:none;
+}
+.comment-edit {
+	background-color: goldenrod;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:12px;
+	padding:6px 20px;
+	text-decoration:none;
+}
+.comment-edit:hover {
+	background-color:#bec77a;
+}
+
+.comment-del {
+	background-color:#676b51;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:12px;
+	padding:6px 20px;
+	text-decoration:none;
+}
+.comment-del:hover {
+	background-color:#bec77a;
+}
 
 </style>

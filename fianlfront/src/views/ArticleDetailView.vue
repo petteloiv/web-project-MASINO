@@ -1,36 +1,50 @@
 <template>
   <div>
     <navbar-item></navbar-item>
-    <h1>{{ article.title }}</h1>
+    <div class="m-5 article-detail">
+      <br><br>
+      <h1 class="text-center" style="color:goldenrod;">{{article.title}}</h1>
+      <br>
+      <hr class="article-line" style="text-align:center;height:4px;color:goldenrod;">
 
-    <p>
-      {{ article.content }}
-    </p>
-    <!-- Article Edit/Delete UI -->
-    <div v-if="isAuthor">
-      <router-link :to="{ name: 'articleUpdate', params: { articlePk } }">
-        <button>수정</button>
-      </router-link>
-      |
-      <button @click="deleteArticle(articlePk)">삭제</button>
+      <!-- article 정보 -->
+      <div class="article-info">
+        <p> 작성자 : <span>{{ article.user.username }}</span> </p>
+        <p> 작성 시간 : {{ article.created_at }}</p>
+        <span>
+          <button class="heart-btn" @click="likeArticle(articlePk)">💛</button><span>{{ likeCount }}</span>
+        </span>
+        <div v-if="isAuthor">
+          <button class="article-edit">
+            <router-link style="text-decoration:none;color:white;" :to="{ name: 'articleUpdate', params: { articlePk } }">수정</router-link>
+          </button> 
+          <span>
+            <button class="article-del" @click="deleteArticle(articlePk)">삭제</button>
+          </span>          
+        </div>
+      </div>
+      <hr class="article-line" style="height:4px; color:goldenrod;">
+      <!-- article 내용 -->
+      <div class="article-content">
+        {{ article.content }}
+      </div>
+      <br>
+      <hr class="article-line" style="height:4px; color:goldenrod;">
+      <br>
+      <!-- 댓글 -->
+      <comment-list :comments="article.comments"></comment-list>
+
+
+      <br>
+      <!-- 가장 끝 부분 (돌아가기) -->
+      <button class="article-back">
+        <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
+      </button>
+
     </div>
+ 
+    
 
-    <!-- Article Like UI -->
-    <div>
-      좋아요:
-      <button
-        @click="likeArticle(articlePk)"
-      >{{ likeCount }}</button>
-    </div>
-
-    <hr />
-    <!-- Comment UI -->
-    <comment-list :comments="article.comments"></comment-list>
-
-    <br>
-    <router-link :to="{ name: 'community' }">
-      <button>목록으로 돌아가기</button>
-    </router-link>
 
   </div>
   
@@ -53,7 +67,7 @@ export default {
       }
     },
   computed: {
-    ...mapGetters(['isAuthor', 'article']),
+    ...mapGetters(['isAuthor', 'article','currentUser']),
     likeCount() {
       return this.article.like_users?.length
     }
@@ -73,6 +87,67 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+/* .article-detail{
+  border-style: solid;
+  border-color: goldenrod;
+  border-radius: 20px;
+} */
+
+.article-info{
+  color: blanchedalmond;
+}
+
+.article-content{
+  color: blanchedalmond;
+}
+
+
+.article-edit {
+	background-color: goldenrod;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:16px;
+	padding:6px 20px;
+	text-decoration:none;
+}
+.article-edit:hover {
+	background-color:#bec77a;
+}
+
+
+
+.article-del {
+	background-color:#676b51;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:16px;
+	padding:6px 20px;
+	text-decoration:none;
+}
+.article-del:hover {
+	background-color:#bec77a;
+}
+/* .article-del:active {
+	position:relative;
+	top:1px;
+} */
+
+.heart-btn{
+	background-color:#26382b;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:27px;
+	padding:0px 0px;
+	text-decoration:none;
+}
 
 </style>

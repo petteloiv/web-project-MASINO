@@ -1,14 +1,15 @@
 <template>
   <div>
-    <ul>
+    <ul class="comment-list p-0">
       <comment-item 
         v-for="comment in comments" 
         :comment="comment" 
         :key="comment.pk">
       </comment-item>
-
-      <comment-form></comment-form>        
+      <br>     
     </ul>
+
+    <comment-form></comment-form>   
 
 
 
@@ -34,5 +35,8 @@ export default {
 </script>
 
 <style>
-
+.comment-list{
+  line-height: 1em;
+  /* float: left; */
+}
 </style>

@@ -25,12 +25,14 @@
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredCrimeMovies" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <a :href="`/movie/${movie.pk}`">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
                   <span>{{ movie.title }}</span>
                 </div>
-              </a>
+              </router-link>
+              <!-- </a> -->
             </div>
           </div>
         </div>
@@ -50,12 +52,13 @@
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredComedyMovies" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <a :href="`/movie/${movie.pk}`">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
                   <span>{{ movie.title }}</span>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -75,12 +78,13 @@
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredFantasyMovies" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <a :href="`/movie/${movie.pk}`">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
                   <span>{{ movie.title }}</span>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -100,12 +104,13 @@
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredHorrorMovies" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <a :href="`/movie/${movie.pk}`">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
                   <span>{{ movie.title }}</span>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>
@@ -125,12 +130,13 @@
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredSFMovies" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <a :href="`/movie/${movie.pk}`">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
                   <span>{{ movie.title }}</span>
                 </div>
-              </a>
+              </router-link>
             </div>
           </div>
         </div>

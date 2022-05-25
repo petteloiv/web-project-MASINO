@@ -20,9 +20,17 @@
               <textarea rows="10" cols="50" v-model="newArticle.content" type="text" id="content" class="form-control" required></textarea>
             </div>
             <br>
-            <button class="article-button">완료</button>         
+            <button class="article-back">
+                <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
+             </button>  
+           
+            
+            
+            <span>
+              <button class="article-button submit">완료</button> 
+            </span> 
           </form>
-          <button class="btn"><router-link class="link-navbar" :to="{ name: 'community' }">목록으로 돌아가기</router-link></button>
+
           <br>
           <br>
       </div>
@@ -78,9 +86,29 @@ export default {
   color: blanchedalmond;
 }
 
-.article-button{
-  background-color: goldenrod;
-  color: blanchedalmond;
-  font-size: 16px;
+.article-button {
+	background-color:#daa520;
+	border-radius:20px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:16px;
+	padding:7px 20px;
+	text-decoration:none;
+}
+
+.article-button:hover {
+	background-color: darkolivegreen;
+}
+
+.article-back {
+  background-color:blanchedalmond;
+	border-radius:20px;
+	display:inline-block;
+	/* cursor:pointer; */
+	color:#ffffff;
+	font-size:16px;
+	padding:7px 20px;
+	text-decoration:none;
 }
 </style>
