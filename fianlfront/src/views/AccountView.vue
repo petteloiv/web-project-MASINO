@@ -93,7 +93,7 @@
                                     <div class="card casino-card col-2" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
                                     
                                       <img class="casino-card-img" style="height: 250px;" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-                                      <div class="casino-card-body" style="width:150px; height: 90px;">
+                                      <div class="casino-card-body" style="width:150px; height: 10px;">
                                         <h5 class="card-title">
                                           {{ card.name }}
                                         </h5>
