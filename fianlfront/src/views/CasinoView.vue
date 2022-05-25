@@ -211,30 +211,31 @@
   </div>
   </div>
   <!-- <div>
-    <navbar-item></navbar-item> -->
+    <navbar-item></navbar-item>
 
-    <!-- <h1>CASINO</h1>
+    <h1>CASINO</h1>
     <br>
 
-    <b-button 
+    <button 
     v-b-modal.modal-quiz
-    variant="primary"
+    class="quiz-button"
     @click="[fetchQuiz(), putQuiz(), pickAnswer(), notificate('1000 포인트를 사용하여 퀴즈를 시작합니다!')]">
         QUIZ
-    </b-button>
-    <b-modal id="modal-quiz" hide-footer hide-header size="xl" title="QUIZ">
+    </button>
+    <b-modal id="modal-quiz" hide-footer hide-header size="xl" title="QUIZ" no-close-on-backdrop body-bg-variant="dark">
     <img class="quiz-img" :src="`http://image.tmdb.org/t/p/original/${this.pickedAnswer.backdrop_path}`">
-    <div
+       {{ pickAnswer.backdrop_path }}
+    <div class="quiz-choice quiz-choice-box m-2" 
     v-for="quiz in quizs" :key="quiz.pk">
       <div v-if="quiz.pk === pickedAnswer.pk">
-        <b-button class="mt-3" variant="outline-danger" block @click="[fetchRaisePoint(), $bvModal.hide('modal-quiz'), notificate('정답입니다! 10000포인트 추가!')]">
+        <button class="m-2" block @click="[fetchRaisePoint(), $bvModal.hide('modal-quiz'), notificate('정답입니다! 10000포인트 추가!')]">
           {{ quiz.title }}
-        </b-button>
+        </button>
       </div>
       <div v-else>
-        <b-button  class="mt-3" variant="outline-danger" block @click="[$bvModal.hide('modal-quiz'), notificate('오답ㅠㅠ')]">
+        <button  class="m-2" block @click="[$bvModal.hide('modal-quiz'), notificate('오답ㅠㅠ')]">
           {{ quiz.title }}
-        </b-button>
+        </button>
       </div>
     </div>
     </b-modal>
@@ -246,17 +247,22 @@
     @click="[fetchBack(), pickBack(), notificate('1000 포인트를 사용하여 배경화면을 뽑았습니다!')]">
         BACK GACHA
     </b-button>
-    <b-modal id="modal-back" hide-footer hide-header size="xl" title="BACKGACHA">
-    <img :src="`http://image.tmdb.org/t/p/original/${this.pickedBack.backdrop_path}`">
-      <p>
+    <b-modal id="modal-back" hide-footer hide-header size="xl" title="BACKGACHA" no-close-on-backdrop body-bg-variant="dark">
+    <img class="backGacha-img" :src="`http://image.tmdb.org/t/p/original/${this.pickedBack.backdrop_path}`">
+    <br>
+    <br>
+      <div class="backGacha-title">
         {{ pickedBack.title }}
-      </p>
-      <b-button class="mt-3" variant="primary" block @click="[fetchStoreBack(pickedBack.pk), $bvModal.hide('modal-back'), notificate('프로필 배경사진이 바뀌었어요!')]">
+      </div>
+      <div class="backGacha-choice">
+        <b-button class="mt-3" variant="primary" block @click="[fetchStoreBack(pickedBack.pk), $bvModal.hide('modal-back'), notificate('프로필 배경사진이 바뀌었어요!')]">
           내 프로필 배경 바꾸기
-      </b-button>
-      <b-button class="mt-3" variant="danger" block @click="[$bvModal.hide('modal-back'), notificate('이걸 버리네!')]">
+        </b-button>
+        <b-button class="mt-3" variant="danger" block @click="[$bvModal.hide('modal-back'), notificate('이걸 버리네!')]">
           갖다 버리기
-      </b-button>
+        </b-button>
+      </div>
+      
     </b-modal>
 
     <br>
@@ -267,7 +273,7 @@
     @click="[fetchCard(), pickCard(), fetchStoreCard(pickedCard.pk), notificate('1000포인트를 사용하여 카드 1장을 뽑았습니다!')]">
         CARD GACHA
     </b-button>
-    <b-modal id="modal-card" hide-footer hide-header size="sm" title="CARDGACHA">
+    <b-modal id="modal-card" hide-footer hide-header size="sm" title="CARDGACHA" no-close-on-backdrop body-bg-variant="dark">
       <div style="border-radius: 10px;" class="card casino-card" :class="{'platinum': pickedCard.popularity >= 40, 'gold': pickedCard.popularity < 40, 'silver': pickedCard.popularity < 21, 'bronze': pickedCard.popularity < 14}">
         <div class="card-header">
             </div>
@@ -275,6 +281,11 @@
             <div class="card-body casino-card-body">
               <div style="vertical-align: middle;" class="card-title">{{ pickedCard.name }}</div>
             </div>
+      </div>
+      <div class="card-gacha-button-box">
+      <button class="mt-3 card-gacha-button" block @click="[$bvModal.hide('modal-card')]">
+          확인
+      </button>
       </div>
     </b-modal>
 
@@ -286,7 +297,7 @@
     @click="[fetchCards(), pickCards(), fetchStoreCard(pickedCards[0].pk), fetchStoreCard(pickedCards[1].pk), fetchStoreCard(pickedCards[2].pk), fetchStoreCard(pickedCards[3].pk), fetchStoreCard(pickedCards[4].pk), fetchStoreCard(pickedCards[5].pk), fetchStoreCard(pickedCards[6].pk), fetchStoreCard(pickedCards[7].pk), fetchStoreCard(pickedCards[8].pk), fetchStoreCard(pickedCards[9].pk), fetchStoreCard(pickedCards[10].pk),fetchStoreCard(pickedCards[11].pk),notificate('10000포인트를 사용하여 카드 12장을 뽑았습니다!')]">
         CARD GACHA TEN
     </b-button>
-    <b-modal id="modal-card-ten" hide-footer hide-header size="lg" title="CARDGACHATEN">
+    <b-modal id="modal-card-ten" hide-footer hide-header size="lg" title="CARDGACHATEN" no-close-on-backdrop body-bg-variant="dark">
       <div class="card-deck container">
         <div class="row">
           <div style="border-radius: 10px;" class="card casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
@@ -298,6 +309,11 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="card-gacha-button-box">
+      <button class="mt-3 card-gacha-button" block @click="[$bvModal.hide('modal-card-ten')]">
+          확인
+      </button>
       </div>
       
     </b-modal> -->
@@ -466,8 +482,69 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
-
   } */
+
+  .quiz-img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .quiz-choice {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 10px;
+  }
+
+  .quiz-choice button {
+    border-radius: 10px;
+    background-color: #26382B;
+    border-color: goldenrod;
+    color: goldenrod;
+  }
+
+  .quiz-choice-box {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .backGacha-img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .backGacha-title{
+    text-align: center;
+    background-color: rgb(41, 59, 11);
+    color:goldenrod;
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 10px;
+  }
+
+  .backGacha-choice{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .card-gacha-button{
+    border-radius: 10px;
+    background-color: #26382B;
+    border-color: goldenrod;
+    color: goldenrod;
+  }
+
+  .card-gacha-button-box{
+    display: flex;
+    justify-content: center;
+  }
+
+
 
   .platinum {
     background: rgb(248,255,160);
