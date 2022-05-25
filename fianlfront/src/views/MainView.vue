@@ -24,7 +24,7 @@
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredCrimeMovies" :key="movie.pk">
-            <div class="card" style="height: 300px">
+            <div class="movie-card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -49,7 +49,7 @@
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredComedyMovies" :key="movie.pk">
-            <div class="card" style="height: 300px">
+            <div class="movie-card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -74,7 +74,7 @@
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredFantasyMovies" :key="movie.pk">
-            <div class="card" style="height: 300px">
+            <div class="movie-card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -99,7 +99,7 @@
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredHorrorMovies" :key="movie.pk">
-            <div class="card" style="height: 300px">
+            <div class="movie-card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -124,7 +124,7 @@
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
           <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredSFMovies" :key="movie.pk">
-            <div class="card" style="height: 300px">
+            <div class="movie-card" style="height: 300px">
               <a :href="`/movie/${movie.pk}`">
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -236,12 +236,12 @@ export default {
   padding-top: 160%;
 }
 
-.img {
+/* .img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   transition: all 0.25s linear;
-}
+} */
 
 .movie-item{
   /* width: 250px; */
@@ -250,24 +250,24 @@ export default {
   justify-content: center;
 }
 
-.card {
+.movie-card {
   position: relative;
   background: linear-gradient(180deg, goldenrod 0%, goldenrod 100%);
   width: 13rem;
   overflow: cover;
   box-shadow: 15px 15px 25px black;
 }
-.card img {
+.movie-card img {
   width: 100%;
   height: auto;
   transform: scale(1.1);
   transition: all 0.25s linear;
 }
-.card:hover img {
+.movie-card:hover img {
   opacity: 0.2;
   /* transform: scale(1.25); */
 }
-.card .inner-content {
+.movie-card .inner-content {
   width: 80%;
   opacity: 0;
   transform: translateX(-50%) translateY(-50%);
@@ -282,12 +282,12 @@ export default {
   align-items: center;
   text-align: center;
 }
-.card:hover .inner-content {
+.movie-card:hover .inner-content {
   opacity: 1;
   top: 50%;
   text-align: center;
 }
-.card .inner-content .title {
+.movie-card .inner-content .title {
   font-size: 2.5rem;
   font-weight: 500;
   text-align: center;
