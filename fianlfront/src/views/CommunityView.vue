@@ -22,7 +22,7 @@
           </div>
           <br>
           <div class="community">
-            <table class="table table-hover table-striped">
+            <table class="table table-hover table-striped ">
               <thead>
                 <tr style="color:blanchedalmond; font-size:1.3rem;">
                   <th>

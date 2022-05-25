@@ -105,6 +105,7 @@ export default {
 
 
 .article-edit {
+  border: none;
 	background-color: goldenrod;
 	border-radius:20px;
 	display:inline-block;
@@ -115,12 +116,14 @@ export default {
 	text-decoration:none;
 }
 .article-edit:hover {
+  border: none;
 	background-color:#bec77a;
 }
 
 
 
 .article-del {
+  border: none;
 	background-color:#676b51;
 	border-radius:20px;
 	display:inline-block;
@@ -131,6 +134,7 @@ export default {
 	text-decoration:none;
 }
 .article-del:hover {
+  border: none;
 	background-color:#bec77a;
 }
 /* .article-del:active {
@@ -139,7 +143,7 @@ export default {
 } */
 
 .heart-btn{
-	background-color:#26382b;
+  border: none;
 	border-radius:42px;
 	display:inline-block;
 	cursor:pointer;

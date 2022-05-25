@@ -77,16 +77,18 @@ export default {
   color: whitesmoke
 }
 .heart-btn{
+  border: none;
 	background-color:#26382b;
 	border-radius:42px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-size:20px;
+	font-size:1.3rem;
 	padding:0px 0px;
 	text-decoration:none;
 }
 .comment-edit {
+  border: none;
 	background-color: goldenrod;
 	border-radius:20px;
 	display:inline-block;
@@ -97,10 +99,12 @@ export default {
 	text-decoration:none;
 }
 .comment-edit:hover {
+  border: none;
 	background-color:#bec77a;
 }
 
 .comment-del {
+  border: none;
 	background-color:#676b51;
 	border-radius:20px;
 	display:inline-block;
@@ -111,6 +115,7 @@ export default {
 	text-decoration:none;
 }
 .comment-del:hover {
+  border: none;
 	background-color:#bec77a;
 }
 
