@@ -3,7 +3,7 @@
     <navbar-item></navbar-item>
     <div class="container profile-body">
       <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12 p-12">
             <div id="content" class="content content-full-width">
                 <!-- begin profile -->
                 <div class="profile">
@@ -26,7 +26,8 @@
                         <div v-else>
                           <div class="profile-header-img">
                               <a :href="`/movie/${profile.movie.pk}`" >
-                                <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner">
+                                <img :src="`https://image.tmdb.org/t/p/original/${profile.movie.backdrop_path}`" alt="banner"
+                                  width="100%" style="border-radius: 30px;">
                               </a>
                           </div>
                         </div>
@@ -106,15 +107,18 @@
                             </b-tab>
                           </b-tabs>
                         </b-card>
+                        <br>
                       </div>
                   </div>                        
                 </div>
                 <!-- end profile-content -->
+                
             </div>
           </div>
       </div>
 
     </div>
+    <br><br>
   </div>
 </template>
 
@@ -186,7 +190,7 @@ export default {
 .profile-header-img{
   width: 100%;
   height: auto;
-  max-width: 50vw;
+  /* max-width: 50vw; */
 }
 
 /* profile-header-info {

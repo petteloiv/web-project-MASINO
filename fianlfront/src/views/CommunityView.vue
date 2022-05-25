@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="community-bg">
     <navbar-item></navbar-item>
     <div class="container-fluid">
       <div class="row">
@@ -92,6 +92,7 @@ export default {
 </script>
 
 <style>
+
 
 .page-header{
   color: white;

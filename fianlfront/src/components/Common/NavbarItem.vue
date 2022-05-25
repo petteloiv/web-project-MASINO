@@ -1,7 +1,7 @@
 <template>
   <div >
     <!-- fixed top 넣으면 그 아래가 겹친다.. -->
-    <b-navbar class="header"  toggleable="lg" type="dark" variant="dark">
+    <b-navbar class="header" toggleable="lg" type="dark" variant="dark">
      
       <b-navbar-brand href="/main">
         <img class="img-navbar" src="@/images/logo.png" alt="Masino">
