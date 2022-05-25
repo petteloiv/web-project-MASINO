@@ -69,7 +69,7 @@ export default {
 <style>
 
 .comment{
-  font-size:16px;
+  font-size:1.2rem;
 }
 
 .comment-list-item{

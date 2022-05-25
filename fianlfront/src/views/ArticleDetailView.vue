@@ -8,7 +8,7 @@
       <hr class="article-line" style="text-align:center;height:4px;color:goldenrod;">
 
       <!-- article 정보 -->
-      <div class="article-info">
+      <div class="article-info" style="font-size:1.2rem; color:blanchedalmond;">
         <p> 작성자 : <span>{{ article.user.username }}</span> </p>
         <p> 작성 시간 : {{ article.created_at }}</p>
         <span>
@@ -25,13 +25,13 @@
       </div>
       <hr class="article-line" style="height:4px; color:goldenrod;">
       <!-- article 내용 -->
-      <div class="article-content">
+      <div class="article-content" style="font-size:1.5rem; color:goldenrod;">
         {{ article.content }}
       </div>
       <br>
       <hr class="article-line" style="height:4px; color:goldenrod;">
-      <br>
       <!-- 댓글 -->
+      <p style="font-size:1.5rem; color:blanchedalmond;">댓글</p>
       <comment-list :comments="article.comments"></comment-list>
 
 
