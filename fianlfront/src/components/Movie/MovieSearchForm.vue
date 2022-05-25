@@ -4,7 +4,7 @@
   <form @submit.prevent="onSearch">
     <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
       <div class="input-group">
-        <input  style="border-radius: 70%;" v-model="keyword" placeholder="무슨 영화를 찾고 계세요?" type="search" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+        <input  style="border-radius: 15px;" v-model="keyword" placeholder="무슨 영화를 찾고 계세요?" type="search" aria-describedby="button-addon1" class="form-control border-0 bg-light">
         <div class="input-group-append">
           <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
         </div>
