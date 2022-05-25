@@ -203,7 +203,7 @@ export default {
 
   created() {
     // this.fetchCurrentUser()
-    // this.fetchMovies() 
+    this.fetchMovies() 
   },
 }
 </script>

@@ -19,11 +19,10 @@
           <!-- 영화 퀴즈 -->
           <div class="col-md-3 casino-movie">
             <div class="jumbotron">
-              <div class="user-wrap">
-                <div class="user-image"
-                    v-b-modal.modal-quiz
+              <div class="user-wrap" v-b-modal.modal-quiz
                     variant="primary"
                     @click="[fetchQuiz(), putQuiz(), pickAnswer(), notificateButton('1,000 포인트를 사용하여 퀴즈를 시작합니다!')]">
+                <div class="user-image">
                   <img style="border-radius: 20px;" class="casino-img" src="@/images/casino1.jpg" alt="">
                 </div>
                 <div class="user-text">
@@ -71,11 +70,10 @@
           <div class="col-md-3">
             <div class="jumbotron">
               
-              <div class="user-wrap">
-                <div class="user-image"
-                  v-b-modal.modal-back
+              <div class="user-wrap" v-b-modal.modal-back
                   variant="success"
                   @click="[fetchBack(), pickBack(), notificateButton('1,000 포인트를 사용하여 배경화면을 뽑았습니다!')]">
+                <div class="user-image">
                   <img class="casino-img" src="@/images/casino2.jpg" alt="">
                 </div>
                 <div class="user-text">
@@ -120,11 +118,10 @@
           <!-- 카드 단챠 -->
           <div class="col-md-3">
             <div class="jumbotron">
-              <div class="user-wrap">
-                <div class="user-image"
-                      v-b-modal.modal-card
+              <div class="user-wrap" v-b-modal.modal-card
                       variant="warning"
                       @click="[fetchCard(), pickCard(), fetchStoreCard(pickedCard.pk), notificateButton('1,000포인트를 사용하여 카드 1장을 뽑았습니다!')]">
+                <div class="user-image">
                   <img class="casino-img" src="@/images/casino3.jpg" alt="">
                 </div>
                 <div class="user-text">
@@ -169,11 +166,10 @@
           <!-- 카드 12회 -->
           <div class="col-md-3">
             <div class="jumbotron">
-              <div class="user-wrap">
-                <div class="user-image"
-                v-b-modal.modal-card-ten
+              <div class="user-wrap" v-b-modal.modal-card-ten
                 variant="danger"
                 @click="[fetchCards(), pickCards(), fetchStoreCard(pickedCards[0].pk), fetchStoreCard(pickedCards[1].pk), fetchStoreCard(pickedCards[2].pk), fetchStoreCard(pickedCards[3].pk), fetchStoreCard(pickedCards[4].pk), fetchStoreCard(pickedCards[5].pk), fetchStoreCard(pickedCards[6].pk), fetchStoreCard(pickedCards[7].pk), fetchStoreCard(pickedCards[8].pk), fetchStoreCard(pickedCards[9].pk), fetchStoreCard(pickedCards[10].pk),fetchStoreCard(pickedCards[11].pk),notificateButton('10000포인트를 사용하여 카드 12장을 뽑았습니다!')]">
+                <div class="user-image">
                   <img class="casino-img" src="@/images/casino4.jpg" alt="">
                 </div>
                 <div class="user-text">
