@@ -7,8 +7,8 @@
           <div class="card-header">
           </div>
           <img style="border-radius: 10px;" class="profile-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-          <div class="card-body profile-card-body">
-            <h5 style="vertical-align: middle;" class="card-title">{{ card.name }}</h5>
+          <div class="card-body profile-card-body" style="text-align: center;">
+            <div style="vertical-align: middle;" class="card-title">{{ card.name }}</div>
           </div>
         </div>
       </div>
@@ -76,6 +76,10 @@ export default {
 </script>
 
 <style>
+
+.card img {
+  transition: all 0.25s linear;
+}
 
 .btn-cover {
   margin-top: 1.5rem;
