@@ -2,7 +2,7 @@
 <!-- Page Content -->
 <div>
 <navbar-item></navbar-item>
-  <div class="container">
+  <div class="container ">
 
       <!-- Portfolio Item Heading -->
       <h1 class="my-4">{{ movie.title }}</h1>

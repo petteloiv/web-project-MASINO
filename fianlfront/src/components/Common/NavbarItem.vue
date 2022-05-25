@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+  <div >
+    <!-- fixed top 넣으면 그 아래가 겹친다.. -->
+    <b-navbar class="header"  toggleable="lg" type="dark" variant="dark">
      
       <b-navbar-brand href="/main">
         <img class="img-navbar" src="@/images/logo.png" alt="Masino">
@@ -46,6 +47,10 @@ export default {
 
 <style>
 
+ .navbar{
+  position: sticky;
+  top: 0;
+  }
  .navbar.navbar-dark.bg-dark{
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%)!important;
  }

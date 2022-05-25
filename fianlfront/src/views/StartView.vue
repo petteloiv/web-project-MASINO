@@ -3,16 +3,16 @@
     <account-error-list v-if="authError"></account-error-list>
     <br>
 
-    <section class="text-left text-lg-start" >
+    <section class="text-left text-lg-start">
       
       <div class="card mb-3" id="login">
         <div class="row g-0 d-flex align-items-center">
           <div class="col-lg-4 d-none d-lg-flex">
-            <img src='@/images/squarelogo.png' alt="Masino logo"
+            <img src='@/images/startlogo.png' alt="Masino logo"
               class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
           </div>
           <div class="col-lg-8">
-            <div class="card-body py-5 px-md-5">
+            <div class="card-body py-5 px-md-5" >
 
               <form @submit.prevent="login(credentials)">
                 <!-- Id input -->
@@ -127,6 +127,10 @@ export default {
 
 <style lang="scss" scoped>
 
+img {
+ object-fit: cover;
+}
+
 #login {
   width: 55%;
   // display: flex;
@@ -134,7 +138,8 @@ export default {
   // align-items: center;
   // flex-direction: column;
   margin: auto;
-  background: #E5E5E5;
+  padding: auto;
+  background: whitesmoke;
 }
 .rounded-t-5 {
   border-top-left-radius: 0.5rem;
