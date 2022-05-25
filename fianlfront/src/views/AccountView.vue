@@ -33,9 +33,9 @@
                         <br>
                         <!-- 프로필 헤더 정보 : 이름, 개인정보 수정, 포인트 -->
                         <div class="profile-header-info">
-                            <h2 class="m-t-10 m-b-5">🙋‍♂️ {{ profile.username }}님 안녕하세요!</h2>
+                            <h2 class="m-t-10 m-b-5" style="color : blanchedalmond;">🙋‍♂️ {{ profile.username }}님 안녕하세요!</h2>
                             <!-- 앞에 포인트 이모지 넣을 예정 -->
-                            <h3> 내 지갑 💰 {{profile.casino_points}} 포인트</h3>
+                            <h3 style="color : blanchedalmond;"> 내 지갑 💰 {{profile.casino_points}} 포인트</h3>
                             <p style="color:red;" v-show="profile.casino_points < 0">
                               상환 독촉장이 발송되오니 조속한 처리 바랍니다.
                             </p>
@@ -169,7 +169,10 @@ export default {
 <style>
 
 .profile-body{
-  background-color: #fff!important;
+    border-style: solid;
+    border-color: goldenrod;
+    border-radius: 30px;
+  
 }
 
 /* .profile-header{
@@ -185,6 +188,10 @@ export default {
   height: auto;
   max-width: 50vw;
 }
+
+/* profile-header-info {
+  color: whitesmoke;
+} */
 
 .nopoint{
   background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");

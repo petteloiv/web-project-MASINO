@@ -20,7 +20,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>User</em>
+              <em>{{ currentUser.username }}님</em>
             </template>
             <b-dropdown-item><router-link class="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></b-dropdown-item>
             <b-dropdown-item><router-link class="link-dropdown" :to="{ name: 'UserLogoutView' }">Logout</router-link></b-dropdown-item>
@@ -32,8 +32,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'NavbarItem',
+  computed:{
+    ...mapGetters(['currentUser'])
+  }
+  
 
 }
 </script>
