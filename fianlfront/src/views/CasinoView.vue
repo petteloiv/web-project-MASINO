@@ -489,11 +489,15 @@ export default {
     width: 150px;
   } */
 
-  /* .card-img{
+  .casino-card {
+    box-shadow: 15px 15px 25px black;
+  }
+
+  .card-img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-  } */
+  }
 
   .quiz-img {
     border-radius: 10px;

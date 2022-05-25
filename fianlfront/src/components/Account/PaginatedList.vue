@@ -93,4 +93,25 @@ export default {
 .btn-cover .page-count {
   padding: 0 1rem;
 }
+
+.profile-card {
+  box-shadow: 15px 15px 25px black;
+}
+
+.platinum {
+    background: rgb(248,255,160);
+    background: linear-gradient(0deg, rgba(248,255,160,1) 0%, rgba(181,251,255,1) 19%, rgba(255,158,253,1) 80%, rgba(253,255,199,1) 100%);
+  }
+.gold {
+  background: rgb(249,242,149);
+  background: linear-gradient(0deg, rgba(249,242,149,1) 0%, rgba(224,170,62,1) 23%, rgba(249,242,149,1) 79%, rgba(184,138,68,1) 100%);
+}
+.silver {
+  background: rgb(232,232,232);
+  background: linear-gradient(0deg, rgba(232,232,232,1) 0%, rgba(175,175,175,1) 23%, rgba(236,236,236,1) 79%, rgba(159,159,159,1) 100%);
+}
+.bronze {
+  background: rgb(255,220,180);
+  background: linear-gradient(0deg, rgba(255,220,180,1) 0%, rgba(120,61,12,1) 23%, rgba(255,222,161,1) 79%, rgba(120,61,12,1) 100%);
+}
 </style>
