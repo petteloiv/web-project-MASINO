@@ -1,8 +1,12 @@
 <template>
   <div>
     <navbar-item></navbar-item>
-    <h1>글을 작성하세요~~</h1>
-    <article-form :article="article" action="create"></article-form>
+    <div class="m-5">
+      <h3 class="text-center" style="color:white;">글을 작성하세요.</h3>
+      <p class="text-center" style="color:white;">글을 작성하시면 1,000포인트가 지급됩니다.</p>
+      <br>
+      <article-form :article="article" action="create"></article-form>
+    </div>
   </div>
 
 </template>

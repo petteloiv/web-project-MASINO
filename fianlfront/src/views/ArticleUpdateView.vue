@@ -1,9 +1,15 @@
 <template>
   <div>
     <navbar-item></navbar-item>
-    <h1>게시글 수정</h1>
-    <article-form v-if="isArticle" :article="article" action="update">
-    </article-form>
+    <div class="m-5 article-update">
+      <br>
+      <br>
+      <h1 class="text-center" style="color:goldenrod;">글을 수정하세요.</h1>
+      <!-- <p class="text-center" style="color:white;"></p> -->
+      <br>
+      <article-form v-if="isArticle" :article="article" action="update"></article-form>
+    </div>
+    
     
   </div>
   
@@ -34,5 +40,12 @@ export default {
 </script>
 
 <style>
+
+.article-update{
+  border-style: solid;
+  /* background-color: goldenrod; */
+  border-color: goldenrod;
+  border-radius: 20px;
+}
 
 </style>

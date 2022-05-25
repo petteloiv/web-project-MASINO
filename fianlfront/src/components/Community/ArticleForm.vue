@@ -1,17 +1,33 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <div>
-      <label for="title">제목: </label>
-      <input v-model="newArticle.title" type="text" id="title" required/>
-    </div>
-    <div>
-      <label for="content">내용: </label>
-      <textarea v-model="newArticle.content" type="text" id="content" required></textarea>
-    </div>
-    <div>
-      <button>{{ action }}</button>
-    </div>
-  </form> 
+
+
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 article-form">
+        <br>
+          <form @submit.prevent="onSubmit" >
+            <div class="form-group">
+            
+              <label for="title">제목: </label>
+              <br>
+              <input v-model="newArticle.title" type="text" id="title" required class="form-control" />
+            </div>
+            <br>
+            <div class="form-group">
+              
+              <label for="content">내용: </label>
+              <br>
+              <textarea rows="10" cols="50" v-model="newArticle.content" type="text" id="content" class="form-control" required></textarea>
+            </div>
+            <br>
+            <button class="article-button">완료</button>         
+          </form>
+          <button class="btn"><router-link class="link-navbar" :to="{ name: 'community' }">목록으로 돌아가기</router-link></button>
+          <br>
+          <br>
+      </div>
+  </div>
+ 
   
 </template>
 
@@ -58,4 +74,13 @@ export default {
 
 <style>
 
+.article-form{
+  color: blanchedalmond;
+}
+
+.article-button{
+  background-color: goldenrod;
+  color: blanchedalmond;
+  font-size: 16px;
+}
 </style>
