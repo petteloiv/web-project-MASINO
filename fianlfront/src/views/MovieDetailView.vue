@@ -2,49 +2,78 @@
 <!-- Page Content -->
 <div>
 <navbar-item></navbar-item>
-  <div class="container ">
-
-      <!-- Portfolio Item Heading -->
-      <h1 class="my-4">{{ movie.title }}</h1>
-    
-      <!-- Portfolio Item Row -->
-      <div class="row">
-    
-        <div class="col-md-8">
-          <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="">
-        </div>
-    
-        <div class="col-md-4">
-          <h3 class="my-3">{{movie.title}}이 궁금하신가요?</h3>
-          <p>{{ movie.overview }}</p>
-          <h3 class="my-3">기타 정보</h3>
-          <p> 장르 : 
-            <span v-for="genre in movie.genre_ids" :key="genre.pk">
-              <span>{{genre.name}} </span>
-            </span></p>
-          <p> 평점 : {{movie.vote_average}}</p>
-          <p> 개봉일 : {{movie.release_date}}</p>
+<div class="container movie-detail-border">
+  <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-5">
+          <br>
+					<img class="img-fluid movie-detail-poster" :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="">
+				</div>
+				<div class="col-md-7 movie-detail-contents">
+          <br>
+          <br>
+					<h1 class="text-center">
+						{{ movie.title }}
+					</h1>
+          <br>
+					<div class="row" style="justify-content: center;">
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-9">
+							<p>
+								{{movie.overview}}
+							</p>
+						</div>
+						<div class="col-md-1">
+						</div>
+					</div>
+          <br>
+          <br>
           
-        </div>
-    
-      </div>
+            <dl>
+              <dt>
+                장르
+                <span v-for="genre in movie.genre_ids" :key="genre.pk">
+                <span>{{genre.name}} </span>
+                </span>
+              </dt>
+              <dt>
+                평점
+                <span>{{movie.vote_average}} </span>
+              </dt>
+              <dt>
+                개봉일
+                <span>{{movie.release_date}}</span>
+              </dt>
+            </dl>
+				</div>
+			</div>
 
-      <h3 class="my-4">영화 사진</h3>
-    
-      <div class="row">
-    
-        <div class="col">
-          <a href="#">
-            <img class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" alt="">
-          </a>
+      <br>
+      <div>
+        <div class="row">
+          <div class="col-md-12">
+            <br>
+            <p style="text-align: center; color: goldenrod; font-size:2rem;" >스틸컷</p>
+            <img style="border-radius: 10px;" class="img-fluid" :src="`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`" alt="">
+            <br>
+            <br>
+          </div>
         </div>
-    
       </div>
-      <!-- /.row -->
-    
-    </div>
-  </div>
-  <!-- /.container -->
+      <br>
+
+		</div>
+	</div>
+</div>
+</div>
+<br>
+<br>
+</div>
+  
+  
 </template>
 
 <script>
@@ -76,4 +105,39 @@ export default {
 
 <style>
 
+.movie-detail-border{
+  border-style: solid;
+  border-color: goldenrod;
+  border-radius: 30px;
+}
+
+.movie-detail-poster {
+  border-radius: 7px;
+}
+
+.movie-detail-contents dl {
+  vertical-align: middle;
+}
+
+.movie-detail-contents h1 {
+  color: goldenrod;
+  font-size: 3rem;
+}
+
+.movie-detail-contents p {
+  color: blanchedalmond;
+  font-size: 1.2rem;
+}
+
+.movie-detail-contents dt {
+  color: goldenrod;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.movie-detail-contents span {
+  color: blanchedalmond;
+  font-size: 2rem;
+  text-align: center;
+}
 </style>
