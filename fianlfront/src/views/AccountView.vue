@@ -48,7 +48,9 @@
                         </div>
                       </div>
                       <br>
-                    
+
+                      
+
                       <div>
                         <b-card no-body>
                           <b-tabs card>
@@ -82,28 +84,42 @@
                                 </div>                                
                               </b-card-text>
                             </b-tab>
-                            <b-tab title="MY CARDS">
+                            <b-tab @click="sortPageArray()" title="MY CARDS">
                               <b-card-text>
                                 <h4>나의 배우 카드</h4>
                                 <br>
+                                
                                 <div v-if="profile.casino_points < 0">
                                   <h1 style="color:red;">압 류</h1>
                                   <h2>포인트를 상환하시어 압류를 해제하세요.</h2>
                                 </div>
-                                <div v-else class="card-deck container">
-                                  <div class="row">
-                                    <div class="card casino-card col-2" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
+                                
+                                  
                                     
-                                      <img class="casino-card-img" style="height: 250px;" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-                                      <div class="casino-card-body" style="width:150px; height: 10px;">
-                                        <h5 class="card-title">
-                                          {{ card.name }}
-                                        </h5>
+                                <!-- <div class="card-deck container">
+                                  <div class="row" style="justify-content: normal;">
+                                    <div style="border-radius: 10px;" class="card profile-card col-2 m-3 mx-3.5" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in profile.person_ids" :key="card.pk">
+                                      <div class="card-header">
                                       </div>
+                                      <img style="border-radius: 10px;" class="profile-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+                                      <div class="card-body profile-card-body">
+                                        <h5 style="vertical-align: middle;" class="card-title">{{ card.name }}</h5>
+                                      </div>
+                                    </div>
                                   </div>
-                                  </div>
+                                </div> -->
+                                <div v-else>
+                                  <button @click="platinumPageArray()">Platinum</button>
+                                  <button @click="goldPageArray()">Gold</button>
+                                  <button @click="silverPageArray()">Silver</button>
+                                  <button @click="bronzePageArray()">Bronze</button>
+                                  <paginated-list :list-array="pageArray" />
+                                </div>
 
-                                </div>     
+                                    
+                                  
+
+                                     
                               </b-card-text>
                             </b-tab>
                           </b-tabs>
@@ -127,12 +143,14 @@
 import NavbarItem from '@/components/Common/NavbarItem.vue'
 // import CardItem from '@/components/Common/CardItem.vue'
 import { mapActions, mapGetters } from 'vuex'
+import PaginatedList from '@/components/Account/PaginatedList.vue'
 
 
 export default {
   name: 'AccountView',
   components:{
     NavbarItem,
+    PaginatedList
     // CardItem
   },
   // data(){
@@ -154,6 +172,11 @@ export default {
   //     userPk: this.userPk(),
   //   }
   // },
+  data () {
+    return {
+      pageArray: []
+    }
+  },
   computed:{
     ...mapGetters(['profile']),
     // userPk(){
@@ -162,10 +185,36 @@ export default {
     // }
   },
   methods: {
-    ...mapActions(['fetchProfile'])
+    ...mapActions(['fetchProfile']),
+    sortPageArray() {
+      this.pageArray = this.profile.person_ids.sort(function (a,b) {
+        return b.popularity - a.popularity;
+      })
+    },
+    platinumPageArray() {
+      this.pageArray = this.profile.person_ids.filter(function(a){
+        return a.popularity >= 40
+      })
+    },
+    goldPageArray() {
+      this.pageArray = this.profile.person_ids.filter(function(a){
+        return a.popularity < 40 && a.popularity >= 21
+      })
+    },
+    silverPageArray() {
+      this.pageArray = this.profile.person_ids.filter(function(a){
+        return a.popularity < 21 && a.popularity >= 14
+      })
+    },
+    bronzePageArray() {
+      this.pageArray = this.profile.person_ids.filter(function(a){
+        return a.popularity < 14 && a.popularity >= 10
+      })
+    },
   },
   created() {
     this.fetchProfile()
+    // this.sortPageArray()
   }
 
 }
@@ -216,24 +265,25 @@ export default {
 
 }
 
-
 .link-update {
   color : whitesmoke;
 }
 
 /* 카드 css 이게 지금 픽셀처리가 돼서 이상해보임.. */
-.casino-card-body {
+.profile-card-body {
+    /* height: 70px;
+    width: 165.5px; */
     text-align: center;
   }
 
-  .casino-card {
-    height: 8rem;
-    width: 18rem;
+  .profile-card {
+    border-radius: 20px;
+    box-shadow: 15px 15px 25px black;
   }
 
-  .casino-card-img{
-    height: 250px;
-    width: 100%;
+  .profile-card-img{
+    height: 280px;
+    width: 180px;
   }
 
 

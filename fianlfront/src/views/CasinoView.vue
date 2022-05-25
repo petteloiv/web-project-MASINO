@@ -58,12 +58,12 @@
         CARD GACHA
     </b-button>
     <b-modal id="modal-card" hide-footer hide-header size="sm" title="CARDGACHA">
-      <div class="card" :class="{'platinum': pickedCard.popularity >= 40, 'gold': pickedCard.popularity < 40, 'silver': pickedCard.popularity < 21, 'bronze': pickedCard.popularity < 14}">
+      <div style="border-radius: 10px;" class="card casino-card" :class="{'platinum': pickedCard.popularity >= 40, 'gold': pickedCard.popularity < 40, 'silver': pickedCard.popularity < 21, 'bronze': pickedCard.popularity < 14}">
         <div class="card-header">
             </div>
-            <img class="card-img" :src="`http://image.tmdb.org/t/p/original/${pickedCard.profile_path}`">
-            <div class="card-body">
-              <h5 class="card-title">{{ pickedCard.name }}</h5>
+            <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${pickedCard.profile_path}`">
+            <div class="card-body casino-card-body">
+              <div style="vertical-align: middle;" class="card-title">{{ pickedCard.name }}</div>
             </div>
       </div>
     </b-modal>
@@ -79,18 +79,17 @@
     <b-modal id="modal-card-ten" hide-footer hide-header size="lg" title="CARDGACHATEN">
       <div class="card-deck container">
         <div class="row">
-          <div class="casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
+          <div style="border-radius: 10px;" class="card casino-card col-3 p-12" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in pickedCards" :key="card.pk">
             <div class="card-header">
             </div>
             <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
-            <div class="casino-card-body">
-              <h5 class="card-title">{{ card.name }}</h5>
+            <div class="card-body casino-card-body">
+              <div style="vertical-align: middle;" class="card-title">{{ card.name }}</div>
             </div>
+          </div>
         </div>
-        </div>
-    
-
       </div>
+      
     </b-modal>
 
 
@@ -159,20 +158,23 @@ export default {
 <style>
 
   .casino-card-body {
-    width: 165.5px;
-    height: 100px;
-    padding: 1px;
+    text-align: center;
   }
 
-  .casino-card {
+  .card-title {
+    font-size: 1.2rem;
+  }
+  /* .casino-card {
     height: 350px;
     width: 150px;
-  }
+  } */
 
-  .casino-card-img{
+  /* .card-img{
     height: 100%;
     width: 100%;
-  }
+    object-fit: cover;
+
+  } */
 
   .platinum {
     background: rgb(248,255,160);

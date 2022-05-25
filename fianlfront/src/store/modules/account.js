@@ -15,7 +15,7 @@ export default ({
     currentUser: {},
     profile: {},
     authError: null,
-    background: {}
+    background: {},
   },
   getters: {
     // !! 뒤집고 뒤집으면 t/f로 바뀐다
@@ -23,13 +23,13 @@ export default ({
     currentUser: state => state.currentUser,
     profile: state => state.profile,
     authError: state => state.authError,
-    authHeader: state => ({Authorization: `Token ${state.token}`})
+    authHeader: state => ({Authorization: `Token ${state.token}`}),
   },
   mutations: { 
     SET_TOKEN: (state, token) => state.token = token,
     SET_CURRENT_USER: (state, user) => state.currentUser = user,
     SET_PROFILE: (state, profile) => state.profile = profile,
-    SET_AUTH_ERROR: (state, error) => state.authError = error
+    SET_AUTH_ERROR: (state, error) => state.authError = error,
 
   },
   actions: {
