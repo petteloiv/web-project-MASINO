@@ -9,7 +9,7 @@
                 <div class="profile">
                   <div class="profile-header">
                     <!-- containoer profile-body -->
-                      <div class="profile-header-content">
+                      <div class="profile-header-content m-0">
                         <!--프로필 헤더 이미지 (background) -->
                        <div class="nopoint" v-show="anotherProfile.casino_points < 0">
                           <img src="@/images/geoji.png" alt="">  
@@ -19,12 +19,10 @@
                           <img style="border-radius: 20px;" src="@/images/dont_be_geoji.png" alt="">  
                         </div>
                         
-                          <div v-if="!anotherProfile.movie && anotherProfile.casino_points >= 0">
+                          <div style="text-align: center;" v-if="!anotherProfile.movie && anotherProfile.casino_points >= 0">
                             <div class="profile-header-no-image">
-                              <span>현재 보유한 </span> 
-                              <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
-                              <span>이 없습니다.</span>                      
-                            </div>   
+                              <h2>현재 보유한 배경이 없습니다.</h2>                    
+                            </div>    
                           </div>
 
                           <div v-if="anotherProfile.movie && anotherProfile.casino_points >= 0">
@@ -288,7 +286,8 @@ export default {
 }
 
 .profile-header-no-image {
-  background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
+  /* background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg"); */
+  background-color: #FFE2A4;
   text-align: center;
   border-radius: 20px;
 }
@@ -303,6 +302,8 @@ export default {
 .link-update {
   color : whitesmoke;
 }
+
+
 
 /* 카드 css 이게 지금 픽셀처리가 돼서 이상해보임.. */
 .profile-card-body {
@@ -329,6 +330,7 @@ export default {
     color: goldenrod;
     font-size: 1.2rem;
   }
+
 
   .platinum {
     background: rgb(248,255,160);

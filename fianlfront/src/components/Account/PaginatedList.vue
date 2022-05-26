@@ -40,7 +40,7 @@
                 <div class='modal-movie-list'>
                   <div class='modal-movie-list-box' v-for="movie in personInfo.movie_ids" :key="movie.pk">
                     <br>
-                    <router-link class="modal-card-text-movie"  :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+                    <router-link class="modal-card-text-movie" style="text-decoration: none;"  :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
                       {{ movie.title }}
                     </router-link>
                     
