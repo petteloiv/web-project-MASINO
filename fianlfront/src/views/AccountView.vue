@@ -50,9 +50,12 @@
                             </p>
 
                         </div>
-                        <button class="update-profile"> 개인정보수정
-                          <router-link style=text-decoration:none; class="link-update" :to="{ name: 'UserUpdateView' }"> </router-link>
-                        </button>
+                        
+                          <router-link style=text-decoration:none; class="link-update" :to="{ name: 'UserUpdateView' }">
+                            <button class="update-profile"> 개인정보수정
+                            </button>
+                          </router-link>
+                        
                       </div>
                       
 
@@ -339,7 +342,7 @@ export default {
   }
 
   .update-profile{
-    margin-left: 15px;
+    margin: 15px;
     border-radius: 20px;
     background-color: #26382B;
     border-color: goldenrod;
