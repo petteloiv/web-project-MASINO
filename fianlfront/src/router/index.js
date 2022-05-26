@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import StartView from '@/views/StartView.vue'
 import AccountView from '@/views/AccountView.vue'
+import AnotherAccountView from '@/views/AnotherAccountView.vue'
 import ArticleCreateView from '@/views/ArticleCreateView.vue'
 import ArticleDetailView from '@/views/ArticleDetailView.vue'
 import ArticleUpdateView from '@/views/ArticleUpdateView.vue'
@@ -69,6 +70,11 @@ const routes = [
     name: 'profile',
     component: AccountView,
     // props : true
+  },
+  {
+    path: '/profile/:username',
+    name: 'anotherProfile',
+    component: AnotherAccountView,
   },
   {
     path: '/main',

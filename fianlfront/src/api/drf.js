@@ -13,6 +13,7 @@ export default {
     currentUserInfo: () => HOST + ACCOUNTS + 'user/',
     // profile: (userPk) => HOST + ACCOUNTS + 'profile/' + `${userPk}`,
     profile: () => HOST + ACCOUNTS + 'profile/',
+    anotherProfile: (username) => HOST + ACCOUNTS + 'profile/' + `${username}`,
 
   },
   movies: {

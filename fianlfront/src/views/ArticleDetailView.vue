@@ -9,7 +9,11 @@
 
       <!-- article 정보 -->
       <div class="article-info" style="font-size:1.2rem; color:blanchedalmond;">
-        <p> 작성자 : <span>{{ article.user.username }}</span> </p>
+        <p> 작성자 : 
+          <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
+            <span>{{ article.user.username }}</span>
+          </router-link>
+           </p>
         <p> 작성 시간 : {{ article.created_at }}</p>
         <span>
           <button class="heart-btn" @click="likeArticle(articlePk)">💛</button><span>{{ likeCount }}</span>

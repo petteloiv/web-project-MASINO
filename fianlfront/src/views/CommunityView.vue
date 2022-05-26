@@ -54,7 +54,10 @@
 
                   <!-- 작성자 -->
                   <td style="color:whitesmoke; font-size:1.2rem;">
-                    {{article.user.username}}
+                    <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
+                      {{article.user.username}}
+                    </router-link>
+
                   </td>
 
                   <!-- 좋아요 개수 -->

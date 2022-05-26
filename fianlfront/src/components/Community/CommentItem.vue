@@ -5,7 +5,10 @@
 <div class="container m-2">
 
   <li class="comment-list-item">
-    <span class="comment"> {{ comment.user.username }} :</span>
+    <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: comment.user.username} }">
+      <span class="comment"> {{ comment.user.username }}  </span>
+    </router-link>
+    <!-- <span class="comment"> {{ comment.user.username }} :</span> -->
     
     <span v-if="!isEditing" class="comment">{{ payload.content }}</span>
 

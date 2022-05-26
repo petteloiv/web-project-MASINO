@@ -16,6 +16,7 @@ export default ({
     profile: {},
     authError: null,
     background: {},
+    anotherProfile: {},
   },
   getters: {
     // !! 뒤집고 뒤집으면 t/f로 바뀐다
@@ -24,12 +25,14 @@ export default ({
     profile: state => state.profile,
     authError: state => state.authError,
     authHeader: state => ({Authorization: `Token ${state.token}`}),
+    anotherProfile: state => state.anotherProfile,
   },
   mutations: { 
     SET_TOKEN: (state, token) => state.token = token,
     SET_CURRENT_USER: (state, user) => state.currentUser = user,
     SET_PROFILE: (state, profile) => state.profile = profile,
     SET_AUTH_ERROR: (state, error) => state.authError = error,
+    SET_ANOTHER_PROFILE: (state, anotherProfile) => state.anotherProfile = anotherProfile
 
   },
   actions: {
@@ -155,5 +158,16 @@ export default ({
           commit('SET_PROFILE', res.data)
         })
     },
+
+    fetchAnotherProfile({ commit, getters }, username) {
+      axios({
+        url: drf.accounts.anotherProfile(username),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_ANOTHER_PROFILE', res.data)
+        })
+    }
   },
 })
