@@ -116,11 +116,11 @@ export default {
       ...mapGetters(['authError'])
     },
   methods: {
-    ...mapActions(['login', 'fetchMovies'])
+    ...mapActions(['login', 'fetchMovies', 'fetchCurrentUser'])
   },
-  unmounted() {
-    this.fetchMovies()
-    this.fetchCurrentUser()
+  created() {
+    // this.fetchMovies()
+    // this.fetchCurrentUser()
   }
 }
 </script>
