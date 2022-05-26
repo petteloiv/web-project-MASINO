@@ -16,8 +16,8 @@
 
               <form @submit.prevent="login(credentials)">
                 <!-- Id input -->
-                <h3>영화 놀이터 MASINO에 입장하시려면</h3>
-                <h3>회원 인증이 필요합니다.</h3>
+                <h2 class="text-center">영화 놀이터 MASINO에 입장하시려면</h2>
+                <h2 class="text-center">회원 인증이 필요합니다.</h2>
                 <br>
                 <div class="form-outline mb-4">
                   <label class="form-label" for="username">아이디를 입력하세요.</label>
@@ -32,7 +32,7 @@
 
                 <!-- Submit button -->
                 <div style="display:inline-block ">
-                  <button class="btn btn-primary btn-block mb-4">로그인</button>
+                  <button class="login-button mb-4">로그인</button>
                   <p style="text-align: center;">
                     회원이 아니신가요? <a href="/signup">가입하기</a>
                   </p>
@@ -99,6 +99,18 @@ img {
 .rounded-t-5 {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+}
+
+.form-label{
+  font-size: 1.5rem;
+}
+
+.login-button{
+  border-radius: 10px;
+  // background-color: #26382B;
+  border-color: black;
+  color: black;
+  font-size: 1.5rem;
 }
 
 @media (min-width: 992px) {

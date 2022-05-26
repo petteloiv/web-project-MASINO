@@ -290,6 +290,7 @@ export default {
   data(){
     return {
       Comedy: [],
+      Crime: [],
       Western: [],
       SF: [],
       Horror: [],
@@ -400,9 +401,12 @@ export default {
     },
   },
 
-  created() {
-    // this.fetchCurrentUser()
+  created(){
     this.fetchMovies() 
+    // this.fetchCurrentUser()
+    
+  },
+  mounted (){
     this.filterComedyMovies()
     this.filterCrimeMovies()
     this.filterSFMovies()
@@ -508,7 +512,7 @@ export default {
   background: linear-gradient(180deg, goldenrod 0%, goldenrod 100%);
   width: 13rem;
   overflow: cover;
-  box-shadow: 15px 15px 25px black;
+  box-shadow: 15px 15px 40px black;
 }
 .movie-card img {
   width: 100%;
