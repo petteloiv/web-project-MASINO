@@ -181,7 +181,7 @@
               </div>                
               <hr style="height:4px; color:goldenrod;">
               <p class="casino-detail text-center">
-                💸 참여 : -1,000포인트
+                💸 참여 : -10,000포인트
                 <br>
                 🌟 플래티넘 🥇 골드 🥈 실버 🥉 브론즈 등급 (12장)
                  

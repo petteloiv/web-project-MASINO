@@ -81,11 +81,11 @@ export default ({
       })
         .then(res => {
           commit('SET_ARTICLE', res.data)
-          swal("1000점이 적립되었습니다!", {
+          swal("3000점이 적립되었습니다!", {
             title: "축하드립니다!",
             icon: "info",
             buttons: false,
-            timer: 4000,
+            timer: 2000,
           })
           router.push({
             name: 'articleDetail',
@@ -174,7 +174,7 @@ export default ({
             title: "축하드립니다!",
             icon: "info",
             buttons: false,
-            timer: 4000,
+            timer: 2000,
           })
         })
         .catch(err => console.error(err.response))

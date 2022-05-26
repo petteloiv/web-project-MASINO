@@ -4,7 +4,7 @@
     <div class="m-5 article-create">
       <br><br>
       <h1 class="text-center" style="color:goldenrod;">글을 작성하세요.</h1>
-      <p class="text-center" style="color: blanchedalmond;">글을 작성하시면 1,000포인트가 지급됩니다.</p>
+      <p class="text-center" style="color: blanchedalmond;">글을 작성하시면 3,000포인트가 지급됩니다.</p>
       <br>
       <article-form :article="article" action="create"></article-form>
     </div>
