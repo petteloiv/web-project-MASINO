@@ -1,6 +1,10 @@
-# 2022 Movie Website Project
+# :clapper: 2022 Movie Website Project :slot_machine:
 
 SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 웹 서비스를 구현하며 작성하였습니다. 
+
+
+
+[TOC]
 
 
 
@@ -19,12 +23,12 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 눈물 날 정도로 약한 서`상`균 박지`현의` `4`조 
 
-![팀이미지](ReadMe.assets/팀이미지.png)
+<img src="ReadMe.assets/팀이미지.png" alt="팀이미지" style="zoom: 67%;" />
 
-| 이름   | 역할         | 업무 분담 내역                                    |
-| ------ | ------------ | ------------------------------------------------- |
-| 서상균 | 팀장         | Back-end / Django 서버 구현 / Vue 클라이언트 구현 |
-| 박지현 | 팀원, 젼버덕 | Front-end / Vue 클라이언트 구현                   |
+| 이름                  | 역할         | 업무 분담 내역                                    |
+| --------------------- | ------------ | ------------------------------------------------- |
+| 서상균 :feet:         | 팀장         | Back-end / Django 서버 구현 / Vue 클라이언트 구현 |
+| 박지현 :purple_heart: | 팀원, 젼버덕 | Front-end / Vue 클라이언트 구현                   |
 
 
 
@@ -32,18 +36,19 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 ---
 
-| 날짜       | 진행 | 내용                                                         |
-| ---------- | ---- | ------------------------------------------------------------ |
-| 2022-05-16 | 기획 | 기능 기획                                                    |
-| 2022-05-17 | 기획 | 기능 구체화, 디자인 컨셉 선정, 수집 필요한 데이터 정리       |
-| 2022-05-18 | 기획 | API docs 구성, 목업 작성, 컴포넌트 구조 작성, 영화 데이터 수집 |
-| 2022-05-19 | 기획 | 목업, DB 모델링, ERD 작성 완료, 영화 데이터 수집, Django 프로젝트 설정 |
-| 2022-05-20 | 개발 | **Front**<br />- 프론트 프로젝트 생성<br />- 컴포넌트 생성, router 링크 작성<br />- vuex store 모듈화<br />**Back**<br />- API url 정리<br />- 데이터 가공 및 전송 로직 작성 |
-| 2022-05-21 | 개발 | **Front**<br />- Account login, logout, signup<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 데이터 가공 및 전송 로직 작성 |
-| 2022-05-22 | 개발 | **Front**<br />- Account profile, user update<br />- Community  create<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 영화 추천 알고리즘 작성 |
-| 2022-05-23 | 개발 | **Front**<br />- Community comment, article 전체 완성<br />- Movie search, detail (박지현)<br />- Movie recommend (서상균)<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정 |
-| 2022-05-24 | 개발 | **Front**<br />- Casino quiz, back gacha, card gacha (서상균)<br />-  개발 완료된 기능 스타일링 |
-|            |      |                                                              |
+| 날짜       | 진행                    | 내용                                                         |
+| ---------- | ----------------------- | ------------------------------------------------------------ |
+| 2022-05-16 | 기획                    | 기능 기획                                                    |
+| 2022-05-17 | 기획                    | 기능 구체화, 디자인 컨셉 선정, 수집 필요한 데이터 정리       |
+| 2022-05-18 | 기획                    | API docs 구성, 목업 작성, 컴포넌트 구조 작성, 영화 데이터 수집 |
+| 2022-05-19 | 기획                    | 목업, DB 모델링, ERD 작성 완료, 영화 데이터 수집, Django 프로젝트 설정 |
+| 2022-05-20 | 개발                    | **Front**<br />- 프론트 프로젝트 생성<br />- 컴포넌트 생성, router 링크 작성<br />- vuex store 모듈화<br />**Back**<br />- API url 정리<br />- 데이터 가공 및 전송 로직 작성 |
+| 2022-05-21 | 개발                    | **Front**<br />- Account login, logout, signup<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 데이터 가공 및 전송 로직 작성 |
+| 2022-05-22 | 개발                    | **Front**<br />- Account profile, user update<br />- Community  create<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정<br />- 영화 추천 알고리즘 작성 |
+| 2022-05-23 | 개발                    | **Front**<br />- Community comment, article 전체 완성<br />- Movie search, detail (박지현)<br />- Movie recommend (서상균)<br />**Back**<br />- Front 개발 단계에 맞춰 로직 수정 |
+| 2022-05-24 | 개발                    | **Front**<br />- Casino quiz, back gacha, card gacha (서상균)<br />-  개발 완료된 기능 스타일링<br />**Back**<br />- Front 기능 수정에 맞춰 로직 수정 |
+| 2022-05-25 | 개발, 디버깅            | **Front**<br />- 개발 완료된 기능 스타일링<br />- 추가 기능 구현 : <br />[완성]<br />Profile 페이지 배우 카드 정렬, Alert 수정 <br />[미완성] <br />Article에 카드 첨부 |
+| 2022-05-26 | 개발, 디버깅, 발표 준비 | **Front**<br />- 개발 완료된 기능 스타일링<br />- 추가 기능 구현 <br />[완성]<br />Profile 배우 카드 누르면 배우 정보 나오게 설정 (서상균) |
 
 
 
@@ -84,11 +89,18 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 - 추천 알고리즘
 
   - 영화 장르별 추천 알고리즘
-  - 다양한 장르의 유명 영화들을 랜덤으로 10개씩 제공
+  - 다양한 장르의 유명 영화들을 랜덤으로 12개씩 제공
+  - 평점 필터링 / 장르 필터링
 
    
 
 - 주요 기능
+
+  - 영화 : 영화 추천 및 검색, 간단한 정보 제공
+  - 커뮤니티 : 게시글 작성 및 게시글 안에 댓글 작성 기능
+  - 카지노 : 포인트 획득할 수 있는 퀴즈, 배경 및 카드 뽑기
+  - 프로필 : 현재 포인트, 뽑은 배경, 작성한 글, 보유 카드 확인 가능
+
 
 
 
@@ -111,22 +123,147 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 - (1:N)
 - (M:M)
 
-```python
+```
+상균님 이 부분 작성 원하시면 작성해주시면 댑니다 ... 안쓸건데? 하면 그냥 지워주세요
 ```
 
 
 
-### 8. 주요 기능 
+### 8. 구현한 기능
 
 ---
+
+
+
+#### 8-1. 시작 화면 
+
+![image-20220527011818132](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011818132.png)
+
+- 로그인 화면
+  - 로그인 해야만 모든 서비스를 이용할 수 있다.
+  - 완성 전 버전이어서 글이 이상하게 들어가있음
+  - 회원이 아니라면 가입창 링크로 연결 
+  - 일치하지 않는 항목 / 로그인 오류가 나는 경우에 alert가 뜬다
+
+
+
+![image-20220527012249558](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527012249558.png)
+
+- 회원가입
+  - 일치하지 않는 항목이 있으면 alert가 뜬다.
+
+
+
+#### 8-2. 메인 페이지
+
+![image-20220527011009672](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011009672.png)
+
+- 영화 추천 페이지, 새롭게 추천 받기 버튼이 메인에 위치
+  - 각 영화의 포스터를 누르면 영화 세부 정보로 이동
+  - 오른쪽의 스페이드는 Back to Top 버튼 : 누르면 페이지의 가장 위로 이동한다
+  - navbar의 검색창을 통해 언제든지 영화 검색이 가능하다 
+
+- 영화 추천 알고리즘
+  - 1차로 평점 순으로 영화를 받아온다 
+  - 2차로 보여줄 때 장르로 분류해 추천한다.
+
+
+
+![image-20220527011113239](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011113239.png)
+
+- 영화 디테일 페이지 
+  - 포스터, 제목, 장르, 평점, 개봉일, 줄거리, 썸네일이 포함된 영화 세부 정보 페이지 
+
+
+
+![image-20220527011155956](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011155956.png) 
+
+![image-20220527014153792](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527014153792.png)
+
+- navbar의 검색창으로 검색했을 때의 결과
+  - 검색결과가 없을 경우에 알리는 문구가 표시된다.
+  - 검색된 영화를 누르면 영화 세부 정보로 이동 
+
+
+
+#### 8-3. Community
+
+![image-20220527011219197](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011219197.png)
+
+- 게시판 메인
+  - 글 작성 페이지, 작성된 글들이 표시된다.
+  - 제목 => 글 디테일, 작성자 => 해당 작성자의 프로필로 이동한다.
+
+
+
+![image-20220527011321536](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011321536.png)
+
+- 글 디테일
+  - 작성자 (누르면 프로필로 이동), 작성일, 공감, 댓글 수, 글 내용, 댓글과 댓글 작성폼이 포함된다.
+  - 글 내용 부분은 스크롤 설정해둬서 일정 크기보다 커지면 자동 스크롤 
+
+
+
+![image-20220527011348645](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011348645.png)
+
+- 글 작성 / 수정 페이지 (같은 폼을 사용한다)
+  - 제목, 내용 입력
+  - 작성시 완료를 누르면 포인트가 들어왔다는 창이 뜬다.
+
+
+
+#### 8-4. 카지노
+
+![image-20220527011438026](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011438026.png)
+
+- 포인트 획득 퀴즈 / 뽑기 3 종류로 이루어짐
+  - 영화 맞추기 -> 스틸컷을 보고 영화 제목을 맞추면 10,000 포인트 획득 가능 
+  - 배경 뽑기 => 랜덤으로 배경을 뽑아 나의 프로필에 설정할 수 있다
+  - 카드 뽑기 (1장, 12장) => 배우 카드를 뽑을 수 있다. 총 4가지 등급(유명도 순)으로 나뉘어진다.
+
+
+
+![image-20220527011503131](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011503131.png)
+
+- 예시는 배경 뽑기 ..
+  - 퀴즈 맞추거나 뽑을 때마다 획득 알림이 뜬다 
+
+
+
+#### 8-5. 프로필
+
+![image-20220527011654874](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011654874.png)
+
+- 내가 뽑아서 설정한 배경화면
+  - 배경화면이 없는 경우에는 안내문구와 카지노로 가는 링크 연결 
+- 아이디, 현재 가지고 있는 포인트, 개인정보수정 (이메일 하나), 작성글, 가지고 있는 카드들 포함
+  - 글 제목을 누르면 글 디테일로 이동한다.
+
+![image-20220527011719760](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011719760.png)
+
+- 내 배우 카드 
+  - 등급 순서대로 정렬 (기본)
+  - 위의 버튼을 통해서 등급별로 볼 수 있다
+  - 카드를 누르면 해당 배우의 정보가 담긴 모달창 
+
+
+
+### 9. 아쉬웠던 점 
+
+---
+
+- article에 배우 카드 넣는거 꼭 하고 싶었는데 구현하지 못했다 ㅜㅜ 
+  - MTM POST 요청 보내기
+- article pagination 적용 못한 점 
+- article 좋아요 유무에 따른 버튼 다르게 보이기
+  - 빈하트 / 꽉찬하트 
+-  error 창이 자꾸 localstorage에 저장되는지 alert가 계속 발생하는 문제 해결 못한 점
 
 
 
 ### 오류가 키워 준 지식 :v:
 
 ---
-
-#### 
 
 - module을 나눠서 사용하면 다른 파일들은 `new Vuex.Store` 붙일 필요 없이 그냥 `export default ({})` 로 작성하면 된다! 이미 index가 생성해뒀기 때문! 
   - <img src="ReadMe.assets/unknown.png" alt="img" style="zoom:80%;" />
@@ -155,6 +292,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
   - ![image-20220523001458779](ReadMe.assets/image-20220523001458779.png)
   - article 작성 됨 => article Detail로 이동해야하는데 articlePk값이 없다고 한다 ,,, 하지만 getters.article.id 에 분명 값이 잘 들어있고요? 
   - 모든 코드에서 pk값이 말썽을 부리는 문제가 발생합니다 ......
+  - 이거.. 아마 router.params에서 꺼내서 해결 했던 것 같습니다.
 
 ---
 
@@ -187,5 +325,13 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
           }).catch(err => err)
   ```
 
-  
 
+
+
+---
+
+- 기타 스타일링 하면서 알게 된 여러 사실들
+  - 버튼 테두리 border - 0
+  - background-color 대신 background 써볼 것
+    - navbar 색 설정하면서 알게됨
+  - 어디서 어디로 어느 데이터 보내주는지 먼저 잘 파악할 것!
