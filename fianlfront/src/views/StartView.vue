@@ -16,7 +16,8 @@
 
               <form @submit.prevent="login(credentials)">
                 <!-- Id input -->
-                <h2 class="text-center">영화 놀이터 MASINO에 입장하시려면</h2>
+                <h2 class="text-center">영화 놀이터 MASINO에</h2>
+                <h2 class="text-center">입장하시려면</h2>
                 <h2 class="text-center">회원 인증이 필요합니다.</h2>
                 <br>
                 <div class="form-outline mb-4">

@@ -3,7 +3,7 @@
     <nav class="my-nav navbar navbar-expand-lg sticky-top">
       <div class="container-fluid p-0">
         <a class="navbar-logo" href="/main">
-          <img class="img-navbar" src="@/images/logo.png" alt="Masino">
+          <img class="img-navbar mx-3" src="@/images/cutlogo.png" alt="Masino">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,10 @@
           </ul>
           <form class="d-flex p-1" role="search" @submit.prevent="onSearch">
             <input v-model="keyword" class="form-control me-2" type="search" placeholder="영화를 검색하세요" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+            <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i></button>
           </form>
           <ul>
-            <li class="nav-item dropdown mt-2 ">
+            <li class="nav-item dropdown mt-2 mx-2 ">
               <a style="color:white;font-size:1.2rem;" class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 &#127808; {{ currentUser.username }}님
               </a>
@@ -100,8 +100,8 @@ export default {
    font-size: x-large;
   }
  .img-navbar{
-   width: 120px;
-   height: 120px;
-   object-fit: cover;
+   width: 150px;
+   height: 100px;
+   object-fit: contain;
  }
 </style>

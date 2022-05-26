@@ -39,10 +39,10 @@
                         <br>
                         <!-- 프로필 헤더 정보 : 이름, 개인정보 수정, 포인트 -->
                         <div class="profile-header-info text-center">
-                            <h2 class="m-t-10 m-b-5" style="color: goldenrod;"> {{ profile.username }}
-                              <small style="color: blanchedalmond; font-size: 2.5rem">님 안녕하세요! 🙋‍♂️</small></h2>
+                            <h2 class="m-t-10 m-b-5" style="color: goldenrod;font-size: 3rem;"> {{ profile.username }}
+                              <small style="color: blanchedalmond;">님 안녕하세요! 🙋‍♂️</small></h2>
                             <!-- 앞에 포인트 이모지 넣을 예정 -->
-                            <h3 style="color : blanchedalmond; font-size: 2.5rem"> 💰 내 지갑  <span style="color: goldenrod;">{{profile.casino_points}}</span> 포인트</h3>
+                            <h3 style="color : blanchedalmond; font-size: 2rem"> 💰 내 지갑  <span style="color: goldenrod;">{{profile.casino_points}}</span> 포인트</h3>
                             <p style="color: red; font-size: 1.5rem" v-show="profile.casino_points < 0">
                               신용등급이 불량하여 보유하신 카드를 압류합니다.
                             </p>

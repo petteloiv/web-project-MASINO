@@ -23,7 +23,7 @@
                 </router-link>
               </p>
               <p>
-                작성 시간: {{ article.created_at }}
+                작성일: {{ articleDate }}
               </p>              
             </div>
 
@@ -132,7 +132,10 @@ export default {
     ...mapGetters(['isAuthor', 'article','currentUser']),
     likeCount() {
       return this.article.like_users?.length
-    }
+    },
+    articleDate(){
+      return this.article.created_at.substr(0, 10);
+    },
   },
   methods: {
     ...mapActions([
