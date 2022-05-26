@@ -12,7 +12,7 @@
             "></div>
       <!-- Background image -->
 
-      <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+      <div class="card signup-div mx-4 mx-md-5 shadow-5-strong" style="
             margin-top: -100px;
             background: hsla(0, 0%, 100%, 0.8);
             backdrop-filter: blur(30px);
@@ -20,7 +20,7 @@
         <div class="card-body py-5 px-md-5">
 
           <!-- css ; 여기가 문제인 것 같음 .. div가 너무 큼 .... -->
-          <div class="row d-flex justify-content-center">
+          <div class="signup-div row d-flex justify-content-center">
             <div class="col-6">
               <h2 class="fw-bold mb-5">지금 회원이 되어보세요!</h2>
               <form @submit.prevent="signup(credentials)">
@@ -123,5 +123,7 @@ export default {
 </script>
 
 <style>
-
+/* .signup-div{
+  width: 80%;
+} */
 </style>

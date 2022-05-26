@@ -2,7 +2,7 @@
   <div>
     <account-error-list v-if="authError"></account-error-list>
     <br>
-
+    <br><br><br><br>
     <section class="text-left text-lg-start">
       
       <div class="card mb-3" id="login">
@@ -31,12 +31,11 @@
                 </div>
 
                 <!-- Submit button -->
-                <div>
+                <div style="display:inline-block ">
                   <button class="btn btn-primary btn-block mb-4">로그인</button>
-                </div>
-
-                <div class="text-center">
-                  <p>회원이 아니신가요? <a href="/signup">가입하기</a></p>
+                  <p style="text-align: center;">
+                    회원이 아니신가요? <a href="/signup">가입하기</a>
+                  </p>
                 </div>
 
               </form>
@@ -47,51 +46,7 @@
       </div>
     </section>
 
-    
-    <!-- <form @submit.prevent="login(credentials)"> -->
-      <!-- 아이디 input -->
-      <!-- <div class="form-outline mb-4">
-        <input v-model="credentials.username" type="text" id="username" class="form-control" required/>
-        <label class="form-label" for="form2Example1">Email address</label>
-      </div> -->
 
-      <!-- Password input -->
-      <!-- <div class="form-outline mb-4">
-        <input  v-model="credentials.password" type="password" id="password" class="form-control" required/>
-        <label class="form-label" for="form2Example2">Password</label>
-      </div> -->
-
-      <!-- Submit button -->
-      <!-- <button type="button" class="btn btn-primary btn-block mb-4">로그인</button> -->
-
-      <!-- Register buttons -->
-      <!-- <div class="text-center">
-        <p>회원이 아니신가요? <a href="/signup">가입하기</a></p>
-      </div>
-    </form> -->
-
-    <!-- <h1>MASINO에 입장하시려면 로그인이 필요합니다.</h1>
-    <br>
-    <form @submit.prevent="login(credentials)">
-      <div>
-        <label for="username">아이디</label>
-        <input v-model="credentials.username" type="text" id="username" placeholder="username" required />
-      </div>
-      <br>
-      <div>
-        <label for="password">비밀번호</label>
-        <input v-model="credentials.password" type="password" id="password" placeholder="password" required />
-      </div>
-
-      <div>
-        <button>Login</button>
-      </div>
-    </form>
-  
-    <div>
-      회원이 아니신가요? 
-      <a href="/signup" >회원가입하기</a>
-    </div> -->
   </div>
 </template>
 

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import router from '@/router'
 import axios from 'axios'
 import drf from '@/api/drf'
-
+import swal from 'sweetalert';
 
 Vue.use(Vuex)
 
@@ -79,6 +79,12 @@ export default ({
           // 성공하면! 토큰 저장, 사용자 정보 넣기, 이동
           dispatch('saveToken', token)
           dispatch('fetchCurrentUser')
+          swal("회원가입 기념 100,000포인트 무료!", {
+            title: "반갑습니다",
+            icon: "info",
+            buttons: false,
+            timer: 2000,
+          })
           router.push({ name: 'main' })
         })
         .catch(err => {
@@ -116,7 +122,12 @@ export default ({
         .then(() => {
           // 토큰 삭제, 로그아웃 알림, start 페이지로 다시 보내기
           dispatch('removeToken')
-          alert('다시 방문하시기를 기다리겠습니다 -MASINO-')
+          swal("다시 방문하시기를 기다리겠습니다 -MASINO-", {
+            title: "로그아웃 완료",
+            icon: "success",
+            buttons: false,
+            timer: 2000,
+          })
           router.push({ name: 'start' })
         })
         .catch (err => {

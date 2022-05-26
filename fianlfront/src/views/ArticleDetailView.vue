@@ -7,24 +7,26 @@
       <br>
       <hr class="article-line" style="text-align:center;height:4px;color:goldenrod;">
 
-      <!-- article 정보 -->
-      <div class="article-info" style="font-size:1.2rem; color:blanchedalmond;">
-        <p> 작성자 : 
-          <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
-            <span>{{ article.user.username }}</span>
-          </router-link>
-           </p>
-        <p> 작성 시간 : {{ article.created_at }}</p>
-        <span>
-          <button class="heart-btn" @click="likeArticle(articlePk)">💛</button><span>{{ likeCount }}</span>
-        </span>
-        <div v-if="isAuthor">
-          <button class="article-edit">
-            <router-link style="text-decoration:none;color:white;" :to="{ name: 'articleUpdate', params: { articlePk } }">수정</router-link>
-          </button> 
+      <!-- article 정보 / 여기다가 d-flex -->
+      <div class="d-flex ">
+        <div class="article-info" style="font-size:1.2rem; color:blanchedalmond;">
+          <p> 작성자 : 
+            <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
+              <span>{{ article.user.username }}</span>
+            </router-link>
+            </p>
+          <p> 작성 시간 : {{ article.created_at }}</p>
           <span>
-            <button class="article-del" @click="deleteArticle(articlePk)">삭제</button>
-          </span>          
+            <button class="heart-btn" @click="likeArticle(articlePk)">💛</button><span>{{ likeCount }}</span>
+          </span>
+          <div v-if="isAuthor">
+            <button class="article-edit">
+              <router-link style="text-decoration:none;color:white;" :to="{ name: 'articleUpdate', params: { articlePk } }">수정</router-link>
+            </button> 
+            <span>
+              <button class="article-del" @click="deleteArticle(articlePk)">삭제</button>
+            </span>          
+          </div>
         </div>
       </div>
       <hr class="article-line" style="height:4px; color:goldenrod;">

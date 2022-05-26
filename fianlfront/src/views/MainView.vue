@@ -4,8 +4,6 @@
     <br>
     <div class="container">
       <div class="row">
-      <movie-search-form class="movie-search-form"></movie-search-form>
-
       </div>
     </div>
     <br>
@@ -13,9 +11,12 @@
     <h1 class="h1">마지노를 찾아주신 당신에게 장르별 영화를 추천드립니다.</h1>
     <br>
     <br>
-    <div style="display: flex;
-  justify-content: center;">
-      <button class="movie-recommend-button" @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">새로운 영화 추천받기</button>
+    <div >
+      <div class="d-flex justify-content-center" >
+        <button class="movie-recommend-button p-10" @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">
+          새로운 영화 추천받기
+        </button>
+      </div>
     </div>
     <br>
     <br>
@@ -262,7 +263,7 @@
 <script>
 
 import NavbarItem from '@/components/Common/NavbarItem.vue'
-import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
+// import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import _ from 'lodash'
 
@@ -274,7 +275,7 @@ export default {
   name: 'MainView',
   components: {
     NavbarItem,
-    MovieSearchForm,
+    // MovieSearchForm,
   },
   data(){
     return {
@@ -418,17 +419,41 @@ export default {
 }
 
 
-.movie-recommend-button{
+/* .movie-recommend-button{
   border-radius: 10px;
   background-color: #26382B;
   border-color: goldenrod;
   color: goldenrod;
   font-size: 2rem;
+} */
+
+
+.movie-recommend-button {
+	/* box-shadow: -1px 0px 0px 0px #ffffff; */
+	background:linear-gradient(to bottom, #daa520 5%, #947326 100%);
+	background-color:#daa520;
+	border-radius:25px;
+	border:1px solid #9e860c;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:19px;
+	padding:12px 11px;
+	text-decoration:none;
 }
+.movie-recommend-button:hover {
+	background:linear-gradient(to bottom, #947326 5%, #daa520 100%);
+	background-color:#947326;
+}
+.movie-recommend-button:active {
+	position:relative;
+	top:1px;
+}
+
 
 .movie-border{
   border-style: solid;
-  border-color: goldenrod;
+  border-color: #daa520;
   border-radius: 30px;
 }
 
