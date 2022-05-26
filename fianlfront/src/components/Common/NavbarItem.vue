@@ -37,9 +37,9 @@
                 &#127808; {{ currentUser.username }}님
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:gainsboro;">
-                <li><a class="dropdown-item"><router-link style="font-size:1.1rem; text-decoration: none; color:black;" sclass="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></a></li>
+                <li><router-link class="dropdown-item" style="font-size:1.1rem; text-decoration: none; color:black;" sclass="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></li>
                 <!-- <li><hr class="dropdown-divider"></li> -->
-                <li><a class="dropdown-item"><router-link style="font-size:1.1rem;" class="link-dropdown" :to="{ name: 'UserLogoutView' }">Logout</router-link></a></li>
+                <li><router-link class="dropdown-item link-dropdown" style="font-size:1.1rem;" :to="{ name: 'UserLogoutView' }">Logout</router-link></li>
               </ul>
             </li>
           </ul>
