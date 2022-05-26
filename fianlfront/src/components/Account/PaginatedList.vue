@@ -38,12 +38,12 @@
                 </h3>
                   <h3 class="modal-card-title">출연작</h3>
                 <div class='modal-movie-list'>
-                  <div class='modal-movie-list-box'>
+                  <div class='modal-movie-list-box' v-for="movie in personInfo.movie_ids" :key="movie.pk">
                     <br>
-                    <p class="modal-card-text-movie m-0" v-for="movie in personInfo.movie_ids" :key="movie.pk">
+                    <router-link class="modal-card-text-movie"  :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
                       {{ movie.title }}
-                    </p>
-                    <br>
+                    </router-link>
+                    
 
                   </div>
                   
@@ -200,10 +200,14 @@ export default {
     border-style: solid;
     border-color: goldenrod;
     border-radius: 30px;
+    /* display: flex; */
+    /* justify-content: center; */
+  }
+
+  .modal-movie-list-box{
     display: flex;
     justify-content: center;
   }
-
 
   .modal-card-text-movie {
     color: blanchedalmond;
@@ -212,6 +216,7 @@ export default {
   }
 
   .modal-button-box{
+    justify-content: center;
     text-align: center;
   }
 
