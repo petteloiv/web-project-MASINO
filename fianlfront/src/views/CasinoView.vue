@@ -21,7 +21,7 @@
             <div class="jumbotron">
               <div class="user-wrap" v-b-modal.modal-quiz
                     variant="primary"
-                    @click="[fetchQuiz(), putQuiz(), pickAnswer(), notificateButton('1,000 포인트를 사용하여 퀴즈를 시작합니다!')]">
+                    @click="[fetchQuiz(), fetchLowerPoint1000(),putQuiz(), pickAnswer(), notificateButton('1,000 포인트를 사용하여 퀴즈를 시작합니다!')]">
                 <div class="user-image">
                   <img style="border-radius: 20px;" class="casino-img" src="@/images/casino1.jpg" alt="">
                 </div>
@@ -72,7 +72,7 @@
               
               <div class="user-wrap" v-b-modal.modal-back
                   variant="success"
-                  @click="[fetchBack(), pickBack(), notificateButton('1,000 포인트를 사용하여 배경화면을 뽑았습니다!')]">
+                  @click="[fetchBack(), fetchLowerPoint1000(), pickBack(), notificateButton('1,000 포인트를 사용하여 배경화면을 뽑았습니다!')]">
                 <div class="user-image">
                   <img class="casino-img" src="@/images/casino2.jpg" alt="">
                 </div>
@@ -120,7 +120,7 @@
             <div class="jumbotron">
               <div class="user-wrap" v-b-modal.modal-card
                       variant="warning"
-                      @click="[fetchCard(), pickCard(), fetchStoreCard(pickedCard.pk), notificateButton('1,000포인트를 사용하여 카드 1장을 뽑았습니다!')]">
+                      @click="[fetchCard(), fetchLowerPoint1000(), pickCard(), fetchStoreCard(pickedCard.pk), notificateButton('1,000포인트를 사용하여 카드 1장을 뽑았습니다!')]">
                 <div class="user-image">
                   <img class="casino-img" src="@/images/casino3.jpg" alt="">
                 </div>
@@ -168,7 +168,7 @@
             <div class="jumbotron">
               <div class="user-wrap" v-b-modal.modal-card-ten
                 variant="danger"
-                @click="[fetchCards(), pickCards(), fetchStoreCard(pickedCards[0].pk), fetchStoreCard(pickedCards[1].pk), fetchStoreCard(pickedCards[2].pk), fetchStoreCard(pickedCards[3].pk), fetchStoreCard(pickedCards[4].pk), fetchStoreCard(pickedCards[5].pk), fetchStoreCard(pickedCards[6].pk), fetchStoreCard(pickedCards[7].pk), fetchStoreCard(pickedCards[8].pk), fetchStoreCard(pickedCards[9].pk), fetchStoreCard(pickedCards[10].pk),fetchStoreCard(pickedCards[11].pk),notificateButton('10000포인트를 사용하여 카드 12장을 뽑았습니다!')]">
+                @click="[fetchCards(), fetchLowerPoint10000(), pickCards(), fetchStoreCard(pickedCards[0].pk), fetchStoreCard(pickedCards[1].pk), fetchStoreCard(pickedCards[2].pk), fetchStoreCard(pickedCards[3].pk), fetchStoreCard(pickedCards[4].pk), fetchStoreCard(pickedCards[5].pk), fetchStoreCard(pickedCards[6].pk), fetchStoreCard(pickedCards[7].pk), fetchStoreCard(pickedCards[8].pk), fetchStoreCard(pickedCards[9].pk), fetchStoreCard(pickedCards[10].pk),fetchStoreCard(pickedCards[11].pk),notificateButton('10000포인트를 사용하여 카드 12장을 뽑았습니다!')]">
                 <div class="user-image">
                   <img class="casino-img" src="@/images/casino4.jpg" alt="">
                 </div>
@@ -358,7 +358,7 @@ export default {
     ...mapGetters(['quiz', 'raisePoint', 'back', 'storeBack', 'card', 'cards', 'storeCard']),
   },
   methods: {
-    ...mapActions(['fetchQuiz', 'fetchRaisePoint', 'fetchBack', 'fetchStoreBack', 'fetchCard', 'fetchCards', 'fetchStoreCard']),
+    ...mapActions(['fetchQuiz', 'fetchRaisePoint', 'fetchLowerPoint1000', 'fetchLowerPoint10000', 'fetchBack', 'fetchStoreBack', 'fetchCard', 'fetchCards', 'fetchStoreCard']),
     notificateButton(message) {
       swal(message);
     },
@@ -368,12 +368,12 @@ export default {
         icon: "success",
       })
     },
-    // notificateCheckBad(message){
-    //   swal({
-    //     title: message,
-    //     icon: "warning",
-    //   })
-    // },    
+    notificateCheckBad(message){
+      swal({
+        title: message,
+        icon: "warning",
+      })
+    },    
     storecards(personPk){
       this.fetchStoreCard(personPk)
     },

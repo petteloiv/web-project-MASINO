@@ -11,6 +11,7 @@ export default ({
   state: { //data
     quiz: [],
     raisePoint: {},
+    lowerPoint: {},
     back: {},
     storeBack: {},
     card: {},
@@ -20,6 +21,7 @@ export default ({
   getters: { // state 여기서 불러다가 사용
     quiz: state => state.quiz,
     raisePoint: state => state.raisePoint,
+    lowerPoint: state => state.lowerPoint,
     back: state => state.back,
     storeBack: state => state.storeBack,
     card: state => state.card,
@@ -29,6 +31,7 @@ export default ({
   mutations: { // state 변경
     SET_QUIZ: (state, quiz) => state.quiz = quiz,
     SET_RAISE_POINT: (state, raisePoint) => state.raisePoint = raisePoint,
+    SET_LOWER_POINT: (state, lowerPoint) => state.lowerPoint = lowerPoint,
     SET_BACK: (state, back) => state.back = back,
     SET_STORE_BACK: (state, storeBack) => state.storeBack = storeBack,
     SET_CARD: (state, card) => state.card = card,
@@ -52,6 +55,24 @@ export default ({
         headers: getters.authHeader,
       })
         .then(res => commit('SET_RAISE_POINT', res.data))
+        .catch(err => console.error(err.response))
+    },
+    fetchLowerPoint1000({ commit, getters }){
+      axios({
+        url: drf.casino.lowerPoint1000(),
+        method: 'post',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_LOWER_POINT', res.data))
+        .catch(err => console.error(err.response))
+    },
+    fetchLowerPoint10000({ commit, getters }){
+      axios({
+        url: drf.casino.lowerPoint10000(),
+        method: 'post',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_LOWER_POINT', res.data))
         .catch(err => console.error(err.response))
     },
     fetchBack({ commit, getters }){

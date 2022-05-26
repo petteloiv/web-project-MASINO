@@ -31,6 +31,8 @@ export default {
   casino: {
     quiz: () => HOST + CASINO + 'quiz/',
     raisePoint: () => HOST + CASINO + 'raise_point/',
+    lowerPoint1000: () => HOST + CASINO + 'lower_point_1000/',
+    lowerPoint10000: () => HOST + CASINO + 'lower_point_10000/',
     backGacha: () => HOST + CASINO + 'back_gacha/',
     storeBack: (moviePk) => HOST + CASINO + 'store_back/' + `${moviePk}/`,
     cardGacha: () => HOST + CASINO + 'card_gacha/',
