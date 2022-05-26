@@ -34,7 +34,7 @@
           <ul>
             <li class="nav-item dropdown mt-2 ">
               <a style="color:white;font-size:1.2rem;" class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ currentUser.username }}님
+                🤘 {{ currentUser.username }}님
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:gainsboro;">
                 <li><a class="dropdown-item"><router-link style="font-size:1.1rem; text-decoration: none; color:black;" sclass="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></a></li>

@@ -16,7 +16,7 @@
       <br>
       <div >
         <div class="d-flex justify-content-center" >
-          <button class="movie-recommend-button p-10" style="font-family: 'GowunDodum-Regular';"
+          <button class="movie-recommend-button p-10" style="font-family: 'GowunDodum-Regular';font-weight:bold;"
            @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">
             새로운 영화 추천받기
           </button>
