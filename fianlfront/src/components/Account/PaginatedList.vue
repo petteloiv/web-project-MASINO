@@ -81,6 +81,16 @@ export default {
   transition: all 0.25s linear;
 }
 
+.page-btn{
+  margin: 3px;
+  border: 0px;
+  border-radius: 20px;
+  background-color: #26382B;
+  /* border-color: goldenrod; */
+  color: goldenrod;
+  font-size: 1.2rem;
+}
+
 .btn-cover {
   margin-top: 1.5rem;
   text-align: center;

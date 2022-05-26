@@ -15,7 +15,7 @@
                           <h2>신❈용ங불량</h2>  
                         </div>
                         <div v-if="!profile.movie">
-                          <div class="profile-header-no-image" >
+                          <div class="profile-header-no-image">
                             <span>현재 보유한 </span> 
                             <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
                             <span>이 없습니다.</span>
@@ -52,14 +52,14 @@
                       
 
                       <div>
-                        <b-card no-body>
-                          <b-tabs card>
-                            <b-tab title="MY ARTICLES" active>
+                        <b-card no-body class="profile-card">
+                          <b-tabs card class="profile-tab">
+                            <b-tab title="MY ARTICLES" active class="profile-tab">
                               <b-card-text>
                                 <div class="tab-pane fade in active show" id="profile-article">
                                   <!-- begin table -->
-                                  <div class="table-responsive">
-                                      <table class="table table-profile">
+                                  <div class="table-responsive table-profile" >
+                                      <table class="table p-0">
                                         <thead>
                                             <tr>
                                               <th></th>
@@ -72,7 +72,9 @@
                                             <tr class="highlight" v-for="(article, index) in profile.articles" :key="article.pk">
                                               <td class="field" >{{ index + 1}}</td>
                                               <td >
-                                                <router-link :to="{ name: 'articleDetail', params: { articlePk: article.pk } }">
+                                                <router-link :to="{ name: 'articleDetail', params: { articlePk: article.pk } }"
+                                                class="article-route"
+                                                style="text-decoration: none; color:black;">
                                                   {{ article.title }}
                                                 </router-link>
                                               </td>
@@ -84,12 +86,12 @@
                                 </div>                                
                               </b-card-text>
                             </b-tab>
-                            <b-tab @click="sortPageArray()" title="MY CARDS">
-                              <b-card-text>
+                            <b-tab @click="sortPageArray()" title="MY CARDS" class="profile-tab">
+                              <b-card-text class="text-center">
                                 <h4>나의 배우 카드</h4>
-                                <br>
                                 
-                                <div v-if="profile.casino_points < 0">
+                                <div  class="text-center" v-if="profile.casino_points < 0">
+                                  <br>
                                   <h1 style="color:red;">압 류</h1>
                                   <h2>포인트를 상환하시어 압류를 해제하세요.</h2>
                                 </div>
@@ -109,10 +111,10 @@
                                   </div>
                                 </div> -->
                                 <div v-else>
-                                  <button @click="platinumPageArray()">Platinum</button>
-                                  <button @click="goldPageArray()">Gold</button>
-                                  <button @click="silverPageArray()">Silver</button>
-                                  <button @click="bronzePageArray()">Bronze</button>
+                                  <button class="profile-card-button" @click="platinumPageArray()">Platinum</button><span>|</span>
+                                  <button class="profile-card-button" @click="goldPageArray()">Gold</button><span>|</span>
+                                  <button class="profile-card-button" @click="silverPageArray()">Silver</button><span>|</span>
+                                  <button class="profile-card-button" @click="bronzePageArray()">Bronze</button>
                                   <paginated-list :list-array="pageArray" />
                                 </div>
 
@@ -221,6 +223,26 @@ export default {
 </script>
 
 <style scoped>
+.profile-card{
+  background-color: #FFE2A4
+}
+
+.profile-tab{
+  border-radius: 20px;
+}
+
+.profile-tab.active{
+  background-color: blanchedalmond;
+  border-radius: 20px;
+}
+
+.profile-article {
+  border-radius: 20px;
+}
+
+.table-profile{
+  border-radius: 20px;
+}
 
 .profile-body{
     border-style: solid;
@@ -236,6 +258,8 @@ export default {
 .profile-header-content {
   margin: 2% auto;
 }
+
+
 
 .profile-header-img{
   width: 100%;
@@ -256,6 +280,7 @@ export default {
 .profile-header-no-image {
   background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
   text-align: center;
+  border-radius: 20px;
 }
 
 .profile-header-img > img {
@@ -286,6 +311,14 @@ export default {
     width: 180px;
   }
 
+  .profile-card-button{
+    margin: 3px;
+    border-radius: 20px;
+    background-color: #26382B;
+    border-color: goldenrod;
+    color: goldenrod;
+    font-size: 1.2rem;
+  }
 
   .platinum {
     background: rgb(248,255,160);
