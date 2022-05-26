@@ -8,15 +8,25 @@
     <br>
     <!-- <movie-result-list :movieList="movieList"></movie-result-list> -->
     <div class="container movie-border">
-      <br>
-      <br>
-      <br>
-      <br>
-      <div class="movie-container mx-5">
-        <div class="row" style="justify-content: flex-start; mx-2">
-          <movie-item v-for="movie in searchedmovies" :movie="movie" :key="movie.pk"></movie-item>
+      <div v-if="searchedmovies.length < 1">
+        <div class="text-center">
+          <br>
+          <h3 style="color:white;"> 죄송합니다. 검색결과가 없습니다.</h3>
+          <br>       
         </div>
       </div>
+      <div v-else>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="movie-container mx-5">
+          <div class="row" style="justify-content: flex-start; mx-2">
+            <movie-item v-for="movie in searchedmovies" :movie="movie" :key="movie.pk"></movie-item>
+          </div>
+        </div>        
+      </div>
+
     </div>
     <br>
     <br>

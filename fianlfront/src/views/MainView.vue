@@ -11,7 +11,7 @@
       </div>
       <br>
       <br>
-      <h1 class="h1">마지노를 찾아주신 당신에게 장르별 영화를 추천드립니다.</h1>
+      <h1 class="h1">마지노를 찾아주신 당신에게 <span style="color:goldenrod;">장르별 영화</span>를 추천드립니다.</h1>
       <br>
       <br>
       <div >
