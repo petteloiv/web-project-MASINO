@@ -146,9 +146,9 @@
                 </b-button> -->
                 <b-modal id="modal-card" hide-footer hide-header size="sm" title="CARDGACHA" no-close-on-backdrop body-bg-variant="dark">
                   <div style="border-radius: 10px;" class="card casino-card" :class="{'platinum': pickedCard.popularity >= 40, 'gold': pickedCard.popularity < 40, 'silver': pickedCard.popularity < 21, 'bronze': pickedCard.popularity < 14}">
-                    <div class="card-header">
-                        </div>
-                        <img class="casino-card-img" :src="`http://image.tmdb.org/t/p/original/${pickedCard.profile_path}`">
+                    <!-- <div class="card-header">
+                        </div> -->
+                        <img class="casino-card-img p-3" :src="`http://image.tmdb.org/t/p/original/${pickedCard.profile_path}`">
                         <div class="card-body casino-card-body">
                           <div style="vertical-align: middle;" class="card-title">{{ pickedCard.name }}</div>
                         </div>
