@@ -79,11 +79,11 @@ export default ({
           // 성공하면! 토큰 저장, 사용자 정보 넣기, 이동
           dispatch('saveToken', token)
           dispatch('fetchCurrentUser')
-          swal("MASINO 회원이 되신걸 기념해 100,000포인트를 드립니다.", {
+          swal("MASINO 회원이 되신 것을 기념해 100,000포인트를 드립니다!", {
             title: "축하드립니다!",
             icon: "info",
             buttons: false,
-            timer: 3000,
+            timer: 4000,
           })
           router.push({ name: 'main' })
         })

@@ -106,7 +106,7 @@
                     <button class="mt-3 back-gacha-confirm-button" block @click="[fetchStoreBack(pickedBack.pk), $bvModal.hide('modal-back'), notificateCheckGood('프로필 배경사진이 바뀌었어요!')]">
                         배경 바꾸기
                     </button>
-                    <button class="mt-3 back-gacha-stash-button" block @click="[$bvModal.hide('modal-back'), notificateCheckBad('이걸 버리네!')]">
+                    <button class="mt-3 back-gacha-stash-button" block @click="[$bvModal.hide('modal-back'),]">
                         갖다 버리기
                     </button>
                   </div>
@@ -368,12 +368,12 @@ export default {
         icon: "success",
       })
     },
-    notificateCheckBad(message){
-      swal({
-        title: message,
-        icon: "warning",
-      })
-    },    
+    // notificateCheckBad(message){
+    //   swal({
+    //     title: message,
+    //     icon: "warning",
+    //   })
+    // },    
     storecards(personPk){
       this.fetchStoreCard(personPk)
     },
