@@ -11,35 +11,39 @@
                     <!-- containoer profile-body -->
                       <div class="profile-header-content">
                         <!--프로필 헤더 이미지 (background) -->
-                        <div class="nopoint" v-show="anotherProfile.casino_points < 0">
-                          <h2>신❈용ங불량</h2>  
-                        </div>
-                        <div v-if="!anotherProfile.movie">
-                          <div class="profile-header-no-image">
-                            <span>현재 보유한 </span> 
-                            <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
-                            <span>이 없습니다.</span>
-                            <p>카지노 입장 시 입장료 13,000 포인트가 차감됩니다.</p>                        
-                          </div>   
-                          
-                        </div>
-                        <div v-else>
-                          <div class="profile-header-img">
-                              <a :href="`/movie/${anotherProfile.movie.pk}`" >
-                                <img :src="`https://image.tmdb.org/t/p/original/${anotherProfile.movie.backdrop_path}`" alt="banner"
-                                  width="100%" style="border-radius: 30px;">
-                              </a>
-                          </div>
+                       <div class="nopoint" v-show="anotherProfile.casino_points < 0">
+                          <img src="@/images/geoji.png" alt="">  
                         </div>
                         <br>
+                        <div class="text-center" v-show="anotherProfile.casino_points < 0">
+                          <img style="border-radius: 20px;" src="@/images/dont_be_geoji.png" alt="">  
+                        </div>
+                        
+                          <div v-if="!anotherProfile.movie && anotherProfile.casino_points >= 0">
+                            <div class="profile-header-no-image">
+                              <span>현재 보유한 </span> 
+                              <span><router-link :to="{ name: 'casino' }">배경</router-link> </span> 
+                              <span>이 없습니다.</span>                      
+                            </div>   
+                          </div>
+
+                          <div v-if="anotherProfile.movie && anotherProfile.casino_points >= 0">
+                            <div class="profile-header-img">
+                                <a :href="`/movie/${anotherProfile.movie.pk}`" >
+                                  <img :src="`https://image.tmdb.org/t/p/original/${anotherProfile.movie.backdrop_path}`" alt="banner"
+                                    width="100%" style="border-radius: 30px;">
+                                </a>
+                            </div>
+                          </div>
+                        <br>
                         <!-- 프로필 헤더 정보 : 이름, 개인정보 수정, 포인트 -->
-                        <div class="profile-header-info">
-                            <h2 class="m-t-10 m-b-5" style="color : blanchedalmond;"> {{ anotherProfile.username }} 🙋‍♂️
-                              <small>님 안녕하세요!</small></h2>
+                        <div class="profile-header-info text-center">
+                            <h2 class="m-t-10 m-b-5" style="color: goldenrod;"> {{ anotherProfile.username }}
+                              <small style="color: blanchedalmond; font-size: 2.5rem">님 안녕하세요! 🙋‍♂️</small></h2>
                             <!-- 앞에 포인트 이모지 넣을 예정 -->
-                            <h3 style="color : blanchedalmond;"> 💰 내 지갑  {{anotherProfile.casino_points}} 포인트</h3>
-                            <p style="color:red;" v-show="anotherProfile.casino_points < 0">
-                              카드 압류 후 상환 독촉장이 발송되오니 조속한 처리 바랍니다.
+                            <h3 style="color : blanchedalmond; font-size: 2.5rem"> 💰 내 지갑  <span style="color: goldenrod;">{{anotherProfile.casino_points}}</span> 포인트</h3>
+                            <p style="color: red; font-size: 1.5rem" v-show="anotherProfile.casino_points < 0">
+                              신용등급이 불량하여 보유하신 카드를 압류합니다.
                             </p>
 
                             <!-- <a href="#" class="btn btn-xs btn-success">
@@ -111,11 +115,13 @@
                                   </div>
                                 </div> -->
                                 <div v-else>
-                                  <button class="profile-card-button" @click="platinumPageArray()">Platinum</button><span>|</span>
-                                  <button class="profile-card-button" @click="goldPageArray()">Gold</button><span>|</span>
-                                  <button class="profile-card-button" @click="silverPageArray()">Silver</button><span>|</span>
-                                  <button class="profile-card-button" @click="bronzePageArray()">Bronze</button>
-                                  <paginated-list :list-array="pageArray" />
+                                  <button class="profile-card-button" @click="[platinumPageArray(), goToFirstPage()]">Platinum</button><span>|</span>
+                                  <button class="profile-card-button" @click="[goldPageArray(), goToFirstPage()]">Gold</button><span>|</span>
+                                  <button class="profile-card-button" @click="[silverPageArray(), goToFirstPage()]">Silver</button><span>|</span>
+                                  <button class="profile-card-button" @click="[bronzePageArray(), goToFirstPage()]">Bronze</button>
+                                  <paginated-list
+                                  ref="PaginatedList" 
+                                  :list-array="pageArray" />
                                 </div>
 
                                     
@@ -213,6 +219,9 @@ export default {
         return a.popularity < 14 && a.popularity >= 10
       })
     },
+    goToFirstPage() {
+      this.$refs.PaginatedList.goFirstPage()
+    }
   },
   created() {
     this.fetchAnotherProfile(this.$route.params.username)

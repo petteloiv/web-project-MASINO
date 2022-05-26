@@ -3,16 +3,62 @@
 
     <div class="card-deck container">
       <div class="row" style="justify-content: normal;">
-        <div style="border-radius: 10px;" class="card profile-card col-2 m-3 mx-3.5" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in paginatedData" :key="card.pk">
+
+
+        <div style="border-radius: 10px;" v-b-modal.modal-card @click="[storePerson(card)]" class="card profile-card col-2 m-3 mx-3.5" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in paginatedData" :key="card.pk">
           <div class="card-header">
           </div>
-          <img style="border-radius: 10px;" class="profile-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+          <img  style="border-radius: 10px;" class="profile-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
           <div class="card-body profile-card-body" style="text-align: center;">
             <div style="vertical-align: middle;" class="card-title">{{ card.name }}</div>
+
           </div>
         </div>
+
+        <b-modal id="modal-card" hide-footer hide-header size="lg" title="BACKGACHA" no-close-on-backdrop body-bg-variant="dark">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                <div style="border-radius: 10px;" class="card modal-card" :class="{'platinum': personInfo.popularity >= 40, 'gold': personInfo.popularity < 40, 'silver': personInfo.popularity < 21, 'bronze': personInfo.popularity < 14}">
+                  <img class="modal-card-img p-3" :src="`http://image.tmdb.org/t/p/original/${personInfo.profile_path}`">
+                  <div class="card-body modal-card-body">
+                    <div style="vertical-align: middle; text-align: center; font-size: 1.5rem;" class="card-title">{{ personInfo.name }}</div>
+                  </div>
+                  </div>
+              </div>
+              <div class="col-md-8 infoText text-align: center;">
+                <h2 class="modal-card-text">
+                  <span class='modal-card-title'>이름 : </span>{{ personInfo.name }}
+                </h2>
+                <h3 class="modal-card-text">
+                  <span class='modal-card-title'>생일 : </span>{{ personInfo.birthday }}
+                </h3>
+                <h3 class="modal-card-text">
+                  <span class='modal-card-title'>출생지 : </span>{{ personInfo.place_of_birth }}
+                </h3>
+                  <h3 class="modal-card-title">출연작</h3>
+                <div class='modal-movie-list'>
+                  <br>
+                  <p class="modal-card-text-movie" v-for="movie in personInfo.movie_ids" :key="movie.pk">
+                    {{ movie.title }}
+                  </p>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal-button-box">
+            <button class="mt-3 modal-stash-button" block @click="[$bvModal.hide('modal-card'),]">
+                닫기
+            </button>
+            
+          </div> 
+        </b-modal>
+          
       </div>
     </div>
+
     
     <div class="btn-cover">
       <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
@@ -31,7 +77,8 @@ export default {
   name: 'paginated-list',
   data () {
     return {
-      pageNum: 0
+      pageNum: 0,
+      personInfo: {}
     }
   },
   props: {
@@ -43,6 +90,11 @@ export default {
       type: Number,
       required: false,
       default: 10
+    },
+    pageNumber: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   methods: {
@@ -51,6 +103,12 @@ export default {
     },
     prevPage () {
       this.pageNum -= 1;
+    },
+    goFirstPage () {
+      this.pageNum = 0
+    },
+    storePerson(a) {
+      this.personInfo = a
     }
   },
   computed: {
@@ -107,6 +165,56 @@ export default {
 .profile-card {
   box-shadow: 15px 15px 25px black;
 }
+
+.modal-card-body {
+    /* height: 70px;
+    width: 165.5px; */
+    text-align: center;
+  }
+
+  .modal-card {
+    border-radius: 20px;
+    box-shadow: 15px 15px 25px black;
+  }
+
+  .modal-card-img {
+    border-radius: 30px;
+  }
+
+  .modal-card-title{
+    color: goldenrod;
+    text-align: center;
+  }
+
+  .modal-card-text {
+    color: blanchedalmond;
+    text-align: center;
+  }
+
+  .modal-movie-list{
+    border-style: solid;
+    border-color: goldenrod;
+    border-radius: 30px;
+  }
+
+  .modal-card-text-movie {
+    color: blanchedalmond;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .modal-button-box{
+    text-align: center;
+  }
+
+  .modal-stash-button{
+    border-radius: 20px;
+    background-color: #26382B;
+    border-color: goldenrod;
+    color: goldenrod;
+    font-size: 1.2rem;
+  }
+
 
 .platinum {
     background: rgb(248,255,160);
