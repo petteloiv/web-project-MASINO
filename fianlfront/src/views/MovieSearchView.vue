@@ -1,9 +1,23 @@
 <template>
   <div>
     <navbar-item></navbar-item>
-    <h1>"{{this.keyword}}"검색 결과입니다.</h1>
+    <br>
+    <br>
+    <h1 class="movie-search-result-text">"<span class="movie-search-text">{{this.keyword}}</span>" 검색 결과입니다.</h1>
+    <br>
+    <br>
     <!-- <movie-result-list :movieList="movieList"></movie-result-list> -->
-    <movie-item v-for="movie in searchedmovies" :movie="movie" :key="movie.pk"></movie-item>
+    <div class="container movie-border">
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="movie-container mx-5">
+        <div class="row" style="justify-content: flex-start; mx-2">
+          <movie-item v-for="movie in searchedmovies" :movie="movie" :key="movie.pk"></movie-item>
+        </div>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -50,5 +64,23 @@ export default {
 </script>
 
 <style>
+
+.movie-search-result-text{
+  color: goldenrod;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.movie-search-text{
+  color:blanchedalmond;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.movie-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 </style>

@@ -4,7 +4,7 @@
     <br>
     <div class="container">
       <div class="row">
-      <movie-search-form class="movie-search-form"></movie-search-form>
+      <!-- <movie-search-form class="movie-search-form"></movie-search-form> -->
 
       </div>
     </div>
@@ -262,7 +262,7 @@
 <script>
 
 import NavbarItem from '@/components/Common/NavbarItem.vue'
-import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
+// import MovieSearchForm from '@/components/Movie/MovieSearchForm.vue'
 
 import _ from 'lodash'
 
@@ -274,7 +274,7 @@ export default {
   name: 'MainView',
   components: {
     NavbarItem,
-    MovieSearchForm,
+    // MovieSearchForm,
   },
   data(){
     return {
