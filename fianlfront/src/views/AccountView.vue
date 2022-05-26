@@ -48,9 +48,9 @@
                             </p>
 
                         </div>
-                        <button class="update-profile"> 개인정보수정
-                          <router-link style=text-decoration:none; class="link-update" :to="{ name: 'UserUpdateView' }"> </router-link>
-                        </button>
+                       
+                          <router-link style=text-decoration:none; class="link-update" :to="{ name: 'UserUpdateView' }">  <button class="update-profile"> 개인정보수정</button></router-link>
+                        
                       </div>
                       
 
