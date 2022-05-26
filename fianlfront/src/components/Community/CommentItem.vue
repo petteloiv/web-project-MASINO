@@ -1,32 +1,48 @@
 <template>
 
+<!-- <div class="d-flex bd-highlight">
+  <div class="p-2 flex-grow-1 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Third flex item</div>
+</div> -->
 
 
-<div class="container m-2">
+<div class="container p-0">
 
   <li class="comment-list-item">
-    <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: comment.user.username} }">
-      <span class="comment"> {{ comment.user.username }}  </span>
-    </router-link>
-    <!-- <span class="comment"> {{ comment.user.username }} :</span> -->
+    <div class="d-flex bd-highlight">
+
+      <div class="p-2 flex-grow-1 bd-highlight" >
+        <router-link class="mx-3 align-items: center;" style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: comment.user.username} }">
+          <span class="comment"> {{ comment.user.username }}  </span>
+        </router-link>
+        <span v-if="!isEditing" class="comment align-items: center;">{{ payload.content }}</span>
+        <hr>
+      </div>
+
+      <div class="p-2 bd-highlight">
+        <button class="heart-btn align-items: center; mt-1.6" @click="likeComment(payload)">👍{{ comment.like_count }}</button> 
+      </div>
+
+      <hr>
+      <div class="p-2 bd-highlight">
+        <span v-if="isEditing">
+          <input type="text" v-model="payload.content">
+          <button class="comment-edit mx-2" @click="onUpdate">완료</button>
+          <button class="comment-del" @click="switchIsEditing">취소</button>
+        </span>
+
+        <span v-if="currentUser.username === comment.user.username && !isEditing">
+          <button class="comment-edit mx-2" @click="switchIsEditing">수정</button> 
+          <button class="comment-del" @click="deleteComment(payload)">삭제</button>
+          <!-- <button class="heart-btn" @click="likeComment(payload)">👍{{ comment.like_count }}</button>  -->
+        </span>        
+      </div>
+
+
+    </div>
     
-    <span v-if="!isEditing" class="comment">{{ payload.content }}</span>
 
-    <span v-if="isEditing">
-      <input type="text" v-model="payload.content">
-      <button class="comment-edit" @click="onUpdate">완료</button> |
-      <button class="comment-del" @click="switchIsEditing">취소</button>
-    </span>
-
-    <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button class="comment-edit" @click="switchIsEditing">수정</button> |
-      <button class="comment-del" @click="deleteComment(payload)">삭제</button> |
-      <!-- <button class="heart-btn" @click="likeComment(payload)">👍{{ comment.like_count }}</button>  -->
-    </span>
-
-    <span>
-      <button class="heart-btn" @click="likeComment(payload)">👍{{ comment.like_count }}</button> 
-    </span>
   </li>
 
 </div>
@@ -76,7 +92,7 @@ export default {
 }
 
 .comment-list-item{
-  list-style-type: decimal;
+  list-style-type: none;
   color: whitesmoke
 }
 .heart-btn{

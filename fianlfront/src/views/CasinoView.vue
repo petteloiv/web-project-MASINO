@@ -454,7 +454,8 @@ export default {
   }
 
   .casino-header{
-    color: whitesmoke
+    color: whitesmoke;
+    font-family: 'Recipekorea';
   }
 
   .casino-detail{
