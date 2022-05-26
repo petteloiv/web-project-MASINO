@@ -13,6 +13,11 @@
     <h1 class="h1">마지노를 찾아주신 당신에게 장르별 영화를 추천드립니다.</h1>
     <br>
     <br>
+    <div style="display: flex;
+  justify-content: center;">
+      <button class="movie-recommend-button" @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">새로운 영화 추천받기</button>
+    </div>
+    <br>
     <br>
 
     <div class="container movie-border">
@@ -23,9 +28,9 @@
     <br>
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
-          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredCrimeMovies" :key="movie.pk">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Crime" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
               <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -50,9 +55,9 @@
     <br>
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
-          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredComedyMovies" :key="movie.pk">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Comedy" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
               <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -76,35 +81,9 @@
     <br>
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
-          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredFantasyMovies" :key="movie.pk">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Fantasy" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
-              <!-- <a :href="`/movie/${movie.pk}`"> -->
-                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
-                <div class="inner-content">
-                  <span>{{ movie.title }}</span>
-                </div>
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <br>
-    <br>
-    <br>
-    <div class="container movie-border">
-    <br>
-    <br>
-    <h2 class="h2">나 너무 무서워 공포영화</h2>
-    <br>
-    <br>
-      <div class="movie-container">
-        <div class="row" style="justify-content: space-around;">
-          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredHorrorMovies" :key="movie.pk">
-            <div class="movie-card" style="height: 300px">
-              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
               <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -128,9 +107,140 @@
     <br>
       <div class="movie-container">
         <div class="row" style="justify-content: space-around;">
-          <div class="col-3 movie-item" style="width: 300px" v-for="movie in filteredSFMovies" :key="movie.pk">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in SF" :key="movie.pk">
             <div class="movie-card" style="height: 300px">
-              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk }}">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="container movie-border">
+    <br>
+    <br>
+    <h2 class="h2">달콤쌉싸름 로맨스영화</h2>
+    <br>
+    <br>
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Romance" :key="movie.pk">
+            <div class="movie-card" style="height: 300px">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="container movie-border">
+    <br>
+    <br>
+    <h2 class="h2">속 시원하게 펑펑 액션영화</h2>
+    <br>
+    <br>
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Action" :key="movie.pk">
+            <div class="movie-card" style="height: 300px">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <div class="container movie-border">
+    <br>
+    <br>
+    <h2 class="h2">가족끼리 이러는거 아니야 가족영화</h2>
+    <br>
+    <br>
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Family" :key="movie.pk">
+            <div class="movie-card" style="height: 300px">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="container movie-border">
+    <br>
+    <br>
+    <h2 class="h2">거칠지만 낭만있는 서부영화</h2>
+    <br>
+    <br>
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Western" :key="movie.pk">
+            <div class="movie-card" style="height: 300px">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+              <!-- <a :href="`/movie/${movie.pk}`"> -->
+                <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
+                <div class="inner-content">
+                  <span>{{ movie.title }}</span>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <div class="container movie-border">
+    <br>
+    <br>
+    <h2 class="h2">나 너무 무서워 공포영화</h2>
+    <br>
+    <br>
+      <div class="movie-container">
+        <div class="row" style="justify-content: space-around;">
+          <div class="col-3 movie-item" style="width: 300px" v-for="movie in Horror" :key="movie.pk">
+            <div class="movie-card" style="height: 300px">
+              <router-link :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
               <!-- <a :href="`/movie/${movie.pk}`"> -->
                 <img class="img" style="border-radius: 7px;" :src='`http://image.tmdb.org/t/p/original${movie.poster_path}`' alt="movieposter">
                 <div class="inner-content">
@@ -166,44 +276,131 @@ export default {
     NavbarItem,
     MovieSearchForm,
   },
+  data(){
+    return {
+      Comedy: [],
+      Western: [],
+      SF: [],
+      Horror: [],
+      Fantasy: [],
+      Romance: [],
+      Action: [],
+      Family: [],
+    }
+  },
   computed:{
     ...mapGetters(['currentUser', 'movies']),
     userPk(){
       return this.currentUser.pk
     },
-    filteredComedyMovies() {
-        return _.sampleSize(this.movies.filter((movie) => {
-          return movie.genre_ids.includes(35)
-        }), 12)
-      },
-    filteredCrimeMovies() {
-        return _.sampleSize(this.movies.filter((movie) => {
-          return movie.genre_ids.includes(80)
-        }), 12)
-      },
-    filteredSFMovies() {
-        return _.sampleSize(this.movies.filter((movie) => {
-          return movie.genre_ids.includes(878)
-        }), 12)
-      },
-    filteredHorrorMovies() {
-        return _.sampleSize(this.movies.filter((movie) => {
-          return movie.genre_ids.includes(27)
-        }), 12)
-      },
-    filteredFantasyMovies() {
-        return _.sampleSize(this.movies.filter((movie) => {
-          return movie.genre_ids.includes(14)
-        }), 12)
-      },
+    // filteredComedyMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(35)
+    //     }), 12)
+    //   },
+    // filteredCrimeMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(80)
+    //     }), 12)
+    //   },
+    // filteredSFMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(878)
+    //     }), 12)
+    //   },
+    // filteredHorrorMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(27)
+    //     }), 12)
+    //   },
+    // filteredFantasyMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(14)
+    //     }), 12)
+    //   },
+    // filteredRomanceMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(10749)
+    //     }), 12)
+    //   },
+    // filteredActionMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(28)
+    //     }), 12)
+    //   },
+    // filteredFamilyMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(10751)
+    //     }), 12)
+    //   },
+    // filteredWesternMovies() {
+    //     return _.sampleSize(this.movies.filter((movie) => {
+    //       return movie.genre_ids.includes(37)
+    //     }), 12)
+    //   },
   },
   methods: {
     ...mapActions(['fetchCurrentUser','fetchProfile','fetchMovies']),
+    
+    filterComedyMovies() {
+      this.Comedy = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(35)
+        }), 12)
+    },
+    filterCrimeMovies() {
+      this.Crime = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(80)
+        }), 12)
+    },
+    filterSFMovies() {
+      this.SF = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(878)
+        }), 12)
+    },
+    filterHorrorMovies() {
+      this.Horror = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(27)
+        }), 12)
+    },
+    filterFantasyMovies() {
+      this.Fantasy = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(14)
+        }), 12)
+    },
+    filterRomanceMovies() {
+      this.Romance = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(10749)
+        }), 12)
+    },
+    filterActionMovies() {
+      this.Action = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(28)
+        }), 12)
+    },
+    filterFamilyMovies() {
+      this.Family = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(10751)
+        }), 12)
+    },
+    filterWesternMovies() {
+      this.Western = _.sampleSize(this.movies.filter((movie) => {
+          return movie.genre_ids.includes(37)
+        }), 12)
+    },
   },
 
   created() {
     // this.fetchCurrentUser()
     this.fetchMovies() 
+    this.filterComedyMovies()
+    this.filterCrimeMovies()
+    this.filterSFMovies()
+    this.filterHorrorMovies()
+    this.filterFantasyMovies()
+    this.filterRomanceMovies()
+    this.filterActionMovies()
+    this.filterFamilyMovies()
+    this.filterWesternMovies()
   },
 }
 </script>
@@ -218,6 +415,15 @@ export default {
 .h2 {
   text-align: center;
   color: goldenrod;
+}
+
+
+.movie-recommend-button{
+  border-radius: 10px;
+  background-color: #26382B;
+  border-color: goldenrod;
+  color: goldenrod;
+  font-size: 2rem;
 }
 
 .movie-border{
