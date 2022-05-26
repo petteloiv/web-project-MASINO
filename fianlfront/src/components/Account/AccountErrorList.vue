@@ -9,8 +9,10 @@
        {{ error }}
       </li>
     </ul>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </p>
 </div>
+
 
 </template>
 

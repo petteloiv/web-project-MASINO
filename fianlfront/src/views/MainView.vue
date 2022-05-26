@@ -1,25 +1,33 @@
 <template>
   <div>
-    <navbar-item></navbar-item>
-    <br>
-    <div class="container">
-      <div class="row">
-      <!-- <movie-search-form class="movie-search-form"></movie-search-form> -->
+    <div class="main-header">
+      <navbar-item></navbar-item>
+      <br>
+      <div class="container">
+        <div class="row">
+        <!-- <movie-search-form class="movie-search-form"></movie-search-form> -->
 
+        </div>
       </div>
-    </div>
-    <br>
-    <br>
-    <h1 class="h1">마지노를 찾아주신 당신에게 장르별 영화를 추천드립니다.</h1>
-    <br>
-    <br>
-    <div >
-      <div class="d-flex justify-content-center" >
-        <button class="movie-recommend-button p-10" @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">
-          새로운 영화 추천받기
-        </button>
+      <br>
+      <br>
+      <h1 class="h1">마지노를 찾아주신 당신에게 장르별 영화를 추천드립니다.</h1>
+      <br>
+      <br>
+      <div >
+        <div class="d-flex justify-content-center" >
+          <button class="movie-recommend-button p-10" style="font-family: 'GowunDodum-Regular';"
+           @click="[filterWesternMovies(), filterActionMovies(), filterComedyMovies(), filterCrimeMovies(), filterFamilyMovies(), filterFantasyMovies(), filterHorrorMovies(), filterRomanceMovies(), filterSFMovies(),]">
+            새로운 영화 추천받기
+          </button>
+        </div>
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
+
     <br>
     <br>
 
@@ -408,16 +416,22 @@ export default {
 }
 </script>
 
-<style>
+<style >
+
+.main-header{
+  background-image: url('@/images/Cinema.jpg');
+}
 
 .h1 {
   text-align: center;
   color:blanchedalmond;
+
 }
 
 .h2 {
   text-align: center;
   color: goldenrod;
+
 }
 
 

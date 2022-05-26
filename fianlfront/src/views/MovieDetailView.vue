@@ -18,36 +18,35 @@
 						{{ movie.title }}
 					</h1>
           <br>
-					<div class="row" style="justify-content: center;">
-						<div class="col-md-1">
-						</div>
-						<div class="col-md-9">
-							<p>
-								{{movie.overview}}
-							</p>
-						</div>
-						<div class="col-md-1">
-						</div>
-					</div>
-          <br>
-          <br>
-          
+          <!-- <hr style="height:4px; color:goldenrod;"> -->
             <dl>
-              <dt>
+              <dt style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">
                 장르
                 <span v-for="genre in movie.genre_ids" :key="genre.pk">
-                <span>{{genre.name}} </span>
+                <span style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">{{genre.name}} </span>
                 </span>
               </dt>
-              <dt>
+              <dt style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">
                 평점
-                <span>{{movie.vote_average}} </span>
+                <span style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">{{movie.vote_average}} </span>
               </dt>
-              <dt>
+              <dt style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">
                 개봉일
-                <span>{{movie.release_date}}</span>
+                <span style="font-family: 'GowunDodum-Regular';font-size:1.5rem;">{{movie.release_date}}</span>
               </dt>
             </dl>
+            <br>
+            <div class="row" style="justify-content: center;">
+              <div class="col-md-1">
+              </div>
+              <div class="col-md-9">
+                <p style="font-family: 'GowunDodum-Regular';">
+                  {{movie.overview}}
+                </p>
+              </div>
+              <div class="col-md-1">
+              </div>
+            </div>
 				</div>
 			</div>
 
