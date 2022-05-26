@@ -37,7 +37,7 @@
                 {{ currentUser.username }}님
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" style="background-color:gainsboro;">
-                <li><a class="dropdown-item"><router-link style="font-size:1.1rem;" sclass="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></a></li>
+                <li><a class="dropdown-item"><router-link style="font-size:1.1rem; text-decoration: none; color:black;" sclass="link-dropdown" :to="{ name: 'profile' }">Profile </router-link></a></li>
                 <!-- <li><hr class="dropdown-divider"></li> -->
                 <li><a class="dropdown-item"><router-link style="font-size:1.1rem;" class="link-dropdown" :to="{ name: 'UserLogoutView' }">Logout</router-link></a></li>
               </ul>
@@ -100,8 +100,8 @@ export default {
    font-size: x-large;
   }
  .img-navbar{
-   width: 100px;
-   height: 100px;
+   width: 120px;
+   height: 120px;
    object-fit: cover;
  }
 </style>

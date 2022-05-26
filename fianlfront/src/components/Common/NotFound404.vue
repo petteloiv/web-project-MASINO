@@ -1,5 +1,7 @@
 <template>
-  
+  <div style="color:white;">
+    Not Found 404
+  </div>
 </template>
 
 <script>

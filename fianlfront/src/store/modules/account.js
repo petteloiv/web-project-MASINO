@@ -79,11 +79,11 @@ export default ({
           // 성공하면! 토큰 저장, 사용자 정보 넣기, 이동
           dispatch('saveToken', token)
           dispatch('fetchCurrentUser')
-          swal("회원가입 기념 100,000포인트 무료!", {
-            title: "반갑습니다",
+          swal("MASINO 회원이 되신걸 기념해 100,000포인트를 드립니다.", {
+            title: "축하드립니다!",
             icon: "info",
             buttons: false,
-            timer: 2000,
+            timer: 3000,
           })
           router.push({ name: 'main' })
         })
@@ -122,8 +122,8 @@ export default ({
         .then(() => {
           // 토큰 삭제, 로그아웃 알림, start 페이지로 다시 보내기
           dispatch('removeToken')
-          swal("다시 방문하시기를 기다리겠습니다 -MASINO-", {
-            title: "로그아웃 완료",
+          swal("다시 방문하시기를 기다리겠습니다.", {
+            title: "MASINO",
             icon: "success",
             buttons: false,
             timer: 2000,
@@ -151,7 +151,12 @@ export default ({
           .catch(err => {
             if (err.response.status === 401) {
               dispatch('removeToken')
-              alert('다시 로그인 해주세요.')
+              swal("다시 로그인해주세요!", {
+                title: "오류",
+                icon: "error",
+                buttons: false,
+                timer: 2000,
+              })
               router.push({ name: 'start' })
             }
           })
