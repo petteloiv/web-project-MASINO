@@ -284,6 +284,7 @@ export default {
   background-image: url("https://img.freepik.com/free-photo/rainbow-color-background-abstract-blurred-gradient-background-banner-template_335640-598.jpg");
   text-align: center;
   color: white;
+  border-radius: 20px;
 }
 
 .profile-header-no-image {

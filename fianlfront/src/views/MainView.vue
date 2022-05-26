@@ -453,13 +453,14 @@ export default {
 	background:linear-gradient(to bottom, #daa520 5%, #947326 100%);
 	background-color:#daa520;
 	border-radius:25px;
-	border:1px solid #9e860c;
+	border:3px solid blanchedalmond;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-size:19px;
 	padding:12px 11px;
 	text-decoration:none;
+  box-shadow: 15px 15px 25px black;
 }
 .movie-recommend-button:hover {
 	background:linear-gradient(to bottom, #947326 5%, #daa520 100%);
