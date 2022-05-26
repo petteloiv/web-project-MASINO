@@ -5,48 +5,87 @@
     <div>
       <div class="m-5 article-detail">
         <br><br>
-        <h1 class="text-center" style="color:goldenrod;">{{article.title}}</h1>
-        <br>
-        <hr class="article-line" style="text-align:center;height:4px;color:goldenrod;">
+        <div class="px-5">
+          <h1 class="text-center" style="color:goldenrod;">{{article.title}}</h1>
+          <!-- <hr class="article-line" style="text-align:center;height:4px;color:blanchedalmond;"> -->
+          <br>
+        </div>
+
+        <!-- <hr class="article-line" style="text-align:center;height:4px;color:goldenrod;"> -->
 
         <!-- article 정보 / 여기다가 d-flex -->
-        <div class="d-flex p-5 ">
-          <div class="article-info" style="font-size:1.2rem; color:blanchedalmond;">
-            <p> 작성자 : 
-              <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
-                <span>{{ article.user.username }}</span>
-              </router-link>
+        <div class="px-5 ">
+          <div class="article-info d-flex" style="font-size:1.2rem; color:blanchedalmond;">
+            <div class="p-2 flex-grow-1 bd-highlight">
+              <p> 작성자 : 
+                <router-link style="text-decoration:none; color: goldenrod;" :to="{ name: 'anotherProfile', params: { username: article.user.username} }">
+                  <span>{{ article.user.username }}</span>
+                </router-link>
               </p>
-            <p> 작성 시간 : {{ article.created_at  }}</p>
-            <span>
-              <button class="heart-btn" @click="likeArticle(articlePk)">🧡</button><span>{{ likeCount }}</span>
-            </span>
-            <div v-if="isAuthor">
-              <button class="article-edit">
-                <router-link style="text-decoration:none;color:white;" :to="{ name: 'articleUpdate', params: { articlePk } }">수정</router-link>
-              </button> 
-              <span>
-                <button class="article-del" @click="deleteArticle(articlePk)">삭제</button>
-              </span>          
+              <p>
+                작성 시간: {{ article.created_at }}
+              </p>              
             </div>
+
+            <div class="">
+              <p>
+                <button class="heart-btn" @click="likeArticle(articlePk)">🧡</button><span class="">{{ likeCount }}</span>
+              </p>              
+            </div>
+            <div class="p-2 bd-highlight">
+              <p > 📝 {{ article.comment_count }} </p>
+            </div>
+
+
+
           </div>
+         <hr class="article-line" style="text-align:center;height:2px;color:blanchedalmond;">
         </div>
-        <hr class="article-line" style="height:4px; color:goldenrod;">
-        <!-- article 내용 -->
-        <div class="article-content" style="font-size:1.5rem; color:goldenrod;">
-          {{ article.content }}
+
+        <div class="px-5">
+          <!-- article 내용 -->
+          <div class="article-content" style="font-size:1.6rem; color:blanchedalmond;height:200px;overflow: auto;">
+            {{ article.content }}
+          </div> 
         </div>
-        <hr class="article-line" style="height:4px; color:goldenrod;">
-      <!-- 댓글 -->
-        <p style="font-size:1.5rem; color:blanchedalmond;">댓글</p>
-        <comment-list :comments="article.comments"></comment-list>
+
+        <!-- 수정 삭제 버튼  -->
+        <div class="px-5">
+          <div v-if="isAuthor" class="d-flex flex-row-reverse">
+            <br>
+
+              <div class="px-1">
+                <button class="article-del" @click="deleteArticle(articlePk)">삭제</button>
+              </div>    
+
+              <div class="px-1">
+                <button class="article-edit">
+                  <router-link style="text-decoration:none;color:white;" :to="{ name: 'articleUpdate', params: { articlePk } }">수정</router-link>
+                </button>                
+              </div>
+
+            </div>
+        </div>
+
+        <div class="px-5 pb-5">
+        <!-- 댓글 -->
+          <hr class="article-line" style="text-align:center;height:4px;color:blanchedalmond;">
+          <!-- <p style="font-size:1.5rem; color:blanchedalmond;">댓글</p> -->
+          <comment-list :comments="article.comments"></comment-list>
 
 
-        <br>
-        <!-- 가장 끝 부분 (돌아가기) -->
-        <button class="article-back">
-          <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
-        </button>
+          <br>
+          <!-- 가장 끝 부분 (돌아가기) -->
+          <div class="pb-4">
+            <button class="article-back " style="float: right;">
+              <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
+            </button>
+          </div>
+
+        </div>
+
+
+
 
 
 

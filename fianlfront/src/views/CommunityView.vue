@@ -36,7 +36,7 @@
                       작성자
                     </th>
                     <th>
-                      공감
+                      공감 | 댓글
                     </th>
                   </tr>
                 </thead>
@@ -63,7 +63,7 @@
 
                     <!-- 좋아요 개수 -->
                     <td style="color:whitesmoke; font-size:1.3rem;">
-                      🧡 {{ article.like_count }}
+                      🧡 {{ article.like_count }} | 📝 {{ article.comment_count}}
                     </td>
                   </tr>
                 </tbody>

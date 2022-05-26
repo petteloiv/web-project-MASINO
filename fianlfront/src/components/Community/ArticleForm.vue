@@ -20,15 +20,19 @@
               <textarea rows="10" cols="50" v-model="newArticle.content" type="text" id="content" class="form-control" required></textarea>
             </div>
             <br>
-            <button class="article-back">
-                <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
-             </button>  
-           
-            
-            
-            <span>
-              <button class="article-button submit">완료</button> 
-            </span> 
+
+            <div class="d-flex justify-content-between">
+              <div>
+                <button class="article-back">
+                    <router-link style="text-decoration:none; color: #26382B;" :to="{ name: 'community' }">목록으로 돌아가기</router-link>
+                </button>  
+              
+              </div>
+
+              <div>
+              <button class="article-button submit">완료</button>                 
+              </div>
+            </div>
           </form>
 
           <br>
