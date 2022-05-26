@@ -283,6 +283,7 @@ export default {
   text-align: center;
   color: white;
   border-radius: 20px;
+  margin-top: 10px;
 }
 
 .profile-header-no-image {
