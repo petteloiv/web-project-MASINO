@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import router from '@/router'
 import axios from 'axios'
 import drf from '@/api/drf'
-
+import swal from 'sweetalert';
 import _ from 'lodash'
 
 /*
@@ -81,6 +81,12 @@ export default ({
       })
         .then(res => {
           commit('SET_ARTICLE', res.data)
+          swal("1000점이 적립되었습니다!", {
+            title: "축하드립니다!",
+            icon: "info",
+            buttons: false,
+            timer: 4000,
+          })
           router.push({
             name: 'articleDetail',
             params: { articlePk: getters.article.id }
@@ -164,6 +170,12 @@ export default ({
       })
         .then(res => {
           commit('SET_ARTICLE_COMMENTS', res.data)
+          swal("1000점이 적립되었습니다!", {
+            title: "축하드립니다!",
+            icon: "info",
+            buttons: false,
+            timer: 4000,
+          })
         })
         .catch(err => console.error(err.response))
     },
