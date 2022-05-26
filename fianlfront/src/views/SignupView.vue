@@ -17,18 +17,19 @@
             background: hsla(0, 0%, 100%, 0.8);
             backdrop-filter: blur(30px);
             ">
-        <div class="card-body py-5 px-md-5">
+
+        <div class="signup-card-body py-5 px-md-5">
 
           <!-- css ; 여기가 문제인 것 같음 .. div가 너무 큼 .... -->
           <div class="signup-div row d-flex justify-content-center">
             <div class="col-6">
-              <h2 class="fw-bold mb-5">지금 회원이 되어보세요!</h2>
+              <h2 class="fw-bold mb-5">지금 <span style="color:goldenrod">회원</span>이 되어보세요!</h2>
               <form @submit.prevent="signup(credentials)">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="mb-4">
                     <div class="form-outline">
-                      <label class="form-label" for="username">아이디</label>
+                      <label class="form-label" for="username" style="font-size:1.3rem;">아이디</label>
                       <input v-model="credentials.username" type="text" id="username" class="form-control" />
                       
                     </div>
@@ -37,19 +38,28 @@
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="password1">비밀번호</label>
+                  <label class="form-label" for="password1" style="font-size:1.3rem;">비밀번호</label>
                   <input v-model="credentials.password1" type="password" id="password1" class="form-control" />
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="password2">비밀번호를 다시 한번 입력해주세요.</label>
+                  <label class="form-label" for="password2" style="font-size:1.3rem;">비밀번호를 다시 한번 입력해주세요.</label>
                   <input v-model="credentials.password2" type="password" id="password2" class="form-control" />
                 </div>
-
+                <br>
                 <!-- Submit button -->
-                <button class="btn btn-primary btn-block mb-4">
-                  가입
-                </button>
+                <div class="d-flex justify-content-between">
+                  <div class="align-items: center;">
+                    <p class="mt-2" style="text-align:center;color:blanchedalmond;font-size:1rem;" ><a href="/">회원 안할래요</a></p>
+                  </div>
+                  <div>
+                    <button style="background: goldenrod; border:none;color:black;" class="btn btn-primary btn-block mb-4">
+                      회원가입
+                    </button>                    
+                  </div>
+
+                </div>
+
 
               </form>
             </div>
@@ -57,38 +67,6 @@
         </div>
       </div>
     </section>
-    <!-- Section: Design Block -->
-    <!-- <form @submit.prevent="signup(credentials)" class="mx-1 mx-md-4">
-
-      <div class="form-outline flex-fill mb-0">
-        <label class="form-label" for="username">아이디</label>
-        <input v-model="credentials.username" type="text" id="username" class="form-control" required />  
-      </div> -->
-<!-- 
-      <div class="form-outline flex-fill mb-0">
-        <label class="form-label" for="casino_points">좋아하는 숫자를 입력하세요.</label>
-        <input v-model="credentials.casino_points" type="number" id="casino_points" class="form-control" required />  
-      </div> -->
-
-<!-- 
-      <div class="form-outline flex-fill mb-0">
-        <label class="form-label" for="password1">비밀번호</label>
-        <input v-model="credentials.password1" type="password" id="password1" class="form-control" required/>
-      </div>
-
-
-      <div class="form-outline flex-fill mb-0">
-        <label class="form-label" for="password2">비밀번호 확인</label>
-        <input v-model="credentials.password2" type="password" id="password2" class="form-control" required />
-      </div>
-      <br>
-
-      <div>
-        <button>회원가입</button>
-      </div>
-
-
-    </form> -->
   </div>
   
 </template>
@@ -109,7 +87,6 @@ export default {
         username: '',
         password1: '',
         password2: '',
-        // casino_points: '',
       }
     }
   },
