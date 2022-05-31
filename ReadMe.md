@@ -25,10 +25,10 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 <img src="ReadMe.assets/팀이미지.png" alt="팀이미지" style="zoom: 67%;" />
 
-| 이름                  | 역할         | 업무 분담 내역                                    |
-| --------------------- | ------------ | ------------------------------------------------- |
-| 서상균 :feet:         | 팀장         | Back-end / Django 서버 구현 / Vue 클라이언트 구현 |
-| 박지현 :purple_heart: | 팀원, 젼버덕 | Front-end / Vue 클라이언트 구현                   |
+| 이름                  | 역할         | 업무 분담 내역                                     |
+| --------------------- | ------------ | -------------------------------------------------- |
+| 서상균 :feet:         | 팀장         | Back-end / Django 서버 구현 / Vue 클라이언트 구현  |
+| 박지현 :purple_heart: | 팀원, 젼버덕 | Front-end / Vue 클라이언트 구현 / Django 서버 수정 |
 
 
 
@@ -137,7 +137,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 8-1. 시작 화면 
 
-![image-20220527011818132](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011818132.png)
+![image-20220531161012615](ReadMe.assets/image-20220531161012615.png)
 
 - 로그인 화면
   - 로그인 해야만 모든 서비스를 이용할 수 있다.
@@ -147,7 +147,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-![image-20220527012249558](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527012249558.png)
+![image-20220531161039319](ReadMe.assets/image-20220531161039319.png)
 
 - 회원가입
   - 일치하지 않는 항목이 있으면 alert가 뜬다.
@@ -156,7 +156,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 8-2. 메인 페이지
 
-![image-20220527011009672](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011009672.png)
+![image-20220531161111034](ReadMe.assets/image-20220531161111034.png)
 
 - 영화 추천 페이지, 새롭게 추천 받기 버튼이 메인에 위치
   - 각 영화의 포스터를 누르면 영화 세부 정보로 이동
@@ -169,16 +169,16 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-![image-20220527011113239](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011113239.png)
+![image-20220531161143593](ReadMe.assets/image-20220531161143593.png)
 
 - 영화 디테일 페이지 
   - 포스터, 제목, 장르, 평점, 개봉일, 줄거리, 썸네일이 포함된 영화 세부 정보 페이지 
 
 
 
-![image-20220527011155956](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011155956.png) 
+![image-20220531161212604](ReadMe.assets/image-20220531161212604.png) 
 
-![image-20220527014153792](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527014153792.png)
+![image-20220531161256553](ReadMe.assets/image-20220531161256553.png)
 
 - navbar의 검색창으로 검색했을 때의 결과
   - 검색결과가 없을 경우에 알리는 문구가 표시된다.
@@ -188,7 +188,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 8-3. Community
 
-![image-20220527011219197](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011219197.png)
+![image-20220531161332450](ReadMe.assets/image-20220531161332450.png)
 
 - 게시판 메인
   - 글 작성 페이지, 작성된 글들이 표시된다.
@@ -196,7 +196,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-![image-20220527011321536](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011321536.png)
+![image-20220531161359157](ReadMe.assets/image-20220531161359157.png)
 
 - 글 디테일
   - 작성자 (누르면 프로필로 이동), 작성일, 공감, 댓글 수, 글 내용, 댓글과 댓글 작성폼이 포함된다.
@@ -204,7 +204,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-![image-20220527011348645](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011348645.png)
+![image-20220531161420942](ReadMe.assets/image-20220531161420942.png)
 
 - 글 작성 / 수정 페이지 (같은 폼을 사용한다)
   - 제목, 내용 입력
@@ -214,7 +214,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 8-4. 카지노
 
-![image-20220527011438026](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011438026.png)
+![image-20220531161448398](ReadMe.assets/image-20220531161448398.png)
 
 - 포인트 획득 퀴즈 / 뽑기 3 종류로 이루어짐
   - 영화 맞추기 -> 스틸컷을 보고 영화 제목을 맞추면 10,000 포인트 획득 가능 
@@ -223,7 +223,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-![image-20220527011503131](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011503131.png)
+![image-20220531161517572](ReadMe.assets/image-20220531161517572.png)
 
 - 예시는 배경 뽑기 ..
   - 퀴즈 맞추거나 뽑을 때마다 획득 알림이 뜬다 
@@ -232,14 +232,14 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 #### 8-5. 프로필
 
-![image-20220527011654874](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011654874.png)
+![image-20220531161543367](ReadMe.assets/image-20220531161543367.png)
 
 - 내가 뽑아서 설정한 배경화면
   - 배경화면이 없는 경우에는 안내문구와 카지노로 가는 링크 연결 
 - 아이디, 현재 가지고 있는 포인트, 개인정보수정 (이메일 하나), 작성글, 가지고 있는 카드들 포함
   - 글 제목을 누르면 글 디테일로 이동한다.
 
-![image-20220527011719760](C:\Users\petteloiv\AppData\Roaming\Typora\typora-user-images\image-20220527011719760.png)
+![image-20220531161609004](ReadMe.assets/image-20220531161609004.png)
 
 - 내 배우 카드 
   - 등급 순서대로 정렬 (기본)
@@ -248,7 +248,7 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 
 
 
-### 9. 아쉬웠던 점 
+### 9. 아쉬웠던 점 ..
 
 ---
 
