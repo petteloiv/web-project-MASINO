@@ -2,7 +2,15 @@
 
 SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 웹 서비스를 구현하며 작성하였습니다. 
 
+- 사용법
 
+  - 데이터를 새로 가져오기 위해서는 back 레포지토리의 data 폴더 안의 FetchGenreData, FetchMovieData, FetchPersonData의 tmdb api key만 바꾸어서 사용하시면 됩니다. 약 1시간~2시간이 소요 됩니다.
+
+  - 이미 받아놓은 데이터가 server 폴더의 movies 폴더의 fixtures 안에 들어있습니다.
+
+  - 데이터베이스도 함께 레포지토리에 올라가 있기 때문에 굳이 해주실 필요는 없지만, loaddata는 genredata, moviedata, persondata순으로 해주시면 됩니다.
+
+    
 
 [TOC]
 
@@ -221,6 +229,18 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
   - 배경 뽑기 => 랜덤으로 배경을 뽑아 나의 프로필에 설정할 수 있다
   - 카드 뽑기 (1장, 12장) => 배우 카드를 뽑을 수 있다. 총 4가지 등급(유명도 순)으로 나뉘어진다.
 
+- 영화배우 카드 확률표
+
+  - | 1806명   |                       |               |
+    | -------- | --------------------- | ------------- |
+    | Platinum | popularity >= 40      | 33명, 약 1.8% |
+    | Gold     | 40 > popularity >= 21 | 292명, 약 16% |
+    | Silver   | 21 > popularity >= 14 | 605명, 약 33% |
+    | Bronze   | 14 > popularity >= 10 | 876명, 약 48% |
+
+    
+
+
 
 
 ![image-20220531161517572](ReadMe.assets/image-20220531161517572.png)
@@ -257,7 +277,19 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
 - article pagination 적용 못한 점 
 - article 좋아요 유무에 따른 버튼 다르게 보이기
   - 빈하트 / 꽉찬하트 
--  error 창이 자꾸 localstorage에 저장되는지 alert가 계속 발생하는 문제 해결 못한 점
+- error 창이 자꾸 localstorage에 저장되는지 alert가 계속 발생하는 문제 해결 못한 점
+
+
+
+### 10. 추가하고 싶은 부분
+
+------
+
+- 현재 접속해 있는 접속자가 만약에 플래티넘 카드를 뽑았을 경우 모든 사용자가 알 수 있도록 alert가 뜰 수 있게
+- 현재 접속자 리스트
+- 커뮤니티에 자기 카드를 첨부해서 자랑할 수 있는 기능
+- 모든 부분에 그리드를 적용하여 반응형으로 구축 ( 스마트폰에서도 접속할 수 있게 )
+- 카드를 뽑았을 때, 카드가 뒤집어져있다가 눌렀을 때 카드가 보이는 방식으로 변경
 
 
 
@@ -335,3 +367,357 @@ SSAFY 1학기 최종 프로젝트 : 커뮤니티 기능을 갖춘 영화 추천 
   - background-color 대신 background 써볼 것
     - navbar 색 설정하면서 알게됨
   - 어디서 어디로 어느 데이터 보내주는지 먼저 잘 파악할 것!
+
+------
+
+- url을 작성할 때, create/update/delete 등의 단어가 링크에 들어가지 않도록 restful 하게 수정
+
+  ```python
+  urlpatterns = [
+      path('', views.article_list_or_create, name='article_list_or_create'),
+      path('<int:article_pk>/', views.article_detail_or_update_or_delete, name='article_detail_or_update_or_delete'),
+      # path('create/', views.create_article, name='create_article'),
+      # path('<int:article_pk>/delete/', views.delete_article, name='delete_article'),
+      # path('<int:article_pk>/update/', views.update_article, name='update_article'),
+      path('<int:article_pk>/like/', views.like_article, name='like_article'),
+      path('<int:article_pk>/comment/', views.create_comment, name='create_comment'),
+      path('<int:article_pk>/comment/<int:comment_pk>/like/', views.like_comment, name='like_comment'),
+      path('<int:article_pk>/comment/<int:comment_pk>/', views.update_comment_or_delete_comment, name='update_comment_or_delete_comment'),
+  ]
+  ```
+
+------
+
+- article을 작성한 user 정보를 찾아야 함
+  - request.user에 들어있음
+
+------
+
+- Model에 null=True, blank=True 해놓지 않으면 update시 필수 값을 입력하라는 내용이 나옴, 사용자친화적이지 않음
+
+  ```python
+  class Article(models.Model):
+      title = models.CharField(max_length=100, null=True)
+      content = models.TextField(null=True)
+      created_at = models.DateTimeField(auto_now_add=True)
+      updated_at = models.DateTimeField(auto_now=True)
+      user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='articles')
+      like_users = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name='like_articles')
+  
+  
+  class Comment(models.Model):
+      content = models.TextField(null=True, blank=True)
+      article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, related_name='comments')
+      user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, related_name='comments')
+      like_users = models.ManyToManyField(settings.AUTH_USER_MODEL,related_name='like_comments', null=True)
+  ```
+
+------
+
+- serializer 2중 중첩, 어렵게 생각하지 말고 필요한 항목에 대해서 그냥 하면 됨
+
+  ```python
+  User = get_user_model()
+  
+  
+  class ProfileSerializer(serializers.ModelSerializer):
+      class ArticleSerializer(serializers.ModelSerializer):
+          class Meta:
+              model = Article
+              fields = ('pk', 'title', 'content')
+      
+      like_articles = ArticleSerializer(many=True)
+      articles = ArticleSerializer(many=True)
+  
+      class MovieSerializer(serializers.ModelSerializer):
+          class Meta:
+              model = Movie
+              fields = ('pk', 'backdrop_path')
+  
+      movie = MovieSerializer(read_only=True)
+  
+      class PersonSerializer(serializers.ModelSerializer):
+          class MovieSerializer(serializers.ModelSerializer):
+              class Meta:
+                  model = Movie
+                  fields = ('pk','title',)
+  
+          movie_ids = MovieSerializer(many=True, read_only=True)
+  
+          class Meta:
+              model = Person
+              fields = ('__all__')
+  
+      person_ids = PersonSerializer(many=True, read_only=True)
+      movie_ids = MovieSerializer(many=True, read_only=True)
+  
+      class Meta:
+          model = User
+          fields = ('pk', 'username', 'email', 'casino_points', 'person_ids', 'movie', 'movie_ids', 'like_articles', 'articles', )
+  ```
+
+  PersonSerializer에서 movie_ids 부분이 pk값만 나와서 사용하기 불편했음, 타이틀까지 나오게 하고 싶었는데 이를 위해 PersonSerializer 안에 MovieSerializer를 선언하고 movie_ids를 선언해준 다음에 밖에서 한번 더 같은 이름으로 선언해줌
+
+------
+
+- related name과 더불어 many=True 잘 체크해야 함
+
+------
+
+- Assertion Error
+  - @api_view 까먹음
+
+------
+
+- fields를 fileds로 적어놓고 3시간 날림
+
+------
+
+- 받아온 데이터는 DateField 인데, Model에 DateTimeField 로 되어있어서 1977.05-25T00:00:00+090:00 이런식으로 되어있어서 모델 수정함
+
+------
+
+- fetchMovie 함수로 1800여개의 영화 데이터를 매번 프론트로 넘겨야 했기 때문에 너무 오래걸림, persisted Data를 사용하여 local storage에 저장하여 로딩 시간을 줄임
+
+------
+
+- 프로필에 본인 카드 목록을 페이지네이션으로 구현, 등급별로 구분해서 보여줄 수 있도록 구현
+
+  ```vue
+  <template>
+    <div>
+  
+      <div class="card-deck container">
+        <div class="row" style="justify-content: normal;">
+  
+  
+          <div style="border-radius: 10px;" v-b-modal.modal-card @click="[storePerson(card)]" class="card profile-card col-2 m-3 mx-3.5" :class="{'platinum': card.popularity >= 40, 'gold': card.popularity < 40, 'silver': card.popularity < 21, 'bronze': card.popularity < 14}" v-for="card in paginatedData" :key="card.pk">
+            <div class="card-header">
+            </div>
+            <img  style="border-radius: 10px;" class="profile-card-img" :src="`http://image.tmdb.org/t/p/original/${card.profile_path}`">
+            <div class="card-body profile-card-body" style="text-align: center;">
+              <div style="vertical-align: middle;" class="card-title">{{ card.name }}</div>
+  
+            </div>
+          </div>
+  
+          <b-modal id="modal-card" hide-footer hide-header size="lg" title="BACKGACHA" no-close-on-backdrop body-bg-variant="dark">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                  <div style="border-radius: 10px;" class="card modal-card" :class="{'platinum': personInfo.popularity >= 40, 'gold': personInfo.popularity < 40, 'silver': personInfo.popularity < 21, 'bronze': personInfo.popularity < 14}">
+                    <img class="modal-card-img p-3" :src="`http://image.tmdb.org/t/p/original/${personInfo.profile_path}`">
+                    <div class="card-body modal-card-body">
+                      <div style="vertical-align: middle; text-align: center; font-size: 1.5rem;" class="card-title">{{ personInfo.name }}</div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-8 infoText text-align: center;">
+                  <h2 class="modal-card-text">
+                    <span class='modal-card-title'>이름 : </span>{{ personInfo.name }}
+                  </h2>
+                  <h3 class="modal-card-text">
+                    <span class='modal-card-title'>생일 : </span>{{ personInfo.birthday }}
+                  </h3>
+                  <h3 class="modal-card-text">
+                    <span class='modal-card-title'>출생지 : </span>{{ personInfo.place_of_birth }}
+                  </h3>
+                    <h3 class="modal-card-title">출연작</h3>
+                  <div class='modal-movie-list'>
+                    <div class='modal-movie-list-box' v-for="movie in personInfo.movie_ids" :key="movie.pk">
+                      <br>
+                      <router-link class="modal-card-text-movie" style="text-decoration: none;"  :to="{ name: 'moviedetail', params: { moviePk: movie.pk } }">
+                        {{ movie.title }}
+                      </router-link>
+                      
+  
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <div class="modal-button-box">
+              <button class="mt-3 modal-stash-button" block @click="[$bvModal.hide('modal-card'),]">
+                  닫기
+              </button>
+              
+            </div> 
+          </b-modal>
+            
+        </div>
+      </div>
+  
+      
+      <div class="btn-cover">
+        <button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
+          이전
+        </button>
+        <span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
+        <button :disabled="pageNum >= pageCount - 1" @click="nextPage" class="page-btn">
+          다음
+        </button>
+      </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: 'paginated-list',
+    data () {
+      return {
+        pageNum: 0,
+        personInfo: {}
+      }
+    },
+    props: {
+      listArray: {
+        type: Array,
+        required: true
+      },
+      pageSize: {
+        type: Number,
+        required: false,
+        default: 10
+      },
+      pageNumber: {
+        type: Number,
+        required: false,
+        default: 0
+      }
+    },
+    methods: {
+      nextPage () {
+        this.pageNum += 1;
+      },
+      prevPage () {
+        this.pageNum -= 1;
+      },
+      goFirstPage () {
+        this.pageNum = 0
+      },
+      storePerson(a) {
+        this.personInfo = a
+      }
+    },
+    computed: {
+      pageCount () {
+        let listLeng = this.listArray.length,
+            listSize = this.pageSize,
+            page = Math.floor(listLeng / listSize);
+        if (listLeng % listSize > 0) page += 1;
+        
+        /*
+        아니면 page = Math.floor((listLeng - 1) / listSize) + 1;
+        이런식으로 if 문 없이 고칠 수도 있다!
+        */
+        return page;
+      },
+      paginatedData () {
+        const start = this.pageNum * this.pageSize,
+              end = start + this.pageSize;
+        return this.listArray.slice(start, end);
+      }
+    }
+  }
+  </script>
+  ```
+
+  - 이 때, 만약 Silver 페이지에서 7/10을 보고 있다가 Platinum 버튼을 누를 경우 7/2 이런식의 사용자 비친화적인 현상이 발생, 따라서 등급 버튼을 눌렀을 때 Pagenum이 0이 될 수 있도록 처리함
+
+  ```javascript
+  data () {
+      return {
+        pageNum: 0,
+        personInfo: {}
+      }
+    },
+    props: {
+      listArray: {
+        type: Array,
+        required: true
+      },
+      pageSize: {
+        type: Number,
+        required: false,
+        default: 10
+      },
+      pageNumber: {
+        type: Number,
+        required: false,
+        default: 0
+      }
+    },
+  ```
+
+  
+
+  ```javascript
+  methods: {
+      nextPage () {
+        this.pageNum += 1;
+      },
+      prevPage () {
+        this.pageNum -= 1;
+      },
+      goFirstPage () {
+        this.pageNum = 0
+      },
+      storePerson(a) {
+        this.personInfo = a
+      }
+    },
+  ```
+
+   goFirstPage()는 PaginatedList라는 하위 컴포넌트에서 정의된 함수이고, 이를 AccountView라는 상위 컴포넌트에서 사용하기 위해선 조치가 필요함
+
+  ```javascript
+  methods: {
+      ...mapActions(['fetchProfile']),
+      sortPageArray() {
+        this.pageArray = this.profile.person_ids.sort(function (a,b) {
+          return b.popularity - a.popularity;
+        })
+      },
+      platinumPageArray() {
+        this.pageArray = this.profile.person_ids.filter(function(a){
+          return a.popularity >= 40
+        })
+      },
+      goldPageArray() {
+        this.pageArray = this.profile.person_ids.filter(function(a){
+          return a.popularity < 40 && a.popularity >= 21
+        })
+      },
+      silverPageArray() {
+        this.pageArray = this.profile.person_ids.filter(function(a){
+          return a.popularity < 21 && a.popularity >= 14
+        })
+      },
+      bronzePageArray() {
+        this.pageArray = this.profile.person_ids.filter(function(a){
+          return a.popularity < 14 && a.popularity >= 10
+        })
+      },
+      goToFirstPage() {
+        this.$refs.PaginatedList.goFirstPage()
+      }
+    },
+  ```
+
+  ```vue
+  <div v-else>
+                                    <button class="profile-card-button" @click="[platinumPageArray(), goToFirstPage()]">Platinum</button><span>|</span>
+                                    <button class="profile-card-button" @click="[goldPageArray(), goToFirstPage()]">Gold</button><span>|</span>
+                                    <button class="profile-card-button" @click="[silverPageArray(), goToFirstPage()]">Silver</button><span>|</span>
+                                    <button class="profile-card-button" @click="[bronzePageArray(), goToFirstPage()]">Bronze</button>
+                                    <paginated-list
+                                    ref="PaginatedList" 
+                                    :list-array="pageArray" />
+                                  </div>
+  ```
+
+  
+
